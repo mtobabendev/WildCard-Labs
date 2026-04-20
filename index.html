@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildCard Labs</title>
+  <style>
+    :root {
+      --bg: #070910;
+      --panel: rgba(15, 20, 34, 0.92);
+      --line: rgba(134, 171, 255, 0.18);
+      --text: rgba(245, 247, 255, 0.96);
+      --text-soft: rgba(209, 217, 235, 0.76);
+      --blue: #6aa8ff;
+      --violet: #8d6bff;
+      --pink: #ff4fb7;
+      --gold: #ffc86d;
+      --radius: 24px;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --font: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(106, 168, 255, 0.14), transparent 26%),
+        radial-gradient(circle at top right, rgba(141, 107, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 50% 16%, rgba(255, 79, 183, 0.09), transparent 24%),
+        linear-gradient(180deg, #06070d 0%, #0a0d16 38%, #06080f 100%);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .shell {
+      width: min(100%, 980px);
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 79, 183, 0.24);
+      background: rgba(255, 79, 183, 0.08);
+      color: #ffd6ec;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.02;
+      margin-bottom: 16px;
+    }
+
+    p {
+      max-width: 65ch;
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .rule {
+      width: 64px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--pink));
+      margin: 0 0 24px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      text-decoration: none;
+      transition: 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(134, 171, 255, 0.28);
+      box-shadow: 0 0 18px rgba(106, 168, 255, 0.1);
+    }
+
+    .button--penny {
+      border-color: rgba(255, 79, 183, 0.24);
+      background:
+        radial-gradient(circle at top, rgba(255, 79, 183, 0.12), transparent 40%),
+        rgba(255,255,255,0.03);
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow">WildCard DEV / R&amp;D Lab</div>
+    <h1>Welcome to WildCard Labs.</h1>
+    <div class="rule"></div>
+    <p>
+      This is the separate experimental floor for future-facing concepts, premium prototypes,
+      and showroom builds that should not destabilize the flagship WildCard DEV site.
+    </p>
+    <p>
+      The main site remains the protected public-facing sales surface. This lab exists so deeper
+      preview environments can evolve independently.
+    </p>
+    <div class="button-row">
+      <a class="button" href="https://www.wildcarddev.com" target="_blank" rel="noopener noreferrer">
+        Return to flagship site
+      </a>
+      <a class="button button--penny" href="#">
+        First preview lane coming soon
+      </a>
+    </div>
+  </main>
+</body>
+</html>
