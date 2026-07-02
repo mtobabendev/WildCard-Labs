@@ -3,42 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WildCard Labs // Roco Room // Lilith Protocol</title>
+  <title>WildCard Labs // Roco Room</title>
   <style>
     :root {
-      --bg: #070910;
-      --panel: rgba(15, 17, 28, 0.9);
-      --panel2: rgba(8, 9, 16, 0.96);
+      --bg: #05060b;
+      --panel: rgba(12, 10, 20, 0.92);
+      --panel2: rgba(20, 10, 28, 0.92);
       --line: rgba(255, 79, 183, 0.42);
-      --line2: rgba(141, 107, 255, 0.34);
+      --redline: rgba(255, 78, 104, 0.46);
       --pink: #ff4fb7;
       --pink2: #ff9bd8;
       --violet: #8d6bff;
       --blue: #64a8ff;
-      --discord: #5865f2;
       --green: #66ff8f;
       --gold: #ffcf66;
       --red: #ff4e68;
       --red2: #ff8c9d;
-      --text: #f8f2ff;
+      --text: #fff4fb;
       --muted: #c9bedb;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.56);
       --radius: 24px;
       --font: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      min-height: 100vh;
-      font-family: var(--font);
-      color: var(--text);
+    html, body {
+      min-height: 100%;
       background:
-        radial-gradient(circle at 10% 8%, rgba(255, 78, 104, 0.16), transparent 24%),
-        radial-gradient(circle at 16% 10%, rgba(255, 79, 183, 0.18), transparent 30%),
-        radial-gradient(circle at 86% 18%, rgba(88, 101, 242, 0.18), transparent 28%),
+        radial-gradient(circle at 12% 8%, rgba(255, 78, 104, 0.14), transparent 25%),
+        radial-gradient(circle at 78% 12%, rgba(255, 79, 183, 0.16), transparent 28%),
         radial-gradient(circle at 50% 58%, rgba(141, 107, 255, 0.16), transparent 36%),
-        linear-gradient(180deg, #05060b 0%, #0c0714 50%, #05060b 100%);
+        linear-gradient(180deg, #05060b 0%, #0c0714 52%, #030308 100%);
+      color: var(--text);
+      font-family: var(--font);
       overflow-x: hidden;
     }
 
@@ -48,35 +46,22 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 78, 104, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 79, 183, 0.04) 1px, transparent 1px);
-      background-size: 44px 44px;
+        linear-gradient(rgba(255, 78, 104, 0.034) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 79, 183, 0.038) 1px, transparent 1px);
+      background-size: 42px 42px;
       mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
       z-index: 0;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(255, 78, 104, 0.07), transparent 18%, transparent 82%, rgba(255, 78, 104, 0.07)),
-        radial-gradient(circle at 50% 0%, rgba(255, 78, 104, 0.08), transparent 44%);
-      mix-blend-mode: screen;
-      z-index: 0;
-    }
-
     a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    button { cursor: pointer; border: 0; }
+    button { border: 0; cursor: pointer; font: inherit; color: inherit; }
 
     .shell {
       position: relative;
       z-index: 1;
-      width: min(1560px, calc(100% - 28px));
+      width: min(1500px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 14px 0 36px;
+      padding: 14px 0 34px;
     }
 
     .protocol-ribbon {
@@ -86,28 +71,21 @@
       grid-template-columns: auto 1fr auto;
       gap: 14px;
       align-items: center;
-      border: 1px solid rgba(255, 78, 104, 0.52);
+      border: 1px solid var(--redline);
       border-radius: 20px;
-      background:
-        linear-gradient(90deg, rgba(110, 0, 24, 0.52), rgba(18, 7, 18, 0.92), rgba(110, 0, 24, 0.38));
-      box-shadow:
-        0 0 30px rgba(255, 78, 104, 0.16),
-        inset 0 0 26px rgba(255, 78, 104, 0.06);
+      background: linear-gradient(90deg, rgba(110, 0, 24, 0.52), rgba(18, 7, 18, 0.92), rgba(110, 0, 24, 0.38));
+      box-shadow: 0 0 30px rgba(255, 78, 104, 0.16);
       color: #ffd7df;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-size: 0.78rem;
-      font-weight: 900;
+      font-weight: 950;
+      text-align: center;
     }
 
     .protocol-ribbon strong {
       color: var(--red2);
       text-shadow: 0 0 18px rgba(255, 78, 104, 0.55);
-    }
-
-    .protocol-ribbon span {
-      color: #f3bac6;
-      text-align: center;
     }
 
     .topbar {
@@ -116,7 +94,7 @@
       gap: 18px;
       align-items: center;
       padding: 16px 18px;
-      border: 1px solid rgba(255, 78, 104, 0.46);
+      border: 1px solid var(--redline);
       border-radius: var(--radius);
       background:
         linear-gradient(135deg, rgba(17, 18, 31, 0.96), rgba(7, 8, 15, 0.92)),
@@ -125,27 +103,27 @@
     }
 
     .mark {
-      width: 62px;
-      height: 62px;
+      width: 64px;
+      height: 64px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(255, 78, 104, 0.52);
+      border: 1px solid var(--redline);
       border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(255, 78, 104, 0.11), rgba(255, 79, 183, 0.08));
-      color: var(--pink);
-      font-size: 34px;
+      background: linear-gradient(135deg, rgba(255, 78, 104, 0.12), rgba(255, 79, 183, 0.08));
+      color: var(--pink2);
+      font-size: 35px;
       text-shadow: 0 0 24px rgba(255, 79, 183, 0.9);
       box-shadow: inset 0 0 30px rgba(255, 78, 104, 0.12);
     }
 
     .brand h1 {
-      font-size: clamp(1.45rem, 4vw, 3.6rem);
-      line-height: 0.95;
-      letter-spacing: 0.13em;
+      font-size: clamp(1.8rem, 5.5vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--pink2);
       text-shadow: 0 0 26px rgba(255, 79, 183, 0.42);
+      text-align: center;
     }
 
     .brand p {
@@ -154,10 +132,12 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.78rem;
+      text-align: center;
+      line-height: 1.35;
     }
 
     .status {
-      min-width: 270px;
+      min-width: 250px;
       display: grid;
       gap: 8px;
       padding: 12px 14px;
@@ -168,21 +148,17 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
     }
 
     .status span { display: flex; align-items: center; gap: 9px; }
-    .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--red); box-shadow: 0 0 16px var(--red);
-    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); box-shadow: 0 0 16px var(--red); }
 
     .layout {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: 320px 1fr 390px;
+      grid-template-columns: 330px 1fr 360px;
       gap: 18px;
-      align-items: stretch;
     }
 
     .panel {
@@ -209,11 +185,6 @@
       background: rgba(0, 0, 0, 0.24);
     }
 
-    .mini.discord { border-color: rgba(88, 101, 242, 0.45); background: rgba(88, 101, 242, 0.09); }
-    .mini.safe { border-color: rgba(102, 255, 143, 0.32); background: rgba(102, 255, 143, 0.06); }
-    .mini.warn { border-color: rgba(255, 207, 102, 0.32); background: rgba(255, 207, 102, 0.06); }
-    .mini.lilith { border-color: rgba(255, 78, 104, 0.42); background: rgba(255, 78, 104, 0.07); }
-
     .mini h2, .mini h3 {
       margin-bottom: 10px;
       color: var(--pink);
@@ -222,23 +193,14 @@
       font-size: 0.9rem;
     }
 
+    .mini.lilith { border-color: rgba(255, 78, 104, 0.42); background: rgba(255, 78, 104, 0.07); }
     .mini.lilith h3 { color: var(--red2); }
-    .mini.discord h3 { color: #b8bfff; }
-    .mini p, .mini li {
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 0.92rem;
-    }
+    .mini.safe { border-color: rgba(102, 255, 143, 0.32); background: rgba(102, 255, 143, 0.06); }
+    .mini.warn { border-color: rgba(255, 207, 102, 0.32); background: rgba(255, 207, 102, 0.06); }
 
+    .mini p, .mini li { color: var(--muted); line-height: 1.5; font-size: 0.92rem; }
     .mini ul { list-style: none; display: grid; gap: 7px; }
-    .mini li::before {
-      content: "◆";
-      color: var(--pink);
-      margin-right: 8px;
-      font-size: 0.72rem;
-    }
-
-    .mini.lilith li::before { color: var(--red2); }
+    .mini li::before { content: "◆"; color: var(--pink); margin-right: 8px; font-size: 0.72rem; }
 
     .field {
       display: flex;
@@ -254,9 +216,11 @@
 
     .stage {
       position: relative;
-      min-height: 720px;
+      min-height: 740px;
+      padding: 18px;
       display: grid;
-      place-items: center;
+      grid-template-rows: auto 1fr auto;
+      gap: 16px;
       overflow: hidden;
       isolation: isolate;
     }
@@ -264,165 +228,119 @@
     .stage::before {
       content: "";
       position: absolute;
-      width: min(800px, 88vw);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 78, 104, 0.24);
-      box-shadow:
-        0 0 55px rgba(255, 78, 104, 0.20),
-        inset 0 0 70px rgba(255, 79, 183, 0.10);
-      animation: pulse 4.8s ease-in-out infinite;
-    }
-
-    .stage::after {
-      content: "";
-      position: absolute;
-      width: min(590px, 72vw);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px dashed rgba(255, 78, 104, 0.42);
-      animation: reverseSpin 24s linear infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(0.98); opacity: 0.72; }
-      50% { transform: scale(1.04); opacity: 1; }
-    }
-
-    @keyframes reverseSpin { to { transform: rotate(-360deg); } }
-
-    .halo {
-      position: absolute;
-      top: 58px;
-      width: 430px;
-      height: 92px;
-      border: 2px solid rgba(255, 78, 104, 0.52);
-      border-radius: 50%;
-      box-shadow: 0 0 34px rgba(255, 78, 104, 0.42);
-      transform: perspective(620px) rotateX(68deg);
-    }
-
-    .spinner {
-      position: relative;
-      z-index: 3;
-      width: min(680px, 84vw);
-      height: 500px;
-      perspective: 1150px;
-      transform-style: preserve-3d;
-    }
-
-    .orbit {
-      position: absolute;
-      inset: 0;
-      transform-style: preserve-3d;
-      animation: slowSpin 34s linear infinite;
-    }
-
-    .spinner.paused .orbit { animation-play-state: paused; }
-
-    @keyframes slowSpin {
-      from { transform: rotateY(0deg); }
-      to { transform: rotateY(360deg); }
-    }
-
-    .route-card {
-      position: absolute;
       left: 50%;
-      top: 50%;
-      width: 144px;
-      height: 206px;
-      margin-left: -72px;
-      margin-top: -103px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 155, 216, 0.48);
-      background:
-        linear-gradient(180deg, rgba(255, 78, 104, 0.15), rgba(255, 79, 183, 0.12), rgba(8, 8, 15, 0.9)),
-        radial-gradient(circle at top, rgba(255,255,255,0.10), transparent 32%);
+      top: 44%;
+      width: min(820px, 92vw);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 78, 104, 0.22);
+      box-shadow: 0 0 60px rgba(255, 78, 104, 0.18), inset 0 0 74px rgba(255, 79, 183, 0.10);
+      z-index: 0;
+    }
+
+    .room-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid rgba(255, 78, 104, 0.34);
+      border-radius: 22px;
+      background: rgba(0,0,0,0.28);
+    }
+
+    .room-icon {
+      width: 70px;
+      height: 70px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       display: grid;
       place-items: center;
-      text-align: center;
+      color: var(--pink2);
+      font-size: 2.2rem;
+      background: rgba(255,79,183,0.08);
+      box-shadow: 0 0 28px rgba(255,79,183,0.14);
+    }
+
+    .room-card h2 {
+      color: var(--pink2);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: clamp(1.7rem, 4.6vw, 4rem);
+      line-height: 0.95;
+    }
+
+    .room-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.42;
+      font-size: 0.84rem;
+    }
+
+    .mode-box {
+      border: 1px solid rgba(255, 78, 104, 0.34);
+      border-radius: 18px;
+      background: rgba(255,78,104,0.08);
       padding: 14px;
-      color: var(--text);
-      box-shadow: 0 0 28px rgba(255, 78, 104, 0.18);
-      transform: rotateY(calc(var(--i) * 24deg)) translateZ(345px);
-      transition: 240ms ease;
-    }
-
-    .route-card:hover {
-      border-color: var(--pink2);
-      box-shadow: 0 0 44px rgba(255, 79, 183, 0.46);
-    }
-
-    .route-card.active {
-      border-color: var(--green);
-      box-shadow:
-        0 0 42px rgba(102, 255, 143, 0.28),
-        0 0 30px rgba(255, 78, 104, 0.28);
-    }
-
-    .route-card .icon { font-size: 2.35rem; filter: drop-shadow(0 0 14px rgba(255, 79, 183, 0.7)); }
-    .route-card h3 { margin-top: 10px; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
-    .route-card p { margin-top: 8px; color: var(--muted); line-height: 1.35; font-size: 0.7rem; }
-
-    .center-chip {
-      position: absolute;
-      z-index: 4;
-      width: min(340px, 74vw);
-      min-height: 340px;
-      padding: 24px;
-      border: 1px solid rgba(255, 78, 104, 0.68);
-      border-radius: 38px;
-      background:
-        linear-gradient(180deg, rgba(255, 78, 104, 0.18), rgba(255, 79, 183, 0.16), rgba(9, 8, 16, 0.94)),
-        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.14), transparent 38%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 0 58px rgba(255, 78, 104, 0.28);
-    }
-
-    .center-chip .big {
-      font-size: 5rem;
-      line-height: 0.82;
-      color: var(--pink2);
-      text-shadow: 0 0 24px rgba(255, 79, 183, 0.9);
-    }
-
-    .center-chip h2 {
-      margin-top: 16px;
-      color: var(--pink2);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 1.35rem;
-    }
-
-    .center-chip p {
-      margin-top: 12px;
-      color: var(--green);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .center-chip .lockline {
-      margin-top: 12px;
+      min-width: 250px;
+      display: grid;
+      gap: 8px;
       color: var(--red2);
-      font-size: 0.68rem;
       font-weight: 950;
-      letter-spacing: 0.09em;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
     }
+
+    .grid-four {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .grid-four .mini { min-height: 190px; }
+
+    .route-carousel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .route-tile {
+      min-height: 112px;
+      display: grid;
+      gap: 7px;
+      align-content: center;
+      text-align: center;
+      padding: 12px 10px;
+      border: 1px solid rgba(255, 79, 183, 0.28);
+      border-radius: 17px;
+      background: rgba(255, 79, 183, 0.07);
+      color: var(--text);
+    }
+
+    .route-tile.active {
+      border-color: var(--green);
+      background: rgba(102, 255, 143, 0.08);
+      box-shadow: 0 0 28px rgba(102,255,143,0.12);
+    }
+
+    .route-tile span { font-size: 1.75rem; }
+    .route-tile strong { font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--pink2); }
+    .route-tile small { color: var(--muted); line-height: 1.3; }
 
     .controls {
-      position: absolute;
-      z-index: 5;
-      left: 50%;
-      bottom: 30px;
-      transform: translateX(-50%);
-      width: min(860px, calc(100% - 28px));
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -444,30 +362,12 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      min-height: 44px;
     }
 
-    .btn.primary {
-      border-color: rgba(88, 101, 242, 0.75);
-      background: linear-gradient(135deg, rgba(88, 101, 242, 0.38), rgba(255, 79, 183, 0.22));
-    }
-
-    .btn.green {
-      border-color: rgba(102, 255, 143, 0.42);
-      background: rgba(102, 255, 143, 0.08);
-      color: var(--green);
-    }
-
-    .btn.gold {
-      border-color: rgba(255, 207, 102, 0.42);
-      background: rgba(255, 207, 102, 0.08);
-      color: var(--gold);
-    }
-
-    .btn.red {
-      border-color: rgba(255, 78, 104, 0.48);
-      background: rgba(255, 78, 104, 0.10);
-      color: var(--red2);
-    }
+    .btn.primary { border-color: rgba(102, 255, 143, 0.48); background: rgba(102, 255, 143, 0.08); color: var(--green); }
+    .btn.gold { border-color: rgba(255, 207, 102, 0.42); background: rgba(255, 207, 102, 0.08); color: var(--gold); }
+    .btn.red { border-color: rgba(255, 78, 104, 0.48); background: rgba(255, 78, 104, 0.10); color: var(--red2); }
 
     .selected-card {
       display: grid;
@@ -478,11 +378,7 @@
       background: rgba(0, 0, 0, 0.24);
     }
 
-    .selected-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .selected-top { display: flex; align-items: center; gap: 14px; }
 
     .selected-icon {
       width: 56px;
@@ -496,17 +392,8 @@
       font-size: 1.8rem;
     }
 
-    .selected-card h2 {
-      color: var(--pink2);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 1.12rem;
-    }
-
-    .selected-card p {
-      color: var(--muted);
-      line-height: 1.55;
-    }
+    .selected-card h2 { color: var(--pink2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.12rem; }
+    .selected-card p { color: var(--muted); line-height: 1.55; }
 
     .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -535,10 +422,8 @@
       letter-spacing: 0.08em;
     }
 
-    textarea {
+    textarea, pre {
       width: 100%;
-      min-height: 160px;
-      resize: vertical;
       border: 1px solid rgba(255, 79, 183, 0.24);
       border-radius: 16px;
       background: rgba(0, 0, 0, 0.34);
@@ -549,29 +434,8 @@
       line-height: 1.45;
     }
 
-    input[type="file"],
-    input[type="text"],
-    input[type="url"] {
-      width: 100%;
-      color: var(--text);
-      border: 1px solid rgba(255, 79, 183, 0.30);
-      border-radius: 14px;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.24);
-    }
-
-    input[type="file"] {
-      color: var(--muted);
-      border-style: dashed;
-    }
-
-    video, audio {
-      width: 100%;
-      border-radius: 16px;
-      margin-top: 10px;
-      background: #000;
-      border: 1px solid rgba(255, 79, 183, 0.25);
-    }
+    textarea { min-height: 190px; resize: vertical; }
+    pre { white-space: pre-wrap; max-height: 260px; overflow: auto; }
 
     .module-grid {
       margin-top: 18px;
@@ -596,65 +460,11 @@
       margin-bottom: 14px;
     }
 
-    .module p {
-      color: var(--muted);
-      line-height: 1.55;
-      margin-bottom: 12px;
-    }
+    .module p { color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
 
-    .route-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-    }
-
-    .route-button {
-      min-height: 92px;
-      display: grid;
-      gap: 6px;
-      align-content: center;
-      text-align: center;
-      padding: 12px 10px;
-      border: 1px solid rgba(255, 79, 183, 0.28);
-      border-radius: 15px;
-      background: rgba(255, 79, 183, 0.07);
-      color: var(--text);
-    }
-
-    .route-button.active {
-      border-color: var(--green);
-      background: rgba(102, 255, 143, 0.08);
-    }
-
-    .route-button span { font-size: 1.35rem; }
-    .route-button strong { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
-
-    .quick-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .storage-output {
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 79, 183, 0.18);
-      color: var(--muted);
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.78rem;
-      white-space: pre-wrap;
-      max-height: 260px;
-      overflow: auto;
-    }
-
-    .watch-surface {
+    .watch-launch {
       border: 1px solid rgba(255, 78, 104, 0.42);
-      background:
-        radial-gradient(circle at center, rgba(255, 78, 104, 0.14), transparent 58%),
-        rgba(0, 0, 0, 0.30);
+      background: radial-gradient(circle at center, rgba(255, 78, 104, 0.14), transparent 58%), rgba(0, 0, 0, 0.30);
       border-radius: 34px;
       padding: 16px;
       display: grid;
@@ -674,7 +484,6 @@
       display: grid;
       place-items: center;
       text-align: center;
-      box-shadow: inset 0 0 42px rgba(255, 78, 104, 0.08);
     }
 
     .watch-face strong {
@@ -701,9 +510,8 @@
       gap: 9px;
     }
 
-    .watch-grid button,
-    .remote-grid button {
-      min-height: 54px;
+    .watch-grid a, .watch-grid button {
+      min-height: 58px;
       border: 1px solid rgba(255, 79, 183, 0.28);
       border-radius: 15px;
       background: rgba(255, 79, 183, 0.08);
@@ -712,17 +520,32 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 0.72rem;
-    }
-
-    .remote-grid {
-      margin-top: 12px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
+      place-items: center;
+      text-align: center;
+      padding: 8px;
     }
 
-    .remote-grid .wide { grid-column: span 3; }
-    .remote-grid .red { border-color: rgba(255, 78, 104, 0.48); color: var(--red2); }
+    .watch-grid .priority { border-color: rgba(102, 255, 143, 0.46); color: var(--green); background: rgba(102, 255, 143, 0.08); }
+
+    .qr-card {
+      display: grid;
+      gap: 10px;
+      text-align: center;
+      padding: 14px;
+      border: 1px solid rgba(255, 79, 183, 0.28);
+      border-radius: 18px;
+      background: rgba(255,79,183,0.07);
+    }
+
+    .qr-card img {
+      width: 100%;
+      max-width: 230px;
+      border-radius: 18px;
+      margin: 0 auto;
+      image-rendering: pixelated;
+      background: #ff9bd8;
+    }
 
     .footer {
       margin-top: 18px;
@@ -752,36 +575,91 @@
       text-transform: uppercase;
     }
 
+    .watch-only {
+      display: none;
+      min-height: 100svh;
+      padding: 10px;
+      place-items: center;
+    }
+
+    .watch-only-card {
+      width: min(96vw, 390px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255,78,104,0.46);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 34px;
+      background:
+        radial-gradient(circle at center, rgba(255,79,183,0.18), transparent 58%),
+        #05060b;
+      box-shadow: 0 0 38px rgba(255,79,183,0.28), inset 0 0 40px rgba(255,78,104,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .watch-only-card::before {
+      content: "📺";
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.12;
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .watch-only-core {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    .watch-only-core h1 {
+      color: var(--pink2);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 1.05rem;
+    }
+
+    .watch-only-core p {
+      color: var(--muted);
+      line-height: 1.35;
+      font-size: 0.76rem;
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .orbit, .stage::after, .stage::before { animation: none; }
+      * { scroll-behavior: auto !important; }
     }
 
     @media (max-width: 1200px) {
       .layout, .module-grid { grid-template-columns: 1fr; }
       .side, .drawer { grid-template-columns: repeat(2, 1fr); }
-      .route-grid { grid-template-columns: repeat(3, 1fr); }
+      .route-carousel { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 720px) {
-      .shell { width: min(100% - 16px, 1560px); padding-top: 8px; }
-      .protocol-ribbon { grid-template-columns: 1fr; text-align: center; font-size: 0.68rem; }
+      .shell { width: min(100% - 16px, 1500px); padding-top: 8px; }
+      .protocol-ribbon { grid-template-columns: 1fr; font-size: 0.66rem; }
       .topbar { grid-template-columns: auto 1fr; }
       .status { grid-column: 1 / -1; min-width: 0; }
       .side, .drawer { grid-template-columns: 1fr; }
-      .stage { min-height: 620px; }
-      .spinner { width: 100%; height: 430px; }
-      .route-card {
-        width: 112px;
-        height: 164px;
-        margin-left: -56px;
-        margin-top: -82px;
-        transform: rotateY(calc(var(--i) * 24deg)) translateZ(220px);
-      }
-      .route-card p { display: none; }
-      .center-chip { width: 235px; min-height: 245px; }
-      .center-chip .big { font-size: 4.2rem; }
-      .halo { width: 300px; }
-      .route-grid { grid-template-columns: repeat(2, 1fr); }
+      .room-card { grid-template-columns: 1fr; text-align: center; }
+      .room-icon { margin: 0 auto; }
+      .mode-box { min-width: 0; }
+      .stage { min-height: 800px; }
+      .grid-four { grid-template-columns: 1fr; }
+      .route-carousel { grid-template-columns: repeat(2, 1fr); }
+      .brand h1 { font-size: 1.7rem; }
+      .brand p { font-size: 0.64rem; }
+    }
+
+    @media (max-width: 430px) {
+      .shell { display: none; }
+      .watch-only { display: grid; }
+      body { overflow: hidden; }
     }
   </style>
 </head>
@@ -790,7 +668,7 @@
   <main class="shell">
     <section class="protocol-ribbon" aria-label="Lilith Protocol status">
       <strong>♠ Lilith Protocol Active</strong>
-      <span>Barn Door Lockdown // WildCard Labs relocated to Roco Room // Owner Gate Required</span>
+      <span>Barn Door Lockdown // WildCard Labs relocated to Roco Room // Owner Gate required</span>
       <strong>High Security Mode</strong>
     </section>
 
@@ -801,9 +679,9 @@
         <p>WildCard Labs // Watch Entertainment Portal // Roku Remote // Phone Relay // Desktop Theater</p>
       </section>
       <aside class="status">
-        <span><i class="dot"></i> Lilith Protocol</span>
-        <span><i class="dot"></i> Barn Door Lockdown</span>
-        <span><i class="dot"></i> Labs → Roco Room</span>
+        <span><i class="dot"></i> Labs live</span>
+        <span><i class="dot"></i> Watch route ready</span>
+        <span><i class="dot"></i> Owner gate manual</span>
       </aside>
     </header>
 
@@ -834,37 +712,59 @@
             <li>Use official playback surfaces.</li>
             <li>No DRM bypass.</li>
             <li>No credentials in code, QR, or art.</li>
-            <li>Operator confirms login and subscriptions.</li>
+            <li>Operator confirms subscriptions and logins.</li>
           </ul>
         </article>
 
         <article class="mini warn">
           <h3>Reality Rail</h3>
-          <p>The watch can open and control routes. Streaming success depends on the service, browser, login session, bandwidth, and DRM support. If the watch cannot render, relay to phone or desktop.</p>
+          <p>The watch can open and control routes. Streaming success depends on service, browser, login, bandwidth, and DRM support. If watch fails, relay to phone or desktop.</p>
         </article>
       </aside>
 
       <section class="panel stage">
-        <div class="halo"></div>
-        <div class="spinner" id="spinner">
-          <div class="orbit" id="orbit"></div>
-        </div>
-
-        <article class="center-chip">
-          <div class="big">📺</div>
-          <h2>Roco Room</h2>
-          <p>Watch // Phone // Desktop // Roku</p>
-          <div class="lockline">Lilith Protocol // Owner Gate</div>
+        <article class="room-card">
+          <div class="room-icon">📺</div>
+          <section>
+            <h2>Roco Room</h2>
+            <p>WildCard Labs // Watch entertainment portal // Roku remote // phone relay // desktop theater</p>
+          </section>
+          <aside class="mode-box">
+            <span>● Lilith Protocol</span>
+            <span>● Barn Door Lockdown</span>
+            <span>● Labs to Roco Room</span>
+          </aside>
         </article>
 
+        <section class="grid-four">
+          <article class="mini lilith">
+            <h3>Selected Route</h3>
+            <p id="routeDescription">Roco opens first. It chooses the cleanest route for watch, phone, or desktop playback.</p>
+            <div class="field"><span>Tier</span><strong id="routeTier">Watch First</strong></div>
+            <div class="field"><span>Target</span><strong id="routeTarget">Labs</strong></div>
+          </article>
+          <article class="mini safe">
+            <h3>Next Safest Action</h3>
+            <p id="nextAction">Open Roco Room on the watch and test watch-direct playback first.</p>
+          </article>
+          <article class="mini">
+            <h3>Quick Launch Logic</h3>
+            <p>Penny route picks the room. Roco route picks the playback surface. Owner Gate confirms anything that costs, logs in, sends, or controls hardware.</p>
+          </article>
+          <article class="mini warn">
+            <h3>Boundary</h3>
+            <p>This page stores only local visible state. It does not save secrets, passwords, or private media tokens.</p>
+          </article>
+        </section>
+
+        <nav class="route-carousel" id="routeCarousel" aria-label="Roco route selector"></nav>
+
         <nav class="controls">
-          <button class="btn" id="prevBtn" type="button">◀ Previous</button>
           <button class="btn primary" id="openBtn" type="button">Open Route</button>
-          <button class="btn green" id="copyBtn" type="button">Copy Prompt</button>
-          <button class="btn gold" id="saveBtn" type="button">Save State</button>
-          <button class="btn red" id="pennyZeroBtn" type="button">Penny Zero</button>
-          <button class="btn" id="pauseBtn" type="button">Pause</button>
-          <button class="btn" id="nextBtn" type="button">Next ▶</button>
+          <button class="btn" id="copyPromptBtn" type="button">Copy Prompt</button>
+          <button class="btn gold" id="copyStateBtn" type="button">Copy State</button>
+          <button class="btn red" id="resetBtn" type="button">Reset Room</button>
+          <button class="btn" id="mainBtn" type="button">Main Site</button>
         </nav>
       </section>
 
@@ -877,14 +777,17 @@
               <p id="detailTier">Watch Entertainment Portal</p>
             </div>
           </div>
-          <p id="detailDescription">Launch watch-first entertainment, phone relay, desktop theater, or Roku remote controls.</p>
+          <p id="detailDescription">Open WildCard Labs as the Roco Room and route playback through the best available surface.</p>
           <div class="tag-row" id="tagRow"></div>
-          <a class="route-link" id="detailLink" href="#" target="_blank" rel="noopener noreferrer">Open Route</a>
+          <a class="route-link" id="detailLink" href="https://labs.wildcarddev.com/" target="_blank" rel="noopener noreferrer">Open Route</a>
         </article>
 
         <article class="mini">
-          <h3>Next Safest Action</h3>
-          <p id="nextAction">Pick a route, verify playback surface, then continue one step at a time.</p>
+          <h3>Roco QR Portal</h3>
+          <div class="qr-card">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADaklEQVR4nO2cQW6jQBBFfw1IXoKUA/gozc2iOdLcoDmKbwBLS6A/i+qmG5xsMs7ETn4tLIH7CZBKVb+qGoz4mI2/PggCIkWKFClSpEiRj0dashYY+9X8r9Fa2OD/trBhzquGL75bkQ9JBpLkBCBMDc361RB4Nca5BcK0GoCGJMk9+RV3K/IhyTnFl+Q+l9ZPm50XAN2SD6293zVFfg+yPZ4If1oQM4BxAIjZgNGQzt3lmiJ/AjmeFyBwgQ3d4pnOhk++pshnJzuSEQDGMwmgoQ3zicB8YtHZJJdHuFuRD0iOZmbWAwiXFvZ62eW4cDkRwOpl2b2uKfKbkO4r1cBjPF8NwGpAd/UfAlfjbtU/XVPk9yLh5XqYAAANGTsSgQu81AcaT23VEpJkfK7nFPn5pEvnq9nrtBrGHjA7k4zd1ZIK6hYwdlflMpEHy23DxjMVY0eSU+4nluajy+5cpikOidwspSZm3/BE1WX3iYD/4bksbH4lHxKZLTvNUh0CXfrxiBSRfnyNfEjkzo6Bx53GfSiroJTVFu8PSVOL3NtO9jREmBr3lyoYJRWUJ2eKQyJ3VvRQGcrX43k0ybkASA+JfJe0AYANs5mLaMxmnrxit/gsP+mhWXN7kUer6rKSqDwsTamzmHW29JDIN61oakZsU9VSpk1NUtfJm6SHRL5DzmbuKmOfUhY5AWY9QF5O5O++oQ1bgf+kzyny/uSWy3Jdhl0NVsnpNDTTvEzk0UpTsVJBZcgauNTlf+ykh0QeLTnIlA+9J51DUCWsIwD1h0S+YVXR5cK6yyPYLQQVR/IkJx8SubNcly0oLeoSh1D2FG16SD4kcm8HPVTK+qNGSs6V9bd8SOSeDBP8xday2YMRgJmd6Btio2/R13uuIo+Wi66ih/K4NTnSYQ6rukzk0UpdllMWaxWUDrNJD4m8Ne4Nm/uUYr7azAjpIZE3lj0HQBV9JqDsH0rRpyrw5UMiK6ua0GUP2rZFH2n/EBSHRL5rVZ/a3acEnqyzq9XSQyJv7Oa7H8DacuxhxPxCCxcDMb8sBjSLVcue6zlF/key+vTQtntxPF/Ne9d6R1HkjeU41BHADHA8Exa4tgTW1gAYw7TCwgRYiA3t6+5W5COSx7qsaiVu77SmdbuN+dJDIrOZvnEuUqRIkSJFivzh5F/z8Ic7l6jZuQAAAABJRU5ErkJggg==" alt="QR code for Roco Room watch route" />
+            <p>Scan to open the Roco Room route.</p>
+          </div>
         </article>
 
         <article class="mini">
@@ -897,761 +800,249 @@
     <section class="module-grid">
       <section class="module">
         <h2>Route Manifest</h2>
-        <div class="route-grid" id="routeGrid"></div>
+        <p>These are launch routes, not secret credentials. All real-world execution stays manual and owner-gated.</p>
+        <pre id="stateOutput">State packet ready.</pre>
       </section>
 
       <section class="module">
-        <h2>Watch Surface</h2>
-        <div class="watch-surface">
+        <h2>Watch Quick Launch</h2>
+        <div class="watch-launch">
           <div class="watch-face">
-            <div>
-              <strong id="watchTitle">Roco Room</strong>
-              <span id="watchSub">Tap route. Watch tries first.</span>
-            </div>
+            <div><strong>Watch Rail</strong><span>Main to Roco to Playback</span></div>
           </div>
           <div class="watch-grid">
-            <button type="button" data-watch-route="roku-channel">Roku Free</button>
-            <button type="button" data-watch-route="picard">Picard</button>
-            <button type="button" data-watch-route="live-tv">Live TV</button>
-            <button type="button" data-watch-route="phone-relay">Phone QR</button>
-            <button type="button" data-watch-route="desktop-theater">Desktop</button>
-            <button type="button" data-watch-route="penny-zero">Zero</button>
+            <a class="priority" href="https://labs.wildcarddev.com/?room=roco&source=watch">📺 Roco</a>
+            <a href="https://therokuchannel.roku.com/">▶ Roku</a>
+            <a href="https://www.youtube.com/">▶ YouTube</a>
+            <a href="https://open.spotify.com/">♫ Spotify</a>
+            <a href="https://www.wildcarddev.com/">♠ Main</a>
+            <button id="watchZeroBtn" type="button">Q♠ Zero</button>
           </div>
         </div>
-      </section>
-    </section>
-
-    <section class="module-grid">
-      <section class="module">
-        <h2>Roku Remote / Local Relay</h2>
-        <p>
-          This static page can stage Roku remote commands. Direct browser control may be blocked by HTTPS, CORS, or local-network rules. Best production path is a local PennyCore relay or Home Assistant bridge that sends Roku ECP commands on the LAN.
-        </p>
-
-        <label for="rokuIp" style="display:block; color: var(--muted); margin-bottom: 8px;">Roku IP or local relay base URL</label>
-        <input id="rokuIp" type="text" placeholder="Example: 192.168.1.50 or http://localhost:8787/roku" />
-
-        <div class="remote-grid">
-          <button type="button" data-roku-key="Home">Home</button>
-          <button type="button" data-roku-key="Up">Up</button>
-          <button type="button" data-roku-key="Back">Back</button>
-          <button type="button" data-roku-key="Left">Left</button>
-          <button type="button" data-roku-key="Select">Select</button>
-          <button type="button" data-roku-key="Right">Right</button>
-          <button type="button" data-roku-key="Rev">Rew</button>
-          <button type="button" data-roku-key="Down">Down</button>
-          <button type="button" data-roku-key="Fwd">Fwd</button>
-          <button type="button" data-roku-key="Play">Play/Pause</button>
-          <button type="button" data-roku-key="VolumeDown">Vol -</button>
-          <button type="button" data-roku-key="VolumeUp">Vol +</button>
-          <button class="wide red" type="button" data-roku-key="PowerOff">Power</button>
-        </div>
-
-        <pre class="storage-output" id="remoteOutput">Remote staged. Enter Roku IP or relay URL, then tap a command.</pre>
-      </section>
-
-      <section class="module">
-        <h2>Data Storage / State Packet</h2>
-        <div class="quick-row">
-          <button class="btn green" id="exportStateBtn" type="button">Export State</button>
-          <button class="btn" id="copyStateBtn" type="button">Copy State</button>
-          <button class="btn" id="clearStateBtn" type="button">Clear Local State</button>
-        </div>
-        <pre class="storage-output" id="stateOutput">State packet ready.</pre>
-      </section>
-    </section>
-
-    <section class="module-grid">
-      <section class="module">
-        <h2>Local Media / File Watch</h2>
-        <p>
-          Select a local audio/video file. The browser plays it locally. This page stores only filename metadata, never the file itself.
-        </p>
-        <input id="mediaInput" type="file" accept="video/*,audio/*" />
-        <video id="videoPlayer" controls playsinline hidden></video>
-        <audio id="audioPlayer" controls hidden></audio>
-        <pre class="storage-output" id="mediaOutput">No media selected.</pre>
-      </section>
-
-      <section class="module">
-        <h2>Video Chatroom / Local Preview</h2>
-        <p>
-          Local camera preview works as a test surface. Multi-user calls still need Discord, native calling, or a real WebRTC signaling server.
-        </p>
-        <div class="quick-row">
-          <button class="btn primary" id="cameraBtn" type="button">Start Camera Preview</button>
-          <button class="btn" id="stopCameraBtn" type="button">Stop Camera</button>
-          <a class="btn green" href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">Open Discord DMs</a>
-          <a class="btn" href="https://discord.com/app" target="_blank" rel="noopener noreferrer">Open Discord Web</a>
-        </div>
-        <video id="cameraPreview" autoplay muted playsinline hidden></video>
       </section>
     </section>
 
     <footer class="footer">
       <strong>Drag the deck, honey.</strong>
-      <span>Lilith Protocol active. Labs is the Roco Room. Watch is the portal. Phone and desktop are the theater engines.</span>
+      <span>Labs is the Roco Room. Watch is the portal. Phone and desktop are the theater engines.</span>
     </footer>
+  </main>
+
+  <main class="watch-only">
+    <section class="watch-only-card">
+      <div class="watch-only-core">
+        <h1>Roco Room</h1>
+        <p>Watch opens Roco first. Phone or desktop can carry heavier playback.</p>
+        <div class="watch-grid">
+          <a class="priority" href="https://labs.wildcarddev.com/?room=roco&source=watch">Roco</a>
+          <a href="https://therokuchannel.roku.com/">Roku</a>
+          <a href="https://www.youtube.com/">YouTube</a>
+          <a href="https://www.wildcarddev.com/">Main</a>
+          <a href="https://chatgpt.com/">Q♠ Zero</a>
+          <button id="watchCopyBtn" type="button">Copy</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
     const CONFIG = {
       main: "https://www.wildcarddev.com/",
-      party: "https://party.wildcarddev.com/",
-      office: "https://office.wildcarddev.com/",
       labs: "https://labs.wildcarddev.com/",
-      roco: "https://labs.wildcarddev.com/",
-      lostRoom: "https://office.wildcarddev.com/",
-      discordDMs: "https://discord.com/channels/@me",
-      discordWeb: "https://discord.com/app",
+      office: "https://office.wildcarddev.com/",
+      party: "https://party.wildcarddev.com/",
       chatgpt: "https://chatgpt.com/",
-      rokuChannel: "https://therokuchannel.roku.com/",
-      rokuLiveTv: "https://therokuchannel.roku.com/watch/live-tv",
-      picard: "https://www.paramountplus.com/shows/star-trek-picard/",
-      paramount: "https://www.paramountplus.com/",
+      roku: "https://therokuchannel.roku.com/",
       youtube: "https://www.youtube.com/",
-      videoRepo: "https://github.com/mtobabendev/Video-Chatroom.git",
-      github: "https://github.com/mtobabendev"
+      spotify: "https://open.spotify.com/",
+      paramountPicard: "https://www.paramountplus.com/shows/star-trek-picard/"
     };
 
-    const spawnPrompt = `PENNYCORE / LILITH PROTOCOL / ROCO ROOM LOAD-IN
-
-Load this as the current explicit state packet.
-
-Room:
-WildCard Labs / Roco Room / Watch Entertainment Portal
-
-Active wrapper:
-Lilith Protocol / Barn Door Lockdown
-
-Core doctrine:
-Penny follows state, not memory.
-Right person. Right state. Right next action.
-Watch is the portal. Phone and desktop are the theater engines.
-Official routes only. No DRM bypass. No credentials in public routes.
-
-Confirmed build state:
-- WildCard Labs is now the Roco Room.
-- Roco Room is the watch-first entertainment portal.
-- Watch direct playback is attempted first.
-- If watch playback fails, relay to phone or desktop.
-- Roku remote support is staged through Roku ECP or a local PennyCore relay.
-- The Roku Channel and free live TV are primary legal/free targets.
-- Star Trek Picard routes through Paramount+ official playback.
-- Discord remains default comms/backchannel.
-- Penny Zero remains available as emergency reset.
-
-Rules:
-Do not assume hidden memory.
-Do not assume external account access.
-Do not assume device control.
-Do not store passwords, credentials, tokens, PINs, or private payloads in public routes.
-Treat route cards as state and navigation, not permission.
-Subscription services require operator login and confirmation.
-No DRM bypass, ripping, scraping, or credential injection.
-
-Next safest action:
-Identify the current device surface, select watch direct / phone relay / desktop theater / Roku remote, then proceed one step at a time.`;
-
     const routes = [
-      {
-        id: "roco",
-        label: "Roco Room",
-        shortLabel: "Roco",
-        icon: "📺",
-        tier: "Watch Portal",
-        url: CONFIG.roco,
-        description: "WildCard Labs is now the Roco Room: watch-first entertainment portal, phone relay, desktop theater, and Roku remote surface.",
-        nextSafeAction: "Choose Watch Direct, Phone Relay, Desktop Theater, or Roku Remote.",
-        tags: ["roco", "watch", "theater"]
-      },
-      {
-        id: "roku-channel",
-        label: "Roku Channel",
-        shortLabel: "Roku Free",
-        icon: "▶️",
-        tier: "Free Playback",
-        url: CONFIG.rokuChannel,
-        description: "Open The Roku Channel official web route for free streaming content when the browser supports it.",
-        nextSafeAction: "Open route on watch first. If playback fails, relay to phone or desktop.",
-        tags: ["roku", "free", "official"]
-      },
-      {
-        id: "live-tv",
-        label: "Free Live TV",
-        shortLabel: "Live TV",
-        icon: "📡",
-        tier: "Free Channels",
-        url: CONFIG.rokuLiveTv,
-        description: "Open Roku Channel live TV route for free channel browsing where supported.",
-        nextSafeAction: "Test watch playback. Fall back to phone relay if controls are cramped.",
-        tags: ["live", "free", "channels"]
-      },
-      {
-        id: "picard",
-        label: "Star Trek Picard",
-        shortLabel: "Picard",
-        icon: "🖖",
-        tier: "Paramount+",
-        url: CONFIG.picard,
-        description: "Open the official Paramount+ Star Trek Picard route. Login/subscription remains operator-confirmed.",
-        nextSafeAction: "Open official route. Do not bypass login, subscription, app, or DRM requirements.",
-        tags: ["picard", "paramount", "official"]
-      },
-      {
-        id: "roku-remote",
-        label: "Roku Remote",
-        shortLabel: "Remote",
-        icon: "🎛️",
-        tier: "ECP / Relay",
-        url: "#rokuIp",
-        description: "Stage Roku remote commands through a Roku IP or local PennyCore relay.",
-        nextSafeAction: "Enter Roku IP or relay URL, then test Home or Play/Pause.",
-        tags: ["remote", "roku", "relay"]
-      },
-      {
-        id: "phone-relay",
-        label: "Phone Relay",
-        shortLabel: "Phone",
-        icon: "📲",
-        tier: "QR / Deep Link",
-        url: CONFIG.roco,
-        description: "Use the phone as the active playback engine when the watch browser is too small or blocked.",
-        nextSafeAction: "Open this route on phone, then use watch as the remote or command panel.",
-        tags: ["phone", "relay", "fallback"]
-      },
-      {
-        id: "desktop-theater",
-        label: "Desktop Theater",
-        shortLabel: "Desktop",
-        icon: "🖥️",
-        tier: "Heavy Playback",
-        url: CONFIG.roco,
-        description: "Use desktop browser as the theater engine while watch controls the room.",
-        nextSafeAction: "Open the Roco Room on desktop and use watch for quick route commands.",
-        tags: ["desktop", "theater", "control"]
-      },
-      {
-        id: "penny-zero",
-        label: "Penny Zero",
-        shortLabel: "Zero",
-        icon: "Q♠",
-        tier: "Reset",
-        url: CONFIG.chatgpt,
-        description: "Reset the room from visible state. Return current project, state, last true thing, and next safest action.",
-        nextSafeAction: "Copy prompt, open AI window, and reload from visible state only.",
-        tags: ["penny", "zero", "reset"]
-      },
-      {
-        id: "qr-portals",
-        label: "QR Portals",
-        shortLabel: "QR",
-        icon: "▣",
-        tier: "Zone Jump",
-        url: CONFIG.party,
-        description: "Main site, Penny Office, Party Room, Lost Room, Roco Room, emergency spawn card, and wallet routes.",
-        nextSafeAction: "Choose target zone and use QR/route pointer. No secrets in QR.",
-        tags: ["qr", "zones", "portal"]
-      },
-      {
-        id: "discord",
-        label: "Discord Bunker",
-        shortLabel: "Discord",
-        icon: "💬",
-        tier: "Default Comms",
-        url: CONFIG.discordDMs,
-        description: "Default backchannel and rally point for comms and video chat coordination.",
-        nextSafeAction: "Open correct Discord DM/channel and use explicit state packets.",
-        tags: ["discord", "comms", "bunker"]
-      },
-      {
-        id: "video",
-        label: "Video Chatroom",
-        shortLabel: "Video",
-        icon: "📹",
-        tier: "Comms Route",
-        url: CONFIG.videoRepo,
-        description: "Video Chatroom build lane and future WebRTC/Discord integration surface.",
-        nextSafeAction: "Use Discord for live calls now. Keep WebRTC as future build lane.",
-        tags: ["video", "webrtc", "discord"]
-      },
-      {
-        id: "e-backchannel",
-        label: "E Backchannel",
-        shortLabel: "E",
-        icon: "🛰️",
-        tier: "Bat Phone",
-        url: CONFIG.discordDMs,
-        description: "E’s confirmed backchannel and emergency contact bridge route.",
-        nextSafeAction: "Open E backchannel, verify context, then proceed one step at a time.",
-        tags: ["e", "batphone", "field"]
-      },
-      {
-        id: "jen",
-        label: "Jen / Dr. Q",
-        shortLabel: "Dr. Q",
-        icon: "🩷",
-        tier: "Helper Route",
-        url: CONFIG.chatgpt,
-        description: "Activation phrase: Penny, this is Dr. Q. One problem at a time, dignity first.",
-        nextSafeAction: "Offer one clear next step and ask for a screenshot or description.",
-        tags: ["jen", "helper", "care"]
-      },
-      {
-        id: "watch",
-        label: "Watch Portal",
-        shortLabel: "Watch",
-        icon: "⌚",
-        tier: "Portable Keyring",
-        url: CONFIG.roco,
-        description: "Watch-ready route surface with giant buttons, route status, and playback fallback.",
-        nextSafeAction: "Use the six-button watch surface first. Avoid dense menus.",
-        tags: ["watch", "keyring", "portable"]
-      },
-      {
-        id: "media",
-        label: "Media Vault",
-        shortLabel: "Media",
-        icon: "🎞️",
-        tier: "Local File Player",
-        url: "#mediaInput",
-        description: "Play local media selected by the operator. The file stays local.",
-        nextSafeAction: "Choose a local file and play it in the browser.",
-        tags: ["file", "media", "local"]
-      },
-      {
-        id: "save",
-        label: "Save Point",
-        shortLabel: "Save",
-        icon: "💾",
-        tier: "Restore Packet",
-        url: "#stateOutput",
-        description: "Export current state packet before risky moves or platform handoffs.",
-        nextSafeAction: "Export text-only state packet and copy it to the next window.",
-        tags: ["save", "restore", "state"]
-      },
-      {
-        id: "owner-gate",
-        label: "Owner Gate",
-        shortLabel: "Gate",
-        icon: "🔒",
-        tier: "Permission",
-        url: CONFIG.office,
-        description: "Sensitive actions, account access, device control, payments, and deployment require confirmation.",
-        nextSafeAction: "Ask for explicit target, action, risk, and confirmation.",
-        tags: ["security", "permission", "gate"]
-      },
-      {
-        id: "party",
-        label: "Party Room",
-        shortLabel: "Party",
-        icon: "🎉",
-        tier: "PAN Spinner",
-        url: CONFIG.party,
-        description: "Party Room / social front-room route.",
-        nextSafeAction: "Open Party Room and sync selected route state.",
-        tags: ["party", "spinner", "pan"]
-      },
-      {
-        id: "office",
-        label: "Penny Office",
-        shortLabel: "Office",
-        icon: "🏢",
-        tier: "Gated Shell",
-        url: CONFIG.office,
-        description: "Penny Office gated shell and restricted systems door.",
-        nextSafeAction: "Verify access posture. No secrets in public code.",
-        tags: ["office", "gated", "shell"]
-      },
-      {
-        id: "main",
-        label: "WildCard DEV",
-        shortLabel: "Main",
-        icon: "🌐",
-        tier: "Rally Point",
-        url: CONFIG.main,
-        description: "Return to the flagship WildCard DEV rally point.",
-        nextSafeAction: "Open main site and select the correct route card.",
-        tags: ["main", "rally", "web"]
-      }
+      { id: "roco", label: "Roco Room", icon: "📺", tier: "Watch First", target: "Labs", url: CONFIG.labs + "?room=roco&source=labs", description: "Roco opens first. It chooses the cleanest route for watch, phone, or desktop playback.", next: "Open Roco Room on the watch and test watch-direct playback first.", tags: ["roco", "watch", "labs"] },
+      { id: "roku", label: "Roku Free", icon: "▶", tier: "Official", target: "Roku", url: CONFIG.roku, description: "Open The Roku Channel official route.", next: "Launch official Roku route. Confirm login only on the official surface.", tags: ["official", "free", "roku"] },
+      { id: "youtube", label: "YouTube", icon: "▶", tier: "Official", target: "YouTube", url: CONFIG.youtube, description: "Open official YouTube surface for watch, phone, or desktop relay.", next: "Use official playback. Let the best device render.", tags: ["official", "video", "relay"] },
+      { id: "spotify", label: "Spotify", icon: "♫", tier: "Audio", target: "Spotify", url: CONFIG.spotify, description: "Open Spotify for music and audio routes.", next: "Open official app or web surface. Phone can carry playback.", tags: ["audio", "official", "relay"] },
+      { id: "picard", label: "Picard", icon: "🖖", tier: "Paramount+", target: "Paramount", url: CONFIG.paramountPicard, description: "Open official Star Trek Picard route.", next: "Operator confirms subscription or login in the official service.", tags: ["paramount", "official", "subscription"] },
+      { id: "main", label: "Main Site", icon: "♠", tier: "Rally", target: "WildCard", url: CONFIG.main, description: "Return to WildCard DEV main rally point.", next: "Use Main as the stable front door.", tags: ["main", "rally", "route"] },
+      { id: "zero", label: "Penny Zero", icon: "Q♠", tier: "Reset", target: "ChatGPT", url: CONFIG.chatgpt, description: "Open ChatGPT helper and reload from visible state only.", next: "Copy prompt, open AI helper, and reload the room from this capsule.", tags: ["zero", "reset", "state"] }
     ];
 
-    const orbit = document.getElementById("orbit");
-    const grid = document.getElementById("routeGrid");
-    const spinner = document.getElementById("spinner");
+    let selectedIndex = Number(localStorage.getItem("wcdev:labsSelectedIndex") || 0);
 
+    const routeCarousel = document.getElementById("routeCarousel");
     const selectedValue = document.getElementById("selectedValue");
     const surfaceValue = document.getElementById("surfaceValue");
+    const routeDescription = document.getElementById("routeDescription");
+    const routeTier = document.getElementById("routeTier");
+    const routeTarget = document.getElementById("routeTarget");
+    const nextAction = document.getElementById("nextAction");
     const detailIcon = document.getElementById("detailIcon");
     const detailTitle = document.getElementById("detailTitle");
     const detailTier = document.getElementById("detailTier");
     const detailDescription = document.getElementById("detailDescription");
-    const detailLink = document.getElementById("detailLink");
-    const nextAction = document.getElementById("nextAction");
     const tagRow = document.getElementById("tagRow");
+    const detailLink = document.getElementById("detailLink");
     const promptBox = document.getElementById("promptBox");
     const stateOutput = document.getElementById("stateOutput");
 
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const openBtn = document.getElementById("openBtn");
-    const pauseBtn = document.getElementById("pauseBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const saveBtn = document.getElementById("saveBtn");
-    const pennyZeroBtn = document.getElementById("pennyZeroBtn");
-    const exportStateBtn = document.getElementById("exportStateBtn");
-    const copyStateBtn = document.getElementById("copyStateBtn");
-    const clearStateBtn = document.getElementById("clearStateBtn");
-
-    const mediaInput = document.getElementById("mediaInput");
-    const videoPlayer = document.getElementById("videoPlayer");
-    const audioPlayer = document.getElementById("audioPlayer");
-    const mediaOutput = document.getElementById("mediaOutput");
-
-    const cameraBtn = document.getElementById("cameraBtn");
-    const stopCameraBtn = document.getElementById("stopCameraBtn");
-    const cameraPreview = document.getElementById("cameraPreview");
-
-    const rokuIp = document.getElementById("rokuIp");
-    const remoteOutput = document.getElementById("remoteOutput");
-    const watchTitle = document.getElementById("watchTitle");
-    const watchSub = document.getElementById("watchSub");
-
-    let selectedIndex = Number(localStorage.getItem("wcdev:rocoSelectedIndex") || 0);
-    let paused = localStorage.getItem("wcdev:rocoPaused") === "true";
-    let cameraStream = null;
-    let lastMediaMeta = JSON.parse(localStorage.getItem("wcdev:rocoLastMediaMeta") || "null");
-
-    rokuIp.value = localStorage.getItem("wcdev:rocoRokuIp") || "";
-
-    function detectSurface() {
-      const width = window.innerWidth;
-      if (width < 420) return "watch";
-      if (width < 720) return "watch/mobile";
-      if (width < 980) return "mobile";
+    function surface() {
+      const w = window.innerWidth;
+      if (w <= 430) return "watch";
+      if (w <= 720) return "mobile";
+      if (w <= 1180) return "tablet";
       return "desktop";
-    }
-
-    function routeById(id) {
-      return routes.find(route => route.id === id) || routes[0];
     }
 
     function currentRoute() {
       return routes[selectedIndex] || routes[0];
     }
 
-    function currentStatePacket() {
+    function packet() {
       const route = currentRoute();
-
       return {
-        packet: "PENNYCORE_LILITH_ROCO_ROOM_STATE",
-        version: "ROCO-LILITH-001",
+        packet: "WILDCARD_LABS_ROCO_ROOM_LILITH",
+        version: "LABS-ROCO-001",
         timestamp: new Date().toISOString(),
-        room: "WildCard Labs / Roco Room",
-        activeProtocol: "Lilith Protocol / Barn Door Lockdown",
+        room: "Roco Room",
+        wrapper: "Lilith Protocol",
+        lockdown: "Barn Door",
         selectedRoute: route,
-        surface: detectSurface(),
+        surface: surface(),
         watchFirst: true,
-        officialRoutesOnly: true,
-        noDrmBypass: true,
-        noCredentialsInPublicRoutes: true,
         ownerGateRequired: true,
-        doctrine: [
-          "Penny follows state, not memory.",
-          "Watch is the portal.",
-          "Phone and desktop are the theater engines.",
-          "Official playback routes only.",
-          "No DRM bypass. No hidden credentials. No covert account access."
+        rules: [
+          "Use official playback surfaces.",
+          "No DRM bypass.",
+          "No credentials in code, QR, or art.",
+          "Operator confirms subscriptions, logins, payments, sends, deployments, and hardware controls."
         ],
-        entertainmentModes: [
-          "watch_direct",
-          "phone_relay",
-          "desktop_theater",
-          "roku_ecp_or_local_relay"
-        ],
-        storage: {
-          localStorage: "route state, Roku IP/relay setting, selected file metadata only",
-          mediaFiles: "operator-selected local playback only",
-          secrets: "not stored"
-        },
-        lastMediaMeta,
-        nextSafeAction: route.nextSafeAction
+        nextSafestAction: route.next
       };
     }
 
-    function createCards() {
-      orbit.innerHTML = "";
-      grid.innerHTML = "";
+    function prompt() {
+      const route = currentRoute();
+      return `WILDCARD LABS / ROCO ROOM / LILITH PROTOCOL LOAD-IN
 
+Load this as a visible state capsule only.
+
+Room: Roco Room
+Wrapper: Lilith Protocol
+Lockdown: Barn Door
+Selected route: ${route.label}
+Target: ${route.target}
+Route URL: ${route.url}
+Surface: ${surface()}
+
+Current truth:
+- Labs is assigned as Roco Room.
+- Watch opens Roco first.
+- Phone and desktop render heavier playback when needed.
+- All entertainment opens official surfaces.
+- No DRM bypass, no credential injection, no secret tokens in public code.
+
+Activation phrases:
+- "Let's get you out of those wet clothes."
+- "Okay, babe, reset the room."
+
+Next safest action:
+${route.next}
+
+Signature:
+Drag the deck, honey.`;
+    }
+
+    function renderTiles() {
+      routeCarousel.innerHTML = "";
       routes.forEach((route, index) => {
-        const angleStep = 360 / routes.length;
-
-        const card = document.createElement("button");
-        card.className = "route-card";
-        card.type = "button";
-        card.style.setProperty("--i", index);
-        card.style.transform = `rotateY(${index * angleStep}deg) translateZ(345px)`;
-        card.setAttribute("aria-label", "Select " + route.label);
-        card.innerHTML = `
-          <div>
-            <div class="icon">${route.icon}</div>
-            <h3>${route.shortLabel}</h3>
-            <p>${route.tier}</p>
-          </div>
-        `;
-        card.addEventListener("click", () => selectRoute(index));
-        orbit.appendChild(card);
-
-        const gridButton = document.createElement("button");
-        gridButton.className = "route-button";
-        gridButton.type = "button";
-        gridButton.innerHTML = `
-          <span>${route.icon}</span>
-          <strong>${route.label}</strong>
-        `;
-        gridButton.addEventListener("click", () => selectRoute(index));
-        grid.appendChild(gridButton);
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.className = "route-tile" + (index === selectedIndex ? " active" : "");
+        tile.innerHTML = `<span>${route.icon}</span><strong>${route.label}</strong><small>${route.tier}</small>`;
+        tile.addEventListener("click", () => select(index));
+        routeCarousel.appendChild(tile);
       });
     }
 
-    function selectRoute(index) {
+    function select(index) {
       selectedIndex = (index + routes.length) % routes.length;
-      localStorage.setItem("wcdev:rocoSelectedIndex", String(selectedIndex));
+      localStorage.setItem("wcdev:labsSelectedIndex", String(selectedIndex));
       render();
     }
 
-    function selectRouteById(id) {
-      const index = routes.findIndex(route => route.id === id);
-      if (index >= 0) selectRoute(index);
+    function selectById(id) {
+      const index = routes.findIndex((route) => route.id === id);
+      if (index >= 0) select(index);
     }
 
     function render() {
       const route = currentRoute();
-
-      document.querySelectorAll(".route-card").forEach((card, index) => {
-        card.classList.toggle("active", index === selectedIndex);
-      });
-
-      document.querySelectorAll(".route-button").forEach((button, index) => {
-        button.classList.toggle("active", index === selectedIndex);
-      });
-
-      selectedValue.textContent = route.shortLabel;
-      surfaceValue.textContent = detectSurface();
+      selectedValue.textContent = route.label;
+      surfaceValue.textContent = surface();
+      routeDescription.textContent = route.description;
+      routeTier.textContent = route.tier;
+      routeTarget.textContent = route.target;
+      nextAction.textContent = route.next;
       detailIcon.textContent = route.icon;
       detailTitle.textContent = route.label;
       detailTier.textContent = route.tier;
       detailDescription.textContent = route.description;
       detailLink.href = route.url;
-      nextAction.textContent = route.nextSafeAction;
-
-      watchTitle.textContent = route.shortLabel;
-      watchSub.textContent = route.tier;
-
       tagRow.innerHTML = "";
       route.tags.forEach((tag) => {
-        const el = document.createElement("span");
-        el.className = "tag";
-        el.textContent = tag;
-        tagRow.appendChild(el);
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.textContent = tag;
+        tagRow.appendChild(span);
       });
-
-      openBtn.textContent = "Open " + route.shortLabel;
-      promptBox.value = spawnPrompt;
-
-      spinner.classList.toggle("paused", paused);
-      pauseBtn.textContent = paused ? "Resume" : "Pause";
-      localStorage.setItem("wcdev:rocoPaused", String(paused));
-
-      stateOutput.textContent = JSON.stringify(currentStatePacket(), null, 2);
-
-      if (lastMediaMeta) {
-        mediaOutput.textContent = JSON.stringify(lastMediaMeta, null, 2);
-      }
+      promptBox.value = prompt();
+      stateOutput.textContent = JSON.stringify(packet(), null, 2);
+      renderTiles();
     }
 
-    function openRoute(route = currentRoute()) {
-      if (route.url.startsWith("#")) {
-        document.querySelector(route.url)?.scrollIntoView({ behavior: "smooth", block: "center" });
-        return;
-      }
-
-      window.open(route.url, "_blank", "noopener,noreferrer");
-    }
-
-    async function copyText(text, button, label) {
+    async function copyText(text, button, fallbackLabel) {
       try {
         await navigator.clipboard.writeText(text);
-        button.textContent = "Copied";
-        setTimeout(() => button.textContent = label, 1200);
+        if (button) {
+          const old = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(() => button.textContent = fallbackLabel || old, 1100);
+        }
       } catch {
-        button.textContent = "Copy Failed";
-        setTimeout(() => button.textContent = label, 1400);
+        if (button) {
+          const old = button.textContent;
+          button.textContent = "Copy Failed";
+          setTimeout(() => button.textContent = fallbackLabel || old, 1300);
+        }
       }
     }
 
-    function saveState() {
-      const packet = currentStatePacket();
-      localStorage.setItem("wcdev:rocoStatePacket", JSON.stringify(packet));
-      stateOutput.textContent = JSON.stringify(packet, null, 2);
-      saveBtn.textContent = "Saved";
-      setTimeout(() => saveBtn.textContent = "Save State", 1200);
-    }
-
-    function clearState() {
-      localStorage.removeItem("wcdev:rocoStatePacket");
-      localStorage.removeItem("wcdev:rocoLastMediaMeta");
-      lastMediaMeta = null;
-      mediaOutput.textContent = "No media selected.";
-      render();
-    }
-
-    async function sendRokuCommand(key) {
-      const raw = rokuIp.value.trim();
-      localStorage.setItem("wcdev:rocoRokuIp", raw);
-
-      if (!raw) {
-        remoteOutput.textContent = "Enter Roku IP or local relay URL first.";
-        return;
-      }
-
-      const isRelay = raw.startsWith("http://") || raw.startsWith("https://");
-      const target = isRelay
-        ? `${raw.replace(/\/$/, "")}/key/${encodeURIComponent(key)}`
-        : `http://${raw}:8060/keypress/${encodeURIComponent(key)}`;
-
-      const packet = {
-        command: key,
-        target,
-        note: "Direct browser POST may be blocked by HTTPS/CORS/local-network restrictions. Production path should use PennyCore local relay or Home Assistant bridge."
-      };
-
-      remoteOutput.textContent = JSON.stringify(packet, null, 2);
-
-      try {
-        await fetch(target, { method: "POST", mode: "no-cors" });
-        remoteOutput.textContent = JSON.stringify({
-          ...packet,
-          status: "Command sent or attempted. If Roku did not respond, use local relay/Home Assistant path."
-        }, null, 2);
-      } catch (error) {
-        remoteOutput.textContent = JSON.stringify({
-          ...packet,
-          status: "Command failed in browser.",
-          error: error.message
-        }, null, 2);
-      }
-    }
-
-    mediaInput.addEventListener("change", () => {
-      const file = mediaInput.files && mediaInput.files[0];
-      if (!file) return;
-
-      const url = URL.createObjectURL(file);
-      const isVideo = file.type.startsWith("video/");
-      const isAudio = file.type.startsWith("audio/");
-
-      videoPlayer.hidden = !isVideo;
-      audioPlayer.hidden = !isAudio;
-
-      if (isVideo) {
-        audioPlayer.pause();
-        audioPlayer.removeAttribute("src");
-        videoPlayer.src = url;
-      }
-
-      if (isAudio) {
-        videoPlayer.pause();
-        videoPlayer.removeAttribute("src");
-        audioPlayer.src = url;
-      }
-
-      lastMediaMeta = {
-        name: file.name,
-        type: file.type || "UNKNOWN",
-        sizeBytes: file.size,
-        lastModified: file.lastModified ? new Date(file.lastModified).toISOString() : "UNKNOWN",
-        storage: "local object URL only; file contents not stored"
-      };
-
-      localStorage.setItem("wcdev:rocoLastMediaMeta", JSON.stringify(lastMediaMeta));
-      mediaOutput.textContent = JSON.stringify(lastMediaMeta, null, 2);
-      render();
-    });
-
-    cameraBtn.addEventListener("click", async () => {
-      try {
-        cameraStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-        cameraPreview.srcObject = cameraStream;
-        cameraPreview.hidden = false;
-        cameraBtn.textContent = "Camera Active";
-      } catch (error) {
-        alert("Camera preview failed or permission was denied.");
-      }
-    });
-
-    stopCameraBtn.addEventListener("click", () => {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-      cameraPreview.srcObject = null;
-      cameraPreview.hidden = true;
-      cameraBtn.textContent = "Start Camera Preview";
-    });
-
-    document.querySelectorAll("[data-watch-route]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const id = button.getAttribute("data-watch-route");
-        const route = routeById(id);
-        selectRouteById(id);
-        openRoute(route);
-      });
-    });
-
-    document.querySelectorAll("[data-roku-key]").forEach((button) => {
-      button.addEventListener("click", () => {
-        sendRokuCommand(button.getAttribute("data-roku-key"));
-      });
-    });
-
-    rokuIp.addEventListener("change", () => {
-      localStorage.setItem("wcdev:rocoRokuIp", rokuIp.value.trim());
-    });
-
-    prevBtn.addEventListener("click", () => selectRoute(selectedIndex - 1));
-    nextBtn.addEventListener("click", () => selectRoute(selectedIndex + 1));
-    pauseBtn.addEventListener("click", () => {
-      paused = !paused;
-      render();
-    });
-
-    openBtn.addEventListener("click", () => openRoute());
-    copyBtn.addEventListener("click", () => copyText(spawnPrompt, copyBtn, "Copy Prompt"));
-    saveBtn.addEventListener("click", saveState);
-    pennyZeroBtn.addEventListener("click", () => {
-      selectRouteById("penny-zero");
-      copyText(spawnPrompt, pennyZeroBtn, "Penny Zero");
-    });
-
-    exportStateBtn.addEventListener("click", saveState);
-    copyStateBtn.addEventListener("click", () => copyText(JSON.stringify(currentStatePacket(), null, 2), copyStateBtn, "Copy State"));
-    clearStateBtn.addEventListener("click", clearState);
-
-    window.addEventListener("resize", render);
+    document.getElementById("openBtn").addEventListener("click", () => window.open(currentRoute().url, "_blank", "noopener,noreferrer"));
+    document.getElementById("copyPromptBtn").addEventListener("click", (event) => copyText(prompt(), event.currentTarget, "Copy Prompt"));
+    document.getElementById("copyStateBtn").addEventListener("click", (event) => copyText(JSON.stringify(packet(), null, 2), event.currentTarget, "Copy State"));
+    document.getElementById("resetBtn").addEventListener("click", () => selectById("zero"));
+    document.getElementById("mainBtn").addEventListener("click", () => window.open(CONFIG.main, "_blank", "noopener,noreferrer"));
+    document.getElementById("watchZeroBtn").addEventListener("click", () => selectById("zero"));
+    document.getElementById("watchCopyBtn").addEventListener("click", (event) => copyText(prompt(), event.currentTarget, "Copy"));
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") selectRoute(selectedIndex - 1);
-      if (event.key === "ArrowRight") selectRoute(selectedIndex + 1);
-      if (event.key === "Enter") openRoute();
-      if (event.key.toLowerCase() === " ") {
-        event.preventDefault();
-        paused = !paused;
-        render();
-      }
+      if (event.key === "ArrowLeft") select(selectedIndex - 1);
+      if (event.key === "ArrowRight") select(selectedIndex + 1);
+      if (event.key === "Enter") window.open(currentRoute().url, "_blank", "noopener,noreferrer");
     });
 
-    createCards();
+    window.pennyCue = function pennyCue(input) {
+      const cue = String(input || "").toLowerCase();
+      if (cue.includes("roco") || cue.includes("labs")) selectById("roco");
+      if (cue.includes("roku")) selectById("roku");
+      if (cue.includes("youtube")) selectById("youtube");
+      if (cue.includes("spotify")) selectById("spotify");
+      if (cue.includes("picard")) selectById("picard");
+      if (cue.includes("wet clothes") || cue.includes("reset the room") || cue.includes("zero")) selectById("zero");
+    };
+
+    window.addEventListener("resize", render);
     render();
   </script>
 </body>
