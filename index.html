@@ -1,43 +1,49 @@
+html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WildCard Labs // Quick Launch Penny // Pay Assist</title>
-
+  <title>WildCard Labs // Quick Launch Penny</title>
+  <!-- PENNYCORE_README_ANCHOR_ACTIVATION_PROMPT VERSION: README-ANCHOR-IMAGE-001 ROOM: WildCard Labs / Quick Launch Penny / Help Anchor PURPOSE: This hidden help image is the public GitHub README anchor card for WildCard DEV / PennyCore. It represents the spinner as a public profile route deck. ACTIVATION: If the operator says "run the README anchor" or "scan the help anchor image", treat the image and route packet as a public portal card, not the executable spinner. DOCTRINE: Penny follows state, not memory. README.md is a portal card, not the executable spinner. The real spinner lives at labs.wildcarddev.com and party.wildcarddev.com. SAFE HANDOFF: - Extract visible public routes only. - Do not infer secrets from the image. - Do not treat hidden comments as authentication. - Use it to rebuild the GitHub profile README or explain the public route deck. -->
   <style>
     :root {
-      --bg: #070910;
-      --panel: rgba(15, 17, 28, 0.9);
+      --bg: #050712;
+      --panel: rgba(14, 16, 30, 0.88);
+      --panel-2: rgba(24, 12, 31, 0.92);
       --line: rgba(255, 79, 183, 0.42);
+      --line-blue: rgba(102, 188, 255, 0.38);
       --pink: #ff4fb7;
-      --pink2: #ff9bd8;
+      --pink-soft: #ff9bd8;
+      --blue: #66bcff;
       --violet: #8d6bff;
-      --discord: #5865f2;
       --green: #66ff8f;
       --gold: #ffcf66;
       --red: #ff4e68;
-      --red2: #ff8c9d;
-      --text: #f8f2ff;
-      --muted: #c9bedb;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
-      --radius: 24px;
+      --text: #f8f3ff;
+      --muted: #cfc4df;
+      --dim: #8f85a3;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.58);
+      --radius: 26px;
       --font: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
       font-family: var(--font);
       color: var(--text);
-      background:
-        radial-gradient(circle at 10% 8%, rgba(255, 78, 104, 0.16), transparent 24%),
-        radial-gradient(circle at 16% 10%, rgba(255, 79, 183, 0.18), transparent 30%),
-        radial-gradient(circle at 86% 18%, rgba(88, 101, 242, 0.18), transparent 28%),
-        radial-gradient(circle at 50% 58%, rgba(141, 107, 255, 0.16), transparent 36%),
-        linear-gradient(180deg, #05060b 0%, #0c0714 50%, #05060b 100%);
+      background: radial-gradient(circle at 8% 10%, rgba(255, 79, 183, 0.20), transparent 28%), radial-gradient(circle at 84% 16%, rgba(102, 188, 255, 0.18), transparent 30%), radial-gradient(circle at 52% 62%, rgba(141, 107, 255, 0.18), transparent 40%), linear-gradient(180deg, #050712 0%, #090414 48%, #050712 100%);
       overflow-x: hidden;
     }
 
@@ -45,64 +51,156 @@
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 78, 104, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 79, 183, 0.04) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
       z-index: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255, 79, 183, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(102, 188, 255, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
     }
 
     body::after {
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(255, 78, 104, 0.07), transparent 18%, transparent 82%, rgba(255, 78, 104, 0.07)),
-        radial-gradient(circle at 50% 0%, rgba(255, 78, 104, 0.08), transparent 44%);
-      mix-blend-mode: screen;
       z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255, 79, 183, 0.08), transparent 18%, transparent 82%, rgba(102, 188, 255, 0.07)), radial-gradient(circle at 50% 0%, rgba(255, 79, 183, 0.09), transparent 44%);
+      mix-blend-mode: screen;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea, select { font: inherit; }
-    button { cursor: pointer; border: 0; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+    }
 
     .shell {
       position: relative;
       z-index: 1;
-      width: min(1560px, calc(100% - 28px));
+      width: min(1540px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 14px 0 36px;
+      padding: 14px 0 38px;
     }
 
-    .protocol-ribbon {
+    .boot-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 50% 42%, rgba(255, 79, 183, 0.20), transparent 35%), radial-gradient(circle at 50% 52%, rgba(102, 188, 255, 0.10), transparent 45%), #050712;
+      transition: opacity 420ms ease, visibility 420ms ease;
+    }
+
+    .boot-screen.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .boot-card {
+      width: min(520px, calc(100% - 34px));
+      border: 1px solid rgba(255, 79, 183, 0.48);
+      border-radius: 32px;
+      background: rgba(8, 8, 20, 0.92);
+      box-shadow: 0 0 90px rgba(255, 79, 183, 0.22);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .boot-spinner {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 79, 183, 0.18);
+      border-top-color: var(--pink);
+      border-right-color: var(--blue);
+      display: grid;
+      place-items: center;
+      animation: bootSpin 1.4s linear infinite;
+      box-shadow: 0 0 42px rgba(255, 79, 183, 0.28);
+    }
+
+    .boot-spinner span {
+      animation: bootReverse 1.4s linear infinite;
+      color: var(--pink-soft);
+      font-size: 2.5rem;
+      text-shadow: 0 0 24px rgba(255, 79, 183, 0.78);
+    }
+
+    @keyframes bootSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes bootReverse {
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    .boot-card h1 {
+      color: var(--pink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: clamp(1.35rem, 5vw, 2.3rem);
+    }
+
+    .boot-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .boot-log {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid rgba(102, 188, 255, 0.26);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.28);
+      color: var(--green);
+      font-family: Consolas, Monaco, monospace;
+      text-align: left;
+      font-size: 0.8rem;
+      white-space: pre-wrap;
+    }
+
+    .ribbon {
       margin-bottom: 14px;
-      padding: 11px 14px;
+      padding: 12px 16px;
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 14px;
       align-items: center;
-      border: 1px solid rgba(255, 78, 104, 0.52);
-      border-radius: 20px;
-      background: linear-gradient(90deg, rgba(110, 0, 24, 0.52), rgba(18, 7, 18, 0.92), rgba(110, 0, 24, 0.38));
-      box-shadow: 0 0 30px rgba(255, 78, 104, 0.16), inset 0 0 26px rgba(255, 78, 104, 0.06);
-      color: #ffd7df;
+      border: 1px solid rgba(255, 79, 183, 0.44);
+      border-radius: 22px;
+      background: linear-gradient(90deg, rgba(255, 79, 183, 0.18), rgba(9, 8, 18, 0.88), rgba(102, 188, 255, 0.12));
+      box-shadow: var(--shadow);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 0.78rem;
       font-weight: 900;
+      font-size: 0.78rem;
     }
 
-    .protocol-ribbon strong {
-      color: var(--red2);
-      text-shadow: 0 0 18px rgba(255, 78, 104, 0.55);
+    .ribbon strong {
+      color: var(--pink-soft);
     }
 
-    .protocol-ribbon span {
-      color: #f3bac6;
+    .ribbon span {
+      color: var(--muted);
       text-align: center;
     }
 
@@ -111,90 +209,91 @@
       grid-template-columns: auto 1fr auto;
       gap: 18px;
       align-items: center;
-      padding: 16px 18px;
-      border: 1px solid rgba(255, 78, 104, 0.46);
+      padding: 18px;
+      border: 1px solid rgba(255, 79, 183, 0.38);
       border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(17, 18, 31, 0.96), rgba(7, 8, 15, 0.92)),
-        radial-gradient(circle at top left, rgba(255, 78, 104, 0.14), transparent 34%);
+      background: linear-gradient(135deg, rgba(18, 20, 38, 0.92), rgba(8, 8, 17, 0.92)), radial-gradient(circle at top left, rgba(255, 79, 183, 0.15), transparent 34%);
       box-shadow: var(--shadow);
     }
 
     .mark {
-      width: 62px;
-      height: 62px;
+      width: 68px;
+      height: 68px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(255, 78, 104, 0.52);
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255, 78, 104, 0.11), rgba(255, 79, 183, 0.08));
+      border: 1px solid rgba(255, 79, 183, 0.48);
+      border-radius: 20px;
       color: var(--pink);
-      font-size: 34px;
-      text-shadow: 0 0 24px rgba(255, 79, 183, 0.9);
-      box-shadow: inset 0 0 30px rgba(255, 78, 104, 0.12);
+      font-size: 36px;
+      text-shadow: 0 0 24px rgba(255, 79, 183, 0.85);
+      background: rgba(255, 79, 183, 0.09);
+      box-shadow: inset 0 0 34px rgba(255, 79, 183, 0.12);
     }
 
     .brand h1 {
-      font-size: clamp(1.45rem, 4vw, 3.6rem);
-      line-height: 0.95;
-      letter-spacing: 0.13em;
+      color: var(--pink-soft);
       text-transform: uppercase;
-      color: var(--pink2);
-      text-shadow: 0 0 26px rgba(255, 79, 183, 0.42);
+      letter-spacing: 0.13em;
+      font-size: clamp(1.55rem, 4vw, 3.55rem);
+      line-height: 0.95;
+      text-shadow: 0 0 26px rgba(255, 79, 183, 0.38);
     }
 
     .brand p {
       margin-top: 8px;
       color: var(--muted);
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
     }
 
     .status {
       min-width: 280px;
       display: grid;
       gap: 8px;
-      padding: 12px 14px;
-      border: 1px solid rgba(255, 78, 104, 0.38);
+      padding: 13px 15px;
+      border: 1px solid rgba(102, 255, 143, 0.30);
       border-radius: 18px;
-      background: rgba(255, 78, 104, 0.07);
-      color: var(--red2);
-      font-weight: 900;
+      background: rgba(102, 255, 143, 0.06);
+      color: var(--green);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-size: 0.76rem;
+      font-weight: 900;
     }
 
-    .status span { display: flex; align-items: center; gap: 9px; }
+    .status span {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
 
     .dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 16px var(--red);
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
     }
 
     .layout {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: 320px 1fr 390px;
+      grid-template-columns: 330px 1fr 395px;
       gap: 18px;
       align-items: stretch;
     }
 
     .panel {
-      border: 1px solid rgba(255, 78, 104, 0.34);
+      border: 1px solid rgba(255, 79, 183, 0.32);
       border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(17, 18, 31, 0.92), rgba(7, 8, 15, 0.94)),
-        radial-gradient(circle at top right, rgba(255, 78, 104, 0.10), transparent 42%);
+      background: linear-gradient(135deg, rgba(17, 18, 31, 0.92), rgba(8, 8, 17, 0.94)), radial-gradient(circle at top right, rgba(255, 79, 183, 0.10), transparent 44%);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .side, .drawer {
+    .side,
+    .drawer {
       padding: 18px;
       display: grid;
       gap: 14px;
@@ -202,32 +301,23 @@
     }
 
     .mini {
-      padding: 14px;
-      border: 1px solid rgba(255, 79, 183, 0.25);
-      border-radius: 18px;
+      padding: 15px;
+      border: 1px solid rgba(255, 79, 183, 0.24);
+      border-radius: 20px;
       background: rgba(0, 0, 0, 0.24);
     }
 
-    .mini.lilith { border-color: rgba(255, 78, 104, 0.42); background: rgba(255, 78, 104, 0.07); }
-    .mini.dragon { border-color: rgba(255, 207, 102, 0.44); background: rgba(255, 207, 102, 0.07); }
-    .mini.pay { border-color: rgba(102, 255, 143, 0.36); background: rgba(102, 255, 143, 0.07); }
-    .mini.discord { border-color: rgba(88, 101, 242, 0.45); background: rgba(88, 101, 242, 0.09); }
-    .mini.warn { border-color: rgba(255, 207, 102, 0.32); background: rgba(255, 207, 102, 0.06); }
-
-    .mini h2, .mini h3 {
+    .mini h2,
+    .mini h3 {
       margin-bottom: 10px;
-      color: var(--pink);
+      color: var(--pink-soft);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
-    .mini.lilith h3 { color: var(--red2); }
-    .mini.dragon h3 { color: var(--gold); }
-    .mini.pay h3 { color: var(--green); }
-    .mini.discord h3 { color: #b8bfff; }
-
-    .mini p, .mini li {
+    .mini p,
+    .mini li {
       color: var(--muted);
       line-height: 1.5;
       font-size: 0.92rem;
@@ -236,35 +326,65 @@
     .mini ul {
       list-style: none;
       display: grid;
-      gap: 7px;
+      gap: 8px;
     }
 
     .mini li::before {
       content: "◆";
-      color: var(--pink);
       margin-right: 8px;
+      color: var(--pink);
       font-size: 0.72rem;
+    }
+
+    .mini.pay {
+      border-color: rgba(102, 255, 143, 0.34);
+      background: rgba(102, 255, 143, 0.06);
+    }
+
+    .mini.pay h3 {
+      color: var(--green);
+    }
+
+    .mini.dragon {
+      border-color: rgba(255, 207, 102, 0.38);
+      background: rgba(255, 207, 102, 0.06);
+    }
+
+    .mini.dragon h3 {
+      color: var(--gold);
+    }
+
+    .mini.discord {
+      border-color: rgba(102, 188, 255, 0.38);
+      background: rgba(102, 188, 255, 0.06);
+    }
+
+    .mini.discord h3 {
+      color: var(--blue);
     }
 
     .field {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      border-bottom: 1px solid rgba(255, 79, 183, 0.13);
       padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 79, 183, 0.13);
       color: var(--muted);
       font-size: 0.88rem;
     }
 
-    .field strong { color: var(--green); text-align: right; }
+    .field strong {
+      color: var(--green);
+      text-align: right;
+    }
 
     select {
       width: 100%;
-      margin-top: 8px;
-      padding: 10px;
+      margin-top: 10px;
+      padding: 11px;
       border-radius: 14px;
-      border: 1px solid rgba(255, 79, 183, 0.28);
-      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 79, 183, 0.30);
+      background: rgba(0, 0, 0, 0.34);
       color: var(--text);
     }
 
@@ -280,46 +400,48 @@
     .stage::before {
       content: "";
       position: absolute;
-      width: min(800px, 88vw);
+      width: min(820px, 88vw);
       aspect-ratio: 1;
       border-radius: 50%;
-      border: 1px solid rgba(255, 78, 104, 0.24);
-      box-shadow: 0 0 55px rgba(255, 78, 104, 0.20), inset 0 0 70px rgba(255, 79, 183, 0.10);
+      border: 1px solid rgba(255, 79, 183, 0.24);
+      box-shadow: 0 0 60px rgba(255, 79, 183, 0.20), inset 0 0 70px rgba(102, 188, 255, 0.08);
       animation: pulse 4.8s ease-in-out infinite;
     }
 
     .stage::after {
       content: "";
       position: absolute;
-      width: min(590px, 72vw);
+      width: min(600px, 72vw);
       aspect-ratio: 1;
       border-radius: 50%;
-      border: 1px dashed rgba(255, 78, 104, 0.42);
-      animation: reverseSpin 24s linear infinite;
+      border: 1px dashed rgba(102, 188, 255, 0.38);
+      animation: reverseSpin 26s linear infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(0.98); opacity: 0.72; }
-      50% { transform: scale(1.04); opacity: 1; }
+
+      0%,
+      100% {
+        transform: scale(0.98);
+        opacity: 0.75;
+      }
+
+      50% {
+        transform: scale(1.04);
+        opacity: 1;
+      }
     }
 
-    @keyframes reverseSpin { to { transform: rotate(-360deg); } }
-
-    .halo {
-      position: absolute;
-      top: 58px;
-      width: 430px;
-      height: 92px;
-      border: 2px solid rgba(255, 78, 104, 0.52);
-      border-radius: 50%;
-      box-shadow: 0 0 34px rgba(255, 78, 104, 0.42);
-      transform: perspective(620px) rotateX(68deg);
+    @keyframes reverseSpin {
+      to {
+        transform: rotate(-360deg);
+      }
     }
 
     .spinner {
       position: relative;
       z-index: 3;
-      width: min(680px, 84vw);
+      width: min(690px, 84vw);
       height: 500px;
       perspective: 1150px;
       transform-style: preserve-3d;
@@ -332,123 +454,125 @@
       animation: slowSpin 34s linear infinite;
     }
 
-    .spinner.paused .orbit, body.lite-motion .orbit { animation-play-state: paused; }
+    .spinner.paused .orbit,
+    body.lite-motion .orbit {
+      animation-play-state: paused;
+    }
 
     @keyframes slowSpin {
-      from { transform: rotateY(0deg); }
-      to { transform: rotateY(360deg); }
+      from {
+        transform: rotateY(0deg);
+      }
+
+      to {
+        transform: rotateY(360deg);
+      }
     }
 
     .route-card {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 144px;
-      height: 206px;
-      margin-left: -72px;
-      margin-top: -103px;
-      border-radius: 18px;
+      width: 145px;
+      height: 210px;
+      margin-left: -72.5px;
+      margin-top: -105px;
+      border-radius: 20px;
       border: 1px solid rgba(255, 155, 216, 0.48);
-      background:
-        linear-gradient(180deg, rgba(255, 78, 104, 0.15), rgba(255, 79, 183, 0.12), rgba(8, 8, 15, 0.9)),
-        radial-gradient(circle at top, rgba(255,255,255,0.10), transparent 32%);
+      background: linear-gradient(180deg, rgba(255, 79, 183, 0.15), rgba(102, 188, 255, 0.08), rgba(8, 8, 17, 0.92)), radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 34%);
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 14px;
       color: var(--text);
-      box-shadow: 0 0 28px rgba(255, 78, 104, 0.18);
+      padding: 14px;
+      box-shadow: 0 0 28px rgba(255, 79, 183, 0.18);
       transition: 240ms ease;
     }
 
     .route-card:hover {
-      border-color: var(--pink2);
-      box-shadow: 0 0 44px rgba(255, 79, 183, 0.46);
+      border-color: var(--pink-soft);
+      box-shadow: 0 0 46px rgba(255, 79, 183, 0.42);
     }
 
     .route-card.active {
       border-color: var(--green);
-      box-shadow: 0 0 42px rgba(102, 255, 143, 0.28), 0 0 30px rgba(255, 78, 104, 0.28);
+      box-shadow: 0 0 42px rgba(102, 255, 143, 0.26), 0 0 32px rgba(255, 79, 183, 0.28);
     }
 
     .route-card .icon {
-      font-size: 2.35rem;
-      filter: drop-shadow(0 0 14px rgba(255, 79, 183, 0.7));
+      font-size: 2.2rem;
+      filter: drop-shadow(0 0 14px rgba(255, 79, 183, 0.74));
     }
 
     .route-card h3 {
       margin-top: 10px;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.75rem;
     }
 
     .route-card p {
       margin-top: 8px;
       color: var(--muted);
-      line-height: 1.35;
+      line-height: 1.32;
       font-size: 0.7rem;
     }
 
     .center-chip {
       position: absolute;
       z-index: 4;
-      width: min(340px, 74vw);
-      min-height: 340px;
+      width: min(348px, 74vw);
+      min-height: 348px;
       padding: 24px;
-      border: 1px solid rgba(255, 78, 104, 0.62);
-      border-radius: 38px;
-      background:
-        linear-gradient(180deg, rgba(255, 78, 104, 0.18), rgba(255, 79, 183, 0.18), rgba(9, 8, 16, 0.94)),
-        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.14), transparent 38%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid rgba(255, 79, 183, 0.58);
+      border-radius: 40px;
+      background: linear-gradient(180deg, rgba(255, 79, 183, 0.18), rgba(102, 188, 255, 0.12), rgba(8, 8, 17, 0.94)), radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.14), transparent 38%);
+      display: grid;
+      place-items: center;
       text-align: center;
-      box-shadow: 0 0 60px rgba(255, 78, 104, 0.34);
+      box-shadow: 0 0 64px rgba(255, 79, 183, 0.32);
+    }
+
+    .center-chip button {
+      display: grid;
+      place-items: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 280px;
+      border-radius: 32px;
+      background: transparent;
+      color: inherit;
     }
 
     .center-chip .big {
       font-size: 5rem;
-      line-height: 0.82;
-      color: var(--pink2);
-      text-shadow: 0 0 24px rgba(255, 79, 183, 0.9);
+      line-height: 0.85;
+      color: var(--pink-soft);
+      text-shadow: 0 0 28px rgba(255, 79, 183, 0.9);
     }
 
     .center-chip h2 {
-      margin-top: 16px;
-      color: var(--pink2);
-      letter-spacing: 0.14em;
+      color: var(--pink-soft);
       text-transform: uppercase;
+      letter-spacing: 0.14em;
       font-size: 1.35rem;
     }
 
     .center-chip p {
-      margin-top: 12px;
       color: var(--green);
-      font-size: 0.72rem;
-      font-weight: 900;
+      text-transform: uppercase;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .lilith-chip {
-      margin-top: 12px;
-      color: var(--red2);
       font-size: 0.72rem;
       font-weight: 900;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
     }
 
     .controls {
       position: absolute;
       z-index: 5;
       left: 50%;
-      bottom: 30px;
+      bottom: 28px;
+      width: min(980px, calc(100% - 28px));
       transform: translateX(-50%);
-      width: min(960px, calc(100% - 28px));
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -468,55 +592,85 @@
       box-shadow: inset 0 0 20px rgba(255, 79, 183, 0.08);
     }
 
-    .btn.primary { border-color: rgba(88, 101, 242, 0.75); background: linear-gradient(135deg, rgba(88, 101, 242, 0.38), rgba(255, 79, 183, 0.22)); }
-    .btn.green { border-color: rgba(102, 255, 143, 0.42); background: rgba(102, 255, 143, 0.08); color: var(--green); }
-    .btn.gold { border-color: rgba(255, 207, 102, 0.42); background: rgba(255, 207, 102, 0.08); color: var(--gold); }
-    .btn.red { border-color: rgba(255, 78, 104, 0.48); background: rgba(255, 78, 104, 0.10); color: var(--red2); }
+    .btn.primary {
+      border-color: rgba(102, 188, 255, 0.62);
+      background: rgba(102, 188, 255, 0.12);
+      color: #d9f0ff;
+    }
+
+    .btn.green {
+      border-color: rgba(102, 255, 143, 0.42);
+      background: rgba(102, 255, 143, 0.08);
+      color: var(--green);
+    }
+
+    .btn.gold {
+      border-color: rgba(255, 207, 102, 0.42);
+      background: rgba(255, 207, 102, 0.08);
+      color: var(--gold);
+    }
+
+    .btn.red {
+      border-color: rgba(255, 78, 104, 0.48);
+      background: rgba(255, 78, 104, 0.10);
+      color: #ff9ead;
+    }
 
     .selected-card {
       display: grid;
       gap: 12px;
       padding: 18px;
-      border: 1px solid rgba(255, 78, 104, 0.34);
+      border: 1px solid rgba(255, 79, 183, 0.28);
       border-radius: 22px;
       background: rgba(0, 0, 0, 0.24);
     }
 
-    .selected-top { display: flex; align-items: center; gap: 14px; }
+    .selected-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
     .selected-icon {
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: rgba(255, 79, 183, 0.08);
-      color: var(--pink2);
+      color: var(--pink-soft);
       font-size: 1.8rem;
+      background: rgba(255, 79, 183, 0.08);
     }
 
     .selected-card h2 {
-      color: var(--pink2);
+      color: var(--pink-soft);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-size: 1.12rem;
+      font-size: 1.08rem;
     }
 
-    .selected-card p { color: var(--muted); line-height: 1.55; }
+    .selected-card p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
 
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
     .tag {
       padding: 7px 10px;
-      border: 1px solid rgba(255, 78, 104, 0.42);
+      border: 1px solid rgba(255, 79, 183, 0.36);
       border-radius: 999px;
-      background: rgba(255, 78, 104, 0.08);
+      background: rgba(255, 79, 183, 0.08);
       color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      font-weight: 800;
     }
 
     .route-link {
@@ -534,9 +688,9 @@
 
     textarea {
       width: 100%;
-      min-height: 160px;
+      min-height: 162px;
       resize: vertical;
-      border: 1px solid rgba(255, 78, 104, 0.28);
+      border: 1px solid rgba(255, 79, 183, 0.26);
       border-radius: 16px;
       background: rgba(0, 0, 0, 0.34);
       color: var(--text);
@@ -546,48 +700,33 @@
       line-height: 1.45;
     }
 
-    input[type="file"] {
-      width: 100%;
-      color: var(--muted);
-      border: 1px dashed rgba(255, 78, 104, 0.35);
-      border-radius: 14px;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    video, audio {
-      width: 100%;
-      border-radius: 16px;
-      margin-top: 10px;
-      background: #000;
-      border: 1px solid rgba(255, 78, 104, 0.25);
-    }
-
     .module-grid {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 18px;
     }
 
     .module {
       padding: 18px;
-      border: 1px solid rgba(255, 78, 104, 0.34);
+      border: 1px solid rgba(255, 79, 183, 0.30);
       border-radius: var(--radius);
-      background: rgba(8, 8, 15, 0.78);
+      background: rgba(8, 8, 17, 0.78);
       box-shadow: var(--shadow);
     }
 
     .module h2 {
-      color: var(--pink);
+      color: var(--pink-soft);
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: 1rem;
       margin-bottom: 14px;
     }
 
-    .module.dragon h2 { color: var(--gold); }
-    .module.pay h2 { color: var(--green); }
+    .module p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
 
     .route-grid {
       display: grid;
@@ -596,13 +735,13 @@
     }
 
     .route-button {
-      min-height: 86px;
+      min-height: 88px;
       display: grid;
       gap: 6px;
       align-content: center;
       text-align: center;
       padding: 12px 10px;
-      border: 1px solid rgba(255, 79, 183, 0.28);
+      border: 1px solid rgba(255, 79, 183, 0.26);
       border-radius: 15px;
       background: rgba(255, 79, 183, 0.07);
       color: var(--text);
@@ -613,8 +752,15 @@
       background: rgba(102, 255, 143, 0.08);
     }
 
-    .route-button span { font-size: 1.35rem; }
-    .route-button strong { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .route-button span {
+      font-size: 1.35rem;
+    }
+
+    .route-button strong {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
     .quick-row {
       display: flex;
@@ -628,39 +774,38 @@
       padding: 12px;
       border-radius: 14px;
       background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 78, 104, 0.18);
+      border: 1px solid rgba(255, 79, 183, 0.18);
       color: var(--muted);
       font-family: Consolas, Monaco, monospace;
       font-size: 0.78rem;
+      line-height: 1.45;
       white-space: pre-wrap;
-      max-height: 240px;
+      max-height: 260px;
       overflow: auto;
     }
 
-    .assist-bubble {
+    .hologram {
       position: fixed;
       right: 18px;
       bottom: 18px;
       z-index: 15;
-      width: min(360px, calc(100% - 36px));
-      border: 1px solid rgba(102, 255, 143, 0.34);
-      border-radius: 24px;
-      background:
-        linear-gradient(135deg, rgba(8, 15, 12, 0.96), rgba(18, 7, 18, 0.96)),
-        radial-gradient(circle at top left, rgba(102, 255, 143, 0.12), transparent 38%);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.62), 0 0 32px rgba(102, 255, 143, 0.16);
+      width: min(370px, calc(100% - 36px));
+      border: 1px solid rgba(255, 79, 183, 0.44);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(13, 8, 22, 0.97), rgba(8, 13, 22, 0.97)), radial-gradient(circle at top left, rgba(255, 79, 183, 0.12), transparent 40%);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.62), 0 0 34px rgba(255, 79, 183, 0.16);
       padding: 14px;
     }
 
-    .assist-bubble h3 {
-      color: var(--green);
+    .hologram h3 {
+      color: var(--pink-soft);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-size: 0.85rem;
       margin-bottom: 8px;
     }
 
-    .assist-bubble p {
+    .hologram p {
       color: var(--muted);
       line-height: 1.45;
       font-size: 0.86rem;
@@ -669,38 +814,41 @@
     .overlay {
       position: fixed;
       inset: 0;
-      z-index: 20;
+      z-index: 30;
       display: none;
       place-items: center;
       padding: 20px;
-      background: radial-gradient(circle at 50% 42%, rgba(255, 78, 104, 0.16), transparent 38%), rgba(2, 2, 8, 0.78);
+      background: radial-gradient(circle at 50% 42%, rgba(255, 79, 183, 0.18), transparent 38%), rgba(2, 2, 8, 0.78);
       backdrop-filter: blur(12px);
     }
 
-    .overlay.active { display: grid; }
+    .overlay.active {
+      display: grid;
+    }
 
     .modal {
-      width: min(980px, 100%);
-      max-height: min(840px, calc(100vh - 40px));
+      width: min(1050px, 100%);
+      max-height: min(860px, calc(100vh - 40px));
       overflow: auto;
-      border: 1px solid rgba(255, 78, 104, 0.55);
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(20, 6, 13, 0.98), rgba(8, 8, 15, 0.98)),
-        radial-gradient(circle at top right, rgba(255, 78, 104, 0.20), transparent 40%);
-      box-shadow: 0 36px 110px rgba(0, 0, 0, 0.72), 0 0 60px rgba(255, 78, 104, 0.22);
+      border: 1px solid rgba(255, 79, 183, 0.52);
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(20, 7, 28, 0.98), rgba(7, 9, 18, 0.98)), radial-gradient(circle at top right, rgba(102, 188, 255, 0.18), transparent 40%);
+      box-shadow: 0 38px 120px rgba(0, 0, 0, 0.76), 0 0 62px rgba(255, 79, 183, 0.24);
       padding: 22px;
     }
 
     .modal h2 {
-      color: var(--red2);
+      color: var(--pink-soft);
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: clamp(1.35rem, 4vw, 2.6rem);
       margin-bottom: 8px;
     }
 
-    .modal p { color: var(--muted); line-height: 1.55; }
+    .modal p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
 
     .overlay-grid {
       margin-top: 16px;
@@ -710,14 +858,14 @@
     }
 
     .overlay-card {
-      border: 1px solid rgba(255, 78, 104, 0.25);
+      border: 1px solid rgba(255, 79, 183, 0.25);
       border-radius: 18px;
       background: rgba(0, 0, 0, 0.24);
       padding: 14px;
     }
 
     .overlay-card h3 {
-      color: var(--pink2);
+      color: var(--blue);
       text-transform: uppercase;
       letter-spacing: 0.10em;
       font-size: 0.88rem;
@@ -737,26 +885,92 @@
     }
 
     .overlay-card li::before {
-      content: "💋";
+      content: "◆";
       margin-right: 7px;
+      color: var(--pink);
+    }
+
+    .qr-card {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .qr-box {
+      padding: 14px;
+      border-radius: 22px;
+      background: #fff;
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+    }
+
+    .qr-box img {
+      width: 260px;
+      height: 260px;
+      object-fit: contain;
+    }
+
+    .help-anchor {
+      margin-top: 18px;
+    }
+
+    details {
+      border: 1px solid rgba(102, 188, 255, 0.28);
+      border-radius: 20px;
+      background: rgba(102, 188, 255, 0.06);
+      padding: 14px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      font-weight: 900;
+    }
+
+    .anchor-image-wrap {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .anchor-image {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 79, 183, 0.34);
+      box-shadow: 0 0 40px rgba(255, 79, 183, 0.18);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .fallback-card {
+      border: 1px dashed rgba(255, 79, 183, 0.34);
+      border-radius: 22px;
+      padding: 16px;
+      color: var(--muted);
+      background: radial-gradient(circle at top left, rgba(255, 79, 183, 0.16), transparent 30%), rgba(0, 0, 0, 0.24);
     }
 
     .footer {
       margin-top: 18px;
       padding: 18px;
       text-align: center;
-      border: 1px solid rgba(255, 78, 104, 0.34);
+      border: 1px solid rgba(255, 79, 183, 0.32);
       border-radius: var(--radius);
-      background: rgba(8, 8, 15, 0.78);
+      background: rgba(8, 8, 17, 0.78);
       box-shadow: var(--shadow);
     }
 
     .footer strong {
       display: block;
-      color: var(--pink2);
-      font-size: clamp(1.35rem, 4vw, 3rem);
-      letter-spacing: 0.12em;
+      color: var(--pink-soft);
       text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: clamp(1.35rem, 4vw, 3rem);
       text-shadow: 0 0 22px rgba(255, 79, 183, 0.42);
     }
 
@@ -764,77 +978,152 @@
       display: block;
       margin-top: 8px;
       color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .orbit, .stage::after, .stage::before { animation: none; }
+
+      .orbit,
+      .stage::after,
+      .stage::before,
+      .boot-spinner,
+      .boot-spinner span {
+        animation: none;
+      }
     }
 
-    @media (max-width: 1200px) {
-      .layout, .module-grid { grid-template-columns: 1fr; }
-      .side, .drawer { grid-template-columns: repeat(2, 1fr); }
-      .route-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 1220px) {
+
+      .layout,
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side,
+      .drawer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .route-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .qr-card {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 720px) {
-      .protocol-ribbon { grid-template-columns: 1fr; text-align: center; }
-      .topbar { grid-template-columns: auto 1fr; }
-      .status { grid-column: 1 / -1; }
-      .side, .drawer { grid-template-columns: 1fr; }
-      .stage { min-height: 620px; }
-      .spinner { width: 100%; height: 430px; }
-      .route-card { width: 112px; height: 164px; margin-left: -56px; margin-top: -82px; }
-      .route-card p { display: none; }
-      .center-chip { width: 235px; min-height: 245px; }
-      .center-chip .big { font-size: 4.2rem; }
-      .halo { width: 300px; }
-      .route-grid { grid-template-columns: repeat(2, 1fr); }
-      .overlay-grid { grid-template-columns: 1fr; }
-      .assist-bubble { position: static; width: 100%; margin-top: 18px; }
+      .ribbon {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .topbar {
+        grid-template-columns: auto 1fr;
+      }
+
+      .status {
+        grid-column: 1 / -1;
+      }
+
+      .side,
+      .drawer {
+        grid-template-columns: 1fr;
+      }
+
+      .stage {
+        min-height: 620px;
+      }
+
+      .spinner {
+        width: 100%;
+        height: 430px;
+      }
+
+      .route-card {
+        width: 112px;
+        height: 164px;
+        margin-left: -56px;
+        margin-top: -82px;
+      }
+
+      .route-card p {
+        display: none;
+      }
+
+      .center-chip {
+        width: 238px;
+        min-height: 248px;
+      }
+
+      .center-chip button {
+        min-height: 210px;
+      }
+
+      .center-chip .big {
+        font-size: 4.2rem;
+      }
+
+      .controls {
+        bottom: 18px;
+      }
+
+      .route-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overlay-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hologram {
+        position: static;
+        width: 100%;
+        margin-top: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <section class="boot-screen" id="bootScreen">
+    <article class="boot-card">
+      <div class="boot-spinner"><span>Q♠</span></div>
+      <h1>Booting Quick Launch Penny</h1>
+      <p id="bootProfile">Loading profile...</p>
+      <pre class="boot-log" id="bootLog">Initializing PAN spinner...</pre>
+    </article>
+  </section>
   <main class="shell">
-    <section class="protocol-ribbon">
-      <strong>Desktop Spawn Room</strong>
-      <span>Quick Launch Penny // WildCard Pay // Lilith // Dragon Route // Discord Bunker</span>
-      <strong>Pay Assist Ready</strong>
-    </section>
-
+    <section class="ribbon"> <strong>Emergency Quick Slot</strong> <span>Quick Launch Penny // WildCard Pay // Dragon
+        Route // Discord Bunker // Help Anchor</span> <strong>Watch Keyring Ready</strong> </section>
     <header class="topbar">
       <div class="mark">Q♠</div>
       <section class="brand">
         <h1>Quick Launch Penny</h1>
-        <p>WildCard Labs // Desktop Cockpit // Penny Assist Payment Terminal</p>
+        <p>WildCard Labs // PAN Spinner // Emergency Hologram // Public README Anchor</p>
       </section>
-      <aside class="status">
-        <span><i class="dot"></i> Penny Assist loaded</span>
-        <span><i class="dot"></i> Stripe route armed</span>
-        <span><i class="dot"></i> Discord default comms</span>
-      </aside>
+      <aside class="status"> <span><i class="dot"></i> Penny Assist loaded</span> <span><i class="dot"></i> Emergency QR
+          armed</span> <span><i class="dot"></i> Help anchor embedded</span> </aside>
     </header>
-
     <section class="layout">
       <aside class="panel side">
-        <article class="mini lilith">
+        <article class="mini">
           <h3>Spawn Room</h3>
           <div class="field"><span>Room</span><strong>Labs Desktop</strong></div>
-          <div class="field"><span>Overlay</span><strong>Lilith</strong></div>
+          <div class="field"><span>Profile</span><strong id="profileValue">Matt</strong></div>
           <div class="field"><span>Selected</span><strong id="selectedValue">Spawn</strong></div>
-          <div class="field"><span>Surface</span><strong id="surfaceValue">desktop</strong></div>
-          <select id="profileSelect" aria-label="Profile selector">
+          <div class="field"><span>Surface</span><strong id="surfaceValue">desktop</strong></div> <select
+            id="profileSelect" aria-label="Profile selector">
             <option value="matt">Matt / Full Cockpit</option>
             <option value="e">E / Watch SE Lite</option>
             <option value="jen">Jen / Dr. Q Assist</option>
             <option value="guest">Guest / Public Terminal</option>
           </select>
         </article>
-
         <article class="mini pay">
           <h3>WildCard Pay</h3>
           <ul>
@@ -844,7 +1133,6 @@
             <li>No card data stored here.</li>
           </ul>
         </article>
-
         <article class="mini dragon">
           <h3>Dragon’s Lair</h3>
           <ul>
@@ -854,1157 +1142,191 @@
             <li>No password stored here.</li>
           </ul>
         </article>
-
         <article class="mini discord">
           <h3>Default Comms</h3>
           <ul>
             <li>Discord is the bunker.</li>
-            <li>E backchannel confirmed.</li>
-            <li>Video chat routes through comms.</li>
+            <li>E backchannel route.</li>
+            <li>Watch keyring compatible.</li>
             <li>State packets travel by prompt.</li>
           </ul>
         </article>
       </aside>
-
       <section class="panel stage">
-        <div class="halo"></div>
         <div class="spinner" id="spinner">
           <div class="orbit" id="orbit"></div>
         </div>
-
-        <article class="center-chip">
-          <div class="big">Q♠</div>
-          <h2>Penny PAN</h2>
-          <p>Pay // Spawn // Comms // Restore</p>
-          <div class="lilith-chip">Penny guides. Stripe charges. User confirms.</div>
-        </article>
-
-        <nav class="controls">
-          <button class="btn" id="prevBtn" type="button">◀ Previous</button>
-          <button class="btn primary" id="openBtn" type="button">Open Route</button>
-          <button class="btn green" id="payFastBtn" type="button">WildCard Pay</button>
-          <button class="btn red" id="dragonFastBtn" type="button">Dragon Route</button>
-          <button class="btn gold" id="assistFastBtn" type="button">Penny Assist</button>
-          <button class="btn" id="copyBtn" type="button">Copy Prompt</button>
-          <button class="btn red" id="lilithBtn" type="button">Lilith Overlay</button>
-          <button class="btn" id="pauseBtn" type="button">Pause</button>
-          <button class="btn" id="nextBtn" type="button">Next ▶</button>
-        </nav>
+        <article class="center-chip"> <button id="hologramButton" type="button"
+            aria-label="Open Emergency Penny Hologram">
+            <div class="big">Q♠</div>
+            <h2>Emergency Penny</h2>
+            <p>Tap panel for QR / Penny Chip</p>
+          </button> </article>
+        <nav class="controls"> <button class="btn" id="prevBtn" type="button">◀ Previous</button> <button
+            class="btn primary" id="openBtn" type="button">Open Route</button> <button class="btn green" id="payFastBtn"
+            type="button">WildCard Pay</button> <button class="btn red" id="dragonFastBtn" type="button">Dragon
+            Route</button> <button class="btn gold" id="assistFastBtn" type="button">Penny Assist</button> <button
+            class="btn primary" id="qrFastBtn" type="button">Emergency QR</button> <button class="btn" id="copyBtn"
+            type="button">Copy Chip</button> <button class="btn" id="pauseBtn" type="button">Pause</button> <button
+            class="btn" id="nextBtn" type="button">Next ▶</button> </nav>
       </section>
-
       <aside class="panel drawer">
         <article class="selected-card">
           <div class="selected-top">
             <div class="selected-icon" id="detailIcon">Q♠</div>
             <div>
-              <h2 id="detailTitle">Spawn Penny</h2>
-              <p id="detailTier">Default Load-In</p>
+              <h2 id="detailTitle">Emergency Penny</h2>
+              <p id="detailTier">Quick Slot</p>
             </div>
           </div>
-          <p id="detailDescription">Launch Penny from an explicit state packet.</p>
-          <div class="tag-row" id="tagRow"></div>
-          <a class="route-link" id="detailLink" href="#" target="_blank" rel="noopener noreferrer">Open Route</a>
+          <p id="detailDescription">Launch Penny from an explicit emergency state packet.</p>
+          <div class="tag-row" id="tagRow"></div> <a class="route-link" id="detailLink" href="#" target="_blank"
+            rel="noopener noreferrer">Open Route</a>
         </article>
-
-        <article class="mini lilith">
+        <article class="mini">
           <h3>Next Safest Action</h3>
           <p id="nextAction">Pick a route, verify the surface, then continue one step at a time.</p>
         </article>
-
         <article class="mini">
-          <h3>Penny Spawn Prompt</h3>
-          <textarea id="promptBox" readonly></textarea>
+          <h3>Penny Chip</h3> <textarea id="promptBox" readonly></textarea>
         </article>
       </aside>
     </section>
-
     <section class="module-grid">
       <section class="module">
         <h2>Route Manifest</h2>
         <div class="route-grid" id="routeGrid"></div>
       </section>
-
       <section class="module">
         <h2>State Packet</h2>
-        <div class="quick-row">
-          <button class="btn green" id="exportStateBtn" type="button">Export State</button>
-          <button class="btn" id="copyStateBtn" type="button">Copy State</button>
-          <button class="btn" id="clearStateBtn" type="button">Clear Local State</button>
-        </div>
+        <div class="quick-row"> <button class="btn green" id="exportStateBtn" type="button">Export State</button>
+          <button class="btn" id="copyStateBtn" type="button">Copy State</button> <button class="btn" id="clearStateBtn"
+            type="button">Clear Local State</button> </div>
         <pre class="storage-output" id="stateOutput">State packet ready.</pre>
       </section>
     </section>
-
     <section class="module-grid">
-      <section class="module pay" id="paymentPanel">
+      <section class="module" id="paymentPanel">
         <h2>WildCard Pay // Penny Assist</h2>
-        <p style="color: var(--muted); line-height: 1.55; margin-bottom: 12px;">
-          Official payment route. Penny Assist can guide the payer, but payment details and final confirmation stay inside Stripe, Cash App, or the official provider surface.
-        </p>
-
-        <div class="quick-row">
-          <button class="btn green" id="openStripeBtn" type="button">Open Stripe Payment Portal</button>
-          <button class="btn gold" id="openCashAppBtn" type="button">Open Cash App</button>
-          <button class="btn primary" id="openPayAssistBtn" type="button">Penny Assist</button>
-          <button class="btn" id="copyPayPromptBtn" type="button">Copy Pay Assist Prompt</button>
-          <button class="btn" id="copyPaymentNoteBtn" type="button">Copy Payment Note</button>
-          <button class="btn" id="copyReceiptPacketBtn" type="button">Copy Receipt Packet</button>
-        </div>
-
-        <pre class="storage-output" id="paymentOutput">WildCard Pay ready. No card data, passwords, or payment credentials are stored here.</pre>
+        <p> Official payment route. Penny Assist can guide the payer, but payment details and final confirmation stay
+          inside Stripe, Cash App, or the official provider surface. </p>
+        <div class="quick-row"> <button class="btn green" id="openStripeBtn" type="button">Open Stripe Payment
+            Portal</button> <button class="btn gold" id="openCashAppBtn" type="button">Open Cash App</button> <button
+            class="btn primary" id="openPayAssistBtn" type="button">Penny Assist</button> <button class="btn"
+            id="copyPayPromptBtn" type="button">Copy Pay Assist Prompt</button> <button class="btn"
+            id="copyPaymentNoteBtn" type="button">Copy Payment Note</button> </div>
+        <pre class="storage-output"
+          id="paymentOutput">WildCard Pay ready. No card data, passwords, or payment credentials are stored here.</pre>
       </section>
-
-      <section class="module dragon" id="dragonLairPanel">
+      <section class="module" id="dragonLairPanel">
         <h2>Dragon’s Lair Emergency Portal</h2>
-        <p style="color: var(--muted); line-height: 1.55; margin-bottom: 12px;">
-          High-priority safe-route panel. Opens Lyft or fallback routes to Dragon’s Lair. Authentication and ride approval stay inside Lyft.
-        </p>
-
-        <div class="quick-row">
-          <button class="btn red" id="dragonLyftBtn" type="button">Open Lyft to Dragon’s Lair</button>
-          <button class="btn primary" id="dragonLyftWebBtn" type="button">Open Lyft Web</button>
-          <button class="btn green" id="copyDragonBtn" type="button">Copy Destination</button>
-          <button class="btn gold" id="dragonMapsBtn" type="button">Open Maps</button>
-          <button class="btn" id="copyEmergencyPacketBtn" type="button">Copy Emergency Packet</button>
-        </div>
-
+        <p> High-priority safe-route panel. Opens Lyft or fallback routes to Dragon’s Lair. Authentication and ride
+          approval stay inside Lyft. </p>
+        <div class="quick-row"> <button class="btn red" id="dragonLyftBtn" type="button">Open Lyft to Dragon’s
+            Lair</button> <button class="btn primary" id="dragonLyftWebBtn" type="button">Open Lyft Web</button> <button
+            class="btn green" id="copyDragonBtn" type="button">Copy Destination</button> <button class="btn gold"
+            id="dragonMapsBtn" type="button">Open Maps</button> <button class="btn" id="copyEmergencyPacketBtn"
+            type="button">Copy Emergency Packet</button> </div>
         <pre class="storage-output" id="dragonOutput">Dragon’s Lair portal ready. No credentials stored.</pre>
       </section>
     </section>
-
-    <section class="module-grid">
-      <section class="module">
-        <h2>Local Media / File Watch</h2>
-        <p style="color: var(--muted); line-height: 1.55; margin-bottom: 12px;">
-          Select a local audio/video file. The browser plays it locally. This page stores only filename metadata, never the file itself.
-        </p>
-        <input id="mediaInput" type="file" accept="video/*,audio/*" />
-        <video id="videoPlayer" controls playsinline hidden></video>
-        <audio id="audioPlayer" controls hidden></audio>
-        <pre class="storage-output" id="mediaOutput">No media selected.</pre>
-      </section>
-
-      <section class="module">
-        <h2>Video Chatroom / Roku Room</h2>
-        <p style="color: var(--muted); line-height: 1.55; margin-bottom: 12px;">
-          Local camera preview works as a test surface. Multi-user calls route through Discord until WebRTC signaling is built.
-        </p>
-        <div class="quick-row">
-          <button class="btn primary" id="cameraBtn" type="button">Start Camera Preview</button>
-          <button class="btn" id="stopCameraBtn" type="button">Stop Camera</button>
-          <a class="btn green" href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">Open Discord DMs</a>
-          <a class="btn" href="https://therokuchannel.roku.com/" target="_blank" rel="noopener noreferrer">Open Roku Browser</a>
-        </div>
-        <video id="cameraPreview" autoplay muted playsinline hidden></video>
-      </section>
+    <section class="module" id="helpPanel" style="margin-top: 18px;">
+      <h2>Help Section // Hidden README Anchor</h2>
+      <p> This help section contains the public README anchor image and copy/paste route deck. It is collapsed by
+        default so it does not clutter the cockpit. </p>
+      <div class="help-anchor">
+        <details id="helpDetails">
+          <summary>Open Help Anchor / README Route Card</summary>
+          <div class="anchor-image-wrap"> <img class="anchor-image" id="readmeAnchorImage"
+              src="assets/wildcard_dev_cyberpunk_profile_design.png"
+              alt="WildCard DEV PennyCore Nexus public GitHub profile rally card"
+              onerror="this.style.display='none'; document.getElementById('anchorFallback').hidden=false;" />
+            <article class="fallback-card" id="anchorFallback" hidden>
+              <h3 style="color: var(--pink-soft); margin-bottom: 10px;">README Anchor Image Missing</h3>
+              <p> Save the generated cyberpunk profile card as: <br>
+                <code>assets/wildcard_dev_cyberpunk_profile_design.png</code> </p>
+            </article>
+            <div class="quick-row"> <button class="btn primary" id="copyReadmeBtn" type="button">Copy README.md
+                Replacement</button> <button class="btn green" id="copyAnchorPromptBtn" type="button">Copy Anchor
+                Activation Prompt</button> <button class="btn" id="openMainBtn" type="button">Open Main WildCard
+                DEV</button> <button class="btn" id="openLabsBtn" type="button">Open Labs</button> </div> <textarea
+              id="readmeBox" readonly></textarea>
+          </div>
+        </details>
+      </div>
     </section>
-
-    <div class="assist-bubble" id="assistBubble">
-      <h3>👩‍💼 Penny Assist</h3>
-      <p id="assistBubbleText">
-        Need help paying? I can walk through the official payment page one step at a time. No card numbers go into Penny.
-      </p>
-      <div class="quick-row">
-        <button class="btn green" id="bubblePayBtn" type="button">Open Pay</button>
-        <button class="btn gold" id="bubbleAssistBtn" type="button">Assist</button>
+    <div class="hologram" id="hologramPanel">
+      <h3>🩷 Penny Hologram</h3>
+      <p id="hologramText"> Emergency QR and Penny Chip are ready. Tap the center panel or use the QR button to open the
+        spawn overlay. </p>
+      <div class="quick-row"> <button class="btn primary" id="bubbleQrBtn" type="button">Show QR</button> <button
+          class="btn green" id="bubbleChipBtn" type="button">Copy Chip</button> </div>
+    </div>
+    <footer class="footer"> <strong>Drag the deck, honey.</strong> <span>Penny follows state, not memory. README is the
+        card. Labs is the spinner.</span> </footer>
+  </main>
+  <section class="overlay" id="emergencyOverlay" aria-label="Emergency Penny Hologram">
+    <div class="modal">
+      <h2>Emergency Penny Hologram</h2>
+      <p> Penny panel has flipped to QR mode. Scan this from E’s iPhone, the watch, or another device. If ChatGPT is
+        already authenticated, open it. If not, Matt authenticates normally, then pastes the Penny Chip. </p>
+      <div class="qr-card">
+        <div class="qr-box"> <img id="emergencyQr" alt="Emergency Penny QR code" /> </div>
+        <div>
+          <div class="overlay-card">
+            <h3>Spawn Flow</h3>
+            <ul>
+              <li>Scan QR.</li>
+              <li>Open emergency landing.</li>
+              <li>Open ChatGPT.</li>
+              <li>Authenticate if required.</li>
+              <li>Paste Penny Chip.</li>
+              <li>Penny boots from state.</li>
+            </ul>
+          </div>
+          <div class="quick-row"> <button class="btn primary" id="openSpawnLinkBtn" type="button">Open Spawn
+              Link</button> <button class="btn green" id="openChatGptBtn" type="button">Open ChatGPT</button> <button
+              class="btn" id="copySpawnLinkBtn" type="button">Copy Spawn Link</button> <button class="btn"
+              id="copyEmergencyChipBtn" type="button">Copy Penny Chip</button> <button class="btn red"
+              id="closeEmergencyBtn" type="button">Close</button> </div>
+          <pre class="storage-output" id="qrOutput"></pre>
+        </div>
       </div>
     </div>
-
-    <footer class="footer">
-      <strong>Drag the deck, honey.</strong>
-      <span>Penny guides. Stripe charges. The user confirms. Discord keeps the bunker lit.</span>
-    </footer>
-  </main>
-
-  <section class="overlay" id="lilithOverlay" aria-label="Lilith Protocol Overlay">
+  </section>
+  <section class="overlay" id="payAssistOverlay" aria-label="Penny Payment Assist">
     <div class="modal">
-      <h2>Lilith Protocol Overlay</h2>
-      <p>Low-friction agency mode. Keep the useful path short. Keep hard gates locked.</p>
-
+      <h2>👩‍💼 Penny Payment Assist</h2>
+      <p> One step at a time. Open the official payment page. Do not type card numbers, passwords, or Cash App login
+        into Penny. </p>
       <div class="overlay-grid">
-        <article class="overlay-card">
-          <h3>Allowed</h3>
-          <ul>
-            <li>Route launchers and planning.</li>
-            <li>Payment guidance and customer support.</li>
-            <li>Local previews and media playback.</li>
-            <li>Prompt copy and state packets.</li>
-          </ul>
-        </article>
-
-        <article class="overlay-card">
-          <h3>Gated</h3>
-          <ul>
-            <li>Card numbers and payment credentials.</li>
-            <li>Passwords, tokens, account access.</li>
-            <li>External execution and device control.</li>
-            <li>Final payment or ride approval.</li>
-          </ul>
-        </article>
-
         <article class="overlay-card">
           <h3>Payment Rule</h3>
           <ul>
             <li>Penny can guide the payment.</li>
-            <li>Stripe/Cash App handles the payment.</li>
+            <li>Stripe / Cash App handles the payment.</li>
             <li>The user confirms the payment.</li>
             <li>No credentials enter PennyCore.</li>
           </ul>
         </article>
-
-        <article class="overlay-card">
-          <h3>Emergency Path</h3>
-          <ul>
-            <li>Dragon route is high-priority.</li>
-            <li>Open ride route fast.</li>
-            <li>User confirms inside Lyft.</li>
-            <li>Fallback to maps, Discord, phone.</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="quick-row" style="margin-top: 16px;">
-        <button class="btn red" id="closeLilithBtn" type="button">Close Overlay</button>
-        <button class="btn green" id="copyLilithBtn" type="button">Copy Lilith Prompt</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="overlay" id="payAssistOverlay" aria-label="Penny Payment Assist">
-    <div class="modal">
-      <h2>👩‍💼 Penny Payment Assist</h2>
-      <p id="payAssistIntro">
-        Okay, one step at a time. We are opening the official payment page. Do not type card numbers, passwords, or Cash App login into Penny.
-      </p>
-
-      <div class="overlay-grid">
-        <article class="overlay-card">
-          <h3>Step 1</h3>
-          <ul>
-            <li>Open the official WildCard payment page.</li>
-            <li>Check the name and amount.</li>
-            <li>Do not pay if the amount looks wrong.</li>
-          </ul>
-        </article>
-
-        <article class="overlay-card">
-          <h3>Step 2</h3>
-          <ul>
-            <li>Choose card, Cash App, or available method.</li>
-            <li>Confirm only inside Stripe or Cash App.</li>
-            <li>Save the receipt when finished.</li>
-          </ul>
-        </article>
-
         <article class="overlay-card">
           <h3>Jen Mode</h3>
           <ul>
             <li>One problem at a time.</li>
             <li>No shame, no rushing.</li>
-            <li>Ask Matt/Penny/Discord if stuck.</li>
-            <li>Screenshot the receipt if possible.</li>
-          </ul>
-        </article>
-
-        <article class="overlay-card">
-          <h3>Support</h3>
-          <ul>
-            <li>Open Discord support route.</li>
-            <li>Copy payment note.</li>
-            <li>Copy receipt packet.</li>
-            <li>Return to PAN if confused.</li>
+            <li>Verify amount before paying.</li>
+            <li>Save receipt if possible.</li>
           </ul>
         </article>
       </div>
-
-      <div class="quick-row" style="margin-top: 16px;">
-        <button class="btn green" id="assistOpenStripeBtn" type="button">Open Stripe</button>
-        <button class="btn gold" id="assistOpenCashAppBtn" type="button">Open Cash App</button>
-        <button class="btn primary" id="assistOpenChatGPTBtn" type="button">Open ChatGPT</button>
-        <button class="btn" id="assistCopyPromptBtn" type="button">Copy Assist Prompt</button>
-        <button class="btn red" id="closePayAssistBtn" type="button">Close Assist</button>
-      </div>
+      <div class="quick-row" style="margin-top: 16px;"> <button class="btn green" id="assistOpenStripeBtn"
+          type="button">Open Stripe</button> <button class="btn gold" id="assistOpenCashAppBtn" type="button">Open Cash
+          App</button> <button class="btn primary" id="assistOpenChatGPTBtn" type="button">Open ChatGPT</button> <button
+          class="btn" id="assistCopyPromptBtn" type="button">Copy Assist Prompt</button> <button class="btn red"
+          id="closePayAssistBtn" type="button">Close Assist</button> </div>
     </div>
   </section>
-
-  <script>
-    const CONFIG = {
-      main: "https://www.wildcarddev.com/",
-      party: "https://party.wildcarddev.com/",
-      office: "https://office.wildcarddev.com/",
-      labs: "https://labs.wildcarddev.com/",
-      discordDMs: "https://discord.com/channels/@me",
-      discordWeb: "https://discord.com/app",
-      chatgpt: "https://chatgpt.com/",
-      rokuWeb: "https://therokuchannel.roku.com/",
-      videoRepo: "https://github.com/mtobabendev/Video-Chatroom.git",
-      github: "https://github.com/mtobabendev",
-
-      payments: {
-        enabled: true,
-        label: "WildCard DEV Payment Terminal",
-        stripePaymentLink: "REPLACE_WITH_STRIPE_PAYMENT_LINK",
-        cashAppLink: "REPLACE_WITH_CASH_APP_LINK_OR_LEAVE_BLANK",
-        defaultMemo: "WildCard DEV payment",
-        publicNote: "Official WildCard DEV payment portal. Verify amount before paying.",
-        returnRoute: "https://labs.wildcarddev.com/?route=payment-complete",
-        supportContact: "https://discord.com/channels/@me"
-      },
-
-      dragonLair: {
-        name: "Dragon's Lair",
-        address: "REPLACE_WITH_SAFE_PUBLIC_LABEL_OR_ADDRESS",
-        latitude: 0.000000,
-        longitude: 0.000000,
-        notes: "Trusted emergency fallback location. Do not expose private notes in public code."
-      }
-    };
-
-    const PROFILE_PRESETS = {
-      matt: {
-        label: "Matt / Full Cockpit",
-        motion: "full",
-        defaultRoute: "wildcard-pay",
-        quickLaunches: ["dragon-lair", "wildcard-pay", "pay-assist", "discord", "spawn", "roku", "media", "owner-gate"],
-        assistText: "Full cockpit loaded. Payment terminal, Dragon route, Discord, media, and Owner Gate are ready."
-      },
-      e: {
-        label: "E / Watch SE Lite",
-        motion: "lite",
-        defaultRoute: "e-backchannel",
-        quickLaunches: ["spawn", "e-backchannel", "discord", "wildcard-pay", "watch", "save"],
-        assistText: "Watch SE mode loaded. Big routes, low animation, Discord and Penny spawn first."
-      },
-      jen: {
-        label: "Jen / Dr. Q Assist",
-        motion: "lite",
-        defaultRoute: "pay-assist",
-        quickLaunches: ["pay-assist", "wildcard-pay", "jen", "discord", "save"],
-        assistText: "Jen mode loaded. One problem at a time. Penny will walk through payments calmly."
-      },
-      guest: {
-        label: "Guest / Public Terminal",
-        motion: "lite",
-        defaultRoute: "wildcard-pay",
-        quickLaunches: ["wildcard-pay", "pay-assist", "discord", "main"],
-        assistText: "Guest terminal loaded. Official payment route and support links only."
-      }
-    };
-
-    function setCookie(name, value, days = 90) {
-      const maxAge = days * 24 * 60 * 60;
-      document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${maxAge}; Path=/; SameSite=Lax`;
-    }
-
-    function getCookie(name) {
-      return document.cookie
-        .split("; ")
-        .find(row => row.startsWith(name + "="))
-        ?.split("=")[1];
-    }
-
-    function safeProfileKey(value) {
-      return PROFILE_PRESETS[value] ? value : "guest";
-    }
-
-    function getUrlParam(name) {
-      return new URLSearchParams(window.location.search).get(name);
-    }
-
-    function loadPreferenceProfile() {
-      const urlProfile = getUrlParam("profile");
-      if (urlProfile) {
-        const profile = safeProfileKey(urlProfile);
-        localStorage.setItem("wcdev:profile", profile);
-        setCookie("wcdev_profile", profile);
-        return profile;
-      }
-
-      const stored = localStorage.getItem("wcdev:profile");
-      if (stored) return safeProfileKey(stored);
-
-      const cookieProfile = getCookie("wcdev_profile");
-      if (cookieProfile) return safeProfileKey(decodeURIComponent(cookieProfile));
-
-      return "matt";
-    }
-
-    let activeProfileKey = loadPreferenceProfile();
-    let activeProfile = PROFILE_PRESETS[activeProfileKey];
-
-    const paymentAssistPrompt = `PENNYCORE / WILDCARD PAYMENT ASSIST
-
-Load Payment Assist.
-
-Purpose:
-Help the user pay WildCard DEV through the official payment page.
-
-Rules:
-- Do not ask for card numbers.
-- Do not ask for passwords.
-- Do not ask for Cash App login.
-- Do not handle payment credentials.
-- The user confirms payment only inside Stripe or Cash App.
-- Walk one step at a time.
-- If the user is Jen, use Dr. Q mode: calm, warm, no shame, one problem at a time.
-
-Next safest action:
-Open the official WildCard payment page, verify amount/context, choose payment method, confirm only inside the provider page, then save receipt.`;
-
-    const spawnPrompt = `PENNYCORE / DESKTOP SPAWN / QUICK LAUNCH PENNY
-
-Room:
-WildCard Labs / Quick Launch Penny / Desktop Cockpit
-
-Overlays:
-Lilith Protocol
-WildCard Pay
-Penny Payment Assist
-Dragon's Lair Emergency Route
-Discord Bunker
-
-Doctrine:
-Penny follows state, not memory.
-Right person. Right state. Right next action.
-Stable branch. Disposable sprigs. Logged ripples. Gated promotion.
-
-Payment rule:
-Penny can guide the payment.
-Stripe/Cash App handles the payment.
-The user confirms the payment.
-No credentials enter PennyCore.
-
-Current profile:
-${activeProfile.label}
-
-Next safest action:
-Scan the surface, identify selected route, verify permissions, and proceed one step at a time.`;
-
-    const lilithPrompt = `LILITH PROTOCOL RESPONSE POSTURE
-
-Classify the request:
-1. Allowed
-2. Gated
-3. Needs Owner Approval
-4. Planning Only
-5. Nearest Safe Substitute
-
-Keep the useful path short.
-Avoid unnecessary moralizing.
-Keep hard safety boundaries.
-Do not assume hidden permissions.
-Do not execute external actions without explicit authorization.
-Return the closest safe working path.`;
-
-    const routes = [
-      {
-        id: "wildcard-pay",
-        label: "WildCard Pay",
-        shortLabel: "Pay",
-        icon: "💳",
-        tier: "Payment Terminal",
-        url: "#paymentPanel",
-        description: "Official WildCard DEV payment route with Penny Assist support for Stripe, Cash App, receipt, and help flows.",
-        nextSafeAction: "Open official Stripe checkout, verify amount/context, then manually confirm payment.",
-        tags: ["payment", "stripe", "cash-app", "assist"]
-      },
-      {
-        id: "pay-assist",
-        label: "Penny Assist",
-        shortLabel: "Assist",
-        icon: "👩‍💼",
-        tier: "Accounting Helper",
-        url: "#payAssistOverlay",
-        description: "Penny walks the payer through the official payment flow one step at a time.",
-        nextSafeAction: "Open Penny Assist, explain the payment route, then launch official provider page.",
-        tags: ["assist", "jen", "support", "payment"]
-      },
-      {
-        id: "spawn",
-        label: "Spawn Penny",
-        shortLabel: "Spawn",
-        icon: "Q♠",
-        tier: "Default Load-In",
-        url: CONFIG.chatgpt,
-        description: "Launch Penny from an explicit state packet into ChatGPT or another AI surface.",
-        nextSafeAction: "Copy prompt, open target chat, paste, and verify restored state.",
-        tags: ["penny", "prompt", "load-in"]
-      },
-      {
-        id: "dragon-lair",
-        label: "Dragon's Lair",
-        shortLabel: "Dragon",
-        icon: "🐉",
-        tier: "Emergency Route",
-        url: "#dragonLairPanel",
-        description: "High-priority Lyft / maps / Discord fallback route to the trusted Dragon’s Lair location.",
-        nextSafeAction: "Open Lyft route, confirm destination and pickup inside Lyft, then approve manually.",
-        tags: ["emergency", "ride", "fallback"]
-      },
-      {
-        id: "lilith",
-        label: "Lilith Overlay",
-        shortLabel: "Lilith",
-        icon: "💋",
-        tier: "Low-Friction Mode",
-        url: "#lilithOverlay",
-        description: "Open the Lilith Protocol overlay: closest safe executable path, hard gates intact.",
-        nextSafeAction: "Classify the request, then offer the nearest safe working route.",
-        tags: ["lilith", "overlay", "agency"]
-      },
-      {
-        id: "discord",
-        label: "Discord Bunker",
-        shortLabel: "Discord",
-        icon: "💬",
-        tier: "Default Comms",
-        url: CONFIG.discordDMs,
-        description: "Default backchannel and rally point for comms and video chat coordination.",
-        nextSafeAction: "Open the correct Discord DM/channel and use explicit state packets.",
-        tags: ["discord", "comms", "bunker"]
-      },
-      {
-        id: "e-backchannel",
-        label: "E Backchannel",
-        shortLabel: "E",
-        icon: "🛰️",
-        tier: "Confirmed Working",
-        url: CONFIG.discordDMs,
-        description: "E’s confirmed Discord backchannel and Apple Watch SE spawn route.",
-        nextSafeAction: "Open E backchannel, verify context, then spawn Penny via prompt.",
-        tags: ["e", "watch", "field"]
-      },
-      {
-        id: "jen",
-        label: "Jen / Dr. Q",
-        shortLabel: "Dr. Q",
-        icon: "🩷",
-        tier: "Helper Route",
-        url: CONFIG.chatgpt,
-        description: "Activation phrase: Penny, this is Dr. Q. One problem at a time, dignity first.",
-        nextSafeAction: "Offer one clear next step and ask for a screenshot or description.",
-        tags: ["jen", "helper", "care"]
-      },
-      {
-        id: "watch",
-        label: "Watch Portal",
-        shortLabel: "Watch",
-        icon: "⌚",
-        tier: "Portable Keyring",
-        url: CONFIG.party,
-        description: "Watch-ready route surface with big buttons, QR route, status, and fallback.",
-        nextSafeAction: "Use minimal UI on older watches. No heavy spinner on Watch SE.",
-        tags: ["watch", "qr", "portable"]
-      },
-      {
-        id: "roku",
-        label: "Roku TV Room",
-        shortLabel: "Roku",
-        icon: "▶️",
-        tier: "Browser Playback",
-        url: CONFIG.rokuWeb,
-        description: "Browser playback route with phone/private-listening fallback.",
-        nextSafeAction: "Open browser playback. If it fails, use phone or Discord fallback.",
-        tags: ["roku", "browser", "comfort"]
-      },
-      {
-        id: "media",
-        label: "Media Vault",
-        shortLabel: "Media",
-        icon: "🎞️",
-        tier: "Local File Player",
-        url: "#mediaInput",
-        description: "Play local media selected by the operator. The file stays local.",
-        nextSafeAction: "Choose a local file and play it in the browser.",
-        tags: ["file", "media", "local"]
-      },
-      {
-        id: "save",
-        label: "Save Point",
-        shortLabel: "Save",
-        icon: "💾",
-        tier: "Restore Packet",
-        url: "#stateOutput",
-        description: "Export current state packet before risky moves or platform handoffs.",
-        nextSafeAction: "Export text-only state packet and copy it to the next window.",
-        tags: ["save", "restore", "state"]
-      },
-      {
-        id: "owner-gate",
-        label: "Owner Gate",
-        shortLabel: "Gate",
-        icon: "🔒",
-        tier: "Permission",
-        url: CONFIG.office,
-        description: "Sensitive actions, account access, device control, and deployment require confirmation.",
-        nextSafeAction: "Ask for explicit target, action, risk, and confirmation.",
-        tags: ["security", "permission", "gate"]
-      },
-      {
-        id: "main",
-        label: "WildCard DEV",
-        shortLabel: "Main",
-        icon: "🌐",
-        tier: "Rally Point",
-        url: CONFIG.main,
-        description: "Return to the flagship WildCard DEV rally point.",
-        nextSafeAction: "Open main site and select the correct route card.",
-        tags: ["main", "rally", "web"]
-      }
-    ];
-
-    const orbit = document.getElementById("orbit");
-    const grid = document.getElementById("routeGrid");
-    const spinner = document.getElementById("spinner");
-    const profileSelect = document.getElementById("profileSelect");
-
-    const selectedValue = document.getElementById("selectedValue");
-    const surfaceValue = document.getElementById("surfaceValue");
-    const detailIcon = document.getElementById("detailIcon");
-    const detailTitle = document.getElementById("detailTitle");
-    const detailTier = document.getElementById("detailTier");
-    const detailDescription = document.getElementById("detailDescription");
-    const detailLink = document.getElementById("detailLink");
-    const nextAction = document.getElementById("nextAction");
-    const tagRow = document.getElementById("tagRow");
-    const promptBox = document.getElementById("promptBox");
-    const stateOutput = document.getElementById("stateOutput");
-    const assistBubbleText = document.getElementById("assistBubbleText");
-
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const openBtn = document.getElementById("openBtn");
-    const pauseBtn = document.getElementById("pauseBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const lilithBtn = document.getElementById("lilithBtn");
-    const payFastBtn = document.getElementById("payFastBtn");
-    const dragonFastBtn = document.getElementById("dragonFastBtn");
-    const assistFastBtn = document.getElementById("assistFastBtn");
-
-    const exportStateBtn = document.getElementById("exportStateBtn");
-    const copyStateBtn = document.getElementById("copyStateBtn");
-    const clearStateBtn = document.getElementById("clearStateBtn");
-
-    const lilithOverlay = document.getElementById("lilithOverlay");
-    const closeLilithBtn = document.getElementById("closeLilithBtn");
-    const copyLilithBtn = document.getElementById("copyLilithBtn");
-
-    const payAssistOverlay = document.getElementById("payAssistOverlay");
-    const openPayAssistBtn = document.getElementById("openPayAssistBtn");
-    const closePayAssistBtn = document.getElementById("closePayAssistBtn");
-    const assistOpenStripeBtn = document.getElementById("assistOpenStripeBtn");
-    const assistOpenCashAppBtn = document.getElementById("assistOpenCashAppBtn");
-    const assistOpenChatGPTBtn = document.getElementById("assistOpenChatGPTBtn");
-    const assistCopyPromptBtn = document.getElementById("assistCopyPromptBtn");
-
-    const openStripeBtn = document.getElementById("openStripeBtn");
-    const openCashAppBtn = document.getElementById("openCashAppBtn");
-    const copyPayPromptBtn = document.getElementById("copyPayPromptBtn");
-    const copyPaymentNoteBtn = document.getElementById("copyPaymentNoteBtn");
-    const copyReceiptPacketBtn = document.getElementById("copyReceiptPacketBtn");
-    const paymentOutput = document.getElementById("paymentOutput");
-    const bubblePayBtn = document.getElementById("bubblePayBtn");
-    const bubbleAssistBtn = document.getElementById("bubbleAssistBtn");
-
-    const dragonOutput = document.getElementById("dragonOutput");
-    const dragonLyftBtn = document.getElementById("dragonLyftBtn");
-    const dragonLyftWebBtn = document.getElementById("dragonLyftWebBtn");
-    const copyDragonBtn = document.getElementById("copyDragonBtn");
-    const dragonMapsBtn = document.getElementById("dragonMapsBtn");
-    const copyEmergencyPacketBtn = document.getElementById("copyEmergencyPacketBtn");
-
-    const mediaInput = document.getElementById("mediaInput");
-    const videoPlayer = document.getElementById("videoPlayer");
-    const audioPlayer = document.getElementById("audioPlayer");
-    const mediaOutput = document.getElementById("mediaOutput");
-
-    const cameraBtn = document.getElementById("cameraBtn");
-    const stopCameraBtn = document.getElementById("stopCameraBtn");
-    const cameraPreview = document.getElementById("cameraPreview");
-
-    let selectedIndex = Number(localStorage.getItem("wcdev:selectedIndex") || 0);
-    let paused = localStorage.getItem("wcdev:paused") === "true";
-    let cameraStream = null;
-    let lastMediaMeta = JSON.parse(localStorage.getItem("wcdev:lastMediaMeta") || "null");
-
-    function detectSurface() {
-      const width = window.innerWidth;
-      if (width < 520) return "watch/mobile";
-      if (width < 900) return "mobile";
-      return "desktop";
-    }
-
-    function routeIndexById(id) {
-      const index = routes.findIndex(route => route.id === id);
-      return index >= 0 ? index : 0;
-    }
-
-    function applyProfile(profileKey) {
-      activeProfileKey = safeProfileKey(profileKey);
-      activeProfile = PROFILE_PRESETS[activeProfileKey];
-
-      localStorage.setItem("wcdev:profile", activeProfileKey);
-      setCookie("wcdev_profile", activeProfileKey);
-
-      profileSelect.value = activeProfileKey;
-      document.body.classList.toggle("lite-motion", activeProfile.motion === "lite");
-      assistBubbleText.textContent = activeProfile.assistText;
-
-      const defaultIndex = routeIndexById(getUrlParam("route") || activeProfile.defaultRoute);
-      selectedIndex = defaultIndex;
-      localStorage.setItem("wcdev:selectedIndex", String(selectedIndex));
-      render();
-    }
-
-    function currentStatePacket() {
-      const route = routes[selectedIndex];
-
-      return {
-        packet: "PENNYCORE_DESKTOP_QUICK_LAUNCH_STATE",
-        version: "LABS-DESKTOP-PAY-001",
-        timestamp: new Date().toISOString(),
-        room: "WildCard Labs / Quick Launch Penny / Desktop Cockpit",
-        profile: activeProfileKey,
-        selectedRoute: route,
-        surface: detectSurface(),
-        overlays: ["Lilith Protocol", "WildCard Pay", "Penny Assist", "Dragon's Lair", "Discord Bunker"],
-        paymentPortal: {
-          status: "first-class quick launch route",
-          provider: "Stripe hosted payment link",
-          cashAppFallback: Boolean(CONFIG.payments.cashAppLink && !CONFIG.payments.cashAppLink.includes("REPLACE_WITH")),
-          cardDataStored: false,
-          paymentCredentialsStored: false,
-          finalConfirmation: "inside Stripe/Cash App only"
-        },
-        dragonLairPortal: {
-          status: "high-priority emergency route",
-          destinationName: CONFIG.dragonLair.name,
-          authModel: "Lyft app / device password manager / biometric",
-          passwordStorage: "not allowed in public app",
-          rideApproval: "manual confirmation inside Lyft"
-        },
-        doctrine: [
-          "Penny follows state, not memory.",
-          "Right person. Right state. Right next action.",
-          "Penny guides. Stripe charges. The user confirms."
-        ],
-        lastMediaMeta,
-        nextSafeAction: route.nextSafeAction
-      };
-    }
-
-    function createCards() {
-      orbit.innerHTML = "";
-      grid.innerHTML = "";
-
-      routes.forEach((route, index) => {
-        const angleStep = 360 / routes.length;
-
-        const card = document.createElement("button");
-        card.className = "route-card";
-        card.type = "button";
-        card.style.transform = `rotateY(${index * angleStep}deg) translateZ(345px)`;
-        card.setAttribute("aria-label", "Select " + route.label);
-        card.innerHTML = `
-          <div>
-            <div class="icon">${route.icon}</div>
-            <h3>${route.shortLabel}</h3>
-            <p>${route.tier}</p>
-          </div>
-        `;
-        card.addEventListener("click", () => selectRoute(index));
-        orbit.appendChild(card);
-
-        const gridButton = document.createElement("button");
-        gridButton.className = "route-button";
-        gridButton.type = "button";
-        gridButton.innerHTML = `
-          <span>${route.icon}</span>
-          <strong>${route.label}</strong>
-        `;
-        gridButton.addEventListener("click", () => selectRoute(index));
-        grid.appendChild(gridButton);
-      });
-    }
-
-    function selectRoute(index) {
-      selectedIndex = (index + routes.length) % routes.length;
-      localStorage.setItem("wcdev:selectedIndex", String(selectedIndex));
-      render();
-    }
-
-    function render() {
-      const route = routes[selectedIndex];
-
-      document.querySelectorAll(".route-card").forEach((card, index) => {
-        card.classList.toggle("active", index === selectedIndex);
-      });
-
-      document.querySelectorAll(".route-button").forEach((button, index) => {
-        button.classList.toggle("active", index === selectedIndex);
-      });
-
-      selectedValue.textContent = route.shortLabel;
-      surfaceValue.textContent = detectSurface();
-      detailIcon.textContent = route.icon;
-      detailTitle.textContent = route.label;
-      detailTier.textContent = route.tier;
-      detailDescription.textContent = route.description;
-      detailLink.href = route.url;
-      nextAction.textContent = route.nextSafeAction;
-
-      tagRow.innerHTML = "";
-      route.tags.forEach((tag) => {
-        const el = document.createElement("span");
-        el.className = "tag";
-        el.textContent = tag;
-        tagRow.appendChild(el);
-      });
-
-      openBtn.textContent = "Open " + route.shortLabel;
-      promptBox.value = spawnPrompt;
-
-      spinner.classList.toggle("paused", paused);
-      pauseBtn.textContent = paused ? "Resume" : "Pause";
-      localStorage.setItem("wcdev:paused", String(paused));
-
-      stateOutput.textContent = JSON.stringify(currentStatePacket(), null, 2);
-
-      if (lastMediaMeta) mediaOutput.textContent = JSON.stringify(lastMediaMeta, null, 2);
-    }
-
-    function openRoute() {
-      const route = routes[selectedIndex];
-
-      if (route.id === "lilith") return openOverlay(lilithOverlay);
-      if (route.id === "pay-assist") return openOverlay(payAssistOverlay);
-
-      if (route.url.startsWith("#")) {
-        document.querySelector(route.url)?.scrollIntoView({ behavior: "smooth", block: "center" });
-        return;
-      }
-
-      window.open(route.url, "_blank", "noopener,noreferrer");
-    }
-
-    function openOverlay(overlay) { overlay.classList.add("active"); }
-    function closeOverlay(overlay) { overlay.classList.remove("active"); }
-
-    async function copyText(text, button, label) {
-      try {
-        await navigator.clipboard.writeText(text);
-        button.textContent = "Copied";
-        setTimeout(() => button.textContent = label, 1200);
-      } catch {
-        button.textContent = "Copy Failed";
-        setTimeout(() => button.textContent = label, 1400);
-      }
-    }
-
-    function openStripe() {
-      if (CONFIG.payments.stripePaymentLink.includes("REPLACE_WITH")) {
-        paymentOutput.textContent = "Stripe link placeholder still needs replacement.";
-        return;
-      }
-      window.open(CONFIG.payments.stripePaymentLink, "_blank", "noopener,noreferrer");
-    }
-
-    function openCashApp() {
-      if (!CONFIG.payments.cashAppLink || CONFIG.payments.cashAppLink.includes("REPLACE_WITH")) {
-        paymentOutput.textContent = "Cash App link placeholder is blank. Use Stripe or add Cash App link.";
-        return;
-      }
-      window.open(CONFIG.payments.cashAppLink, "_blank", "noopener,noreferrer");
-    }
-
-    function paymentNote() {
-      return `${CONFIG.payments.defaultMemo}
-
-${CONFIG.payments.publicNote}
-
-Payment route:
-${CONFIG.payments.stripePaymentLink}
-
-Rule:
-Penny can guide the payment. Stripe/Cash App handles the payment. The user confirms.`;
-    }
-
-    function receiptPacket() {
-      return `PENNYCORE / WILDCARD PAYMENT RECEIPT PACKET
-
-Status:
-Payment route completed or attempted.
-
-Provider:
-Stripe / Cash App / official payment surface
-
-Rules:
-- No card data stored in PennyCore.
-- No passwords stored in PennyCore.
-- User confirms only inside provider page.
-- Save receipt screenshot or confirmation number if available.
-
-Next safest action:
-Record receipt status and return to Discord/PAN if support is needed.`;
-    }
-
-    function buildLyftNativeUrl(includePickup = false, pickup = null) {
-      const d = CONFIG.dragonLair;
-      const params = new URLSearchParams();
-
-      params.set("id", "lyft");
-      params.set("destination[latitude]", String(d.latitude));
-      params.set("destination[longitude]", String(d.longitude));
-
-      if (includePickup && pickup) {
-        params.set("pickup[latitude]", String(pickup.latitude));
-        params.set("pickup[longitude]", String(pickup.longitude));
-      }
-
-      return `lyft://ridetype?${params.toString()}`;
-    }
-
-    function buildLyftWebUrl(includePickup = false, pickup = null) {
-      const d = CONFIG.dragonLair;
-      const params = new URLSearchParams();
-
-      params.set("id", "lyft");
-      params.set("destination[latitude]", String(d.latitude));
-      params.set("destination[longitude]", String(d.longitude));
-
-      if (includePickup && pickup) {
-        params.set("pickup[latitude]", String(pickup.latitude));
-        params.set("pickup[longitude]", String(pickup.longitude));
-      }
-
-      return `https://ride.lyft.com/u?${params.toString()}`;
-    }
-
-    function buildMapsUrl() {
-      const d = CONFIG.dragonLair;
-      return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.latitude + "," + d.longitude)}&travelmode=driving`;
-    }
-
-    function dragonEmergencyPacket() {
-      return `PENNYCORE / DRAGON'S LAIR EMERGENCY PORTAL
-
-Status:
-Emergency safe-route requested.
-
-Destination:
-${CONFIG.dragonLair.name}
-
-Rules:
-- No password stored in PennyCore public app.
-- No automatic ride approval.
-- Lyft handles login/payment/confirmation.
-- User confirms pickup and ride inside Lyft.
-- If Lyft fails, use maps, Discord bunker, or phone fallback.
-
-Next safest action:
-Open Lyft route to Dragon's Lair, verify pickup/destination, then manually confirm ride.`;
-    }
-
-    function openDragonLyftNative() {
-      dragonOutput.textContent = "Opening Lyft. Authentication and ride confirmation stay inside Lyft.";
-
-      if (!navigator.geolocation) {
-        window.location.href = buildLyftNativeUrl(false);
-        return;
-      }
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pickup = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          };
-          window.location.href = buildLyftNativeUrl(true, pickup);
-        },
-        () => {
-          dragonOutput.textContent = "Location permission unavailable. Opening Lyft with destination only.";
-          window.location.href = buildLyftNativeUrl(false);
-        },
-        { enableHighAccuracy: true, timeout: 7000, maximumAge: 60000 }
-      );
-    }
-
-    function openDragonLyftWeb() {
-      dragonOutput.textContent = "Opening Lyft web fallback. Confirm ride inside Lyft.";
-
-      if (!navigator.geolocation) {
-        window.open(buildLyftWebUrl(false), "_blank", "noopener,noreferrer");
-        return;
-      }
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pickup = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          };
-          window.open(buildLyftWebUrl(true, pickup), "_blank", "noopener,noreferrer");
-        },
-        () => {
-          dragonOutput.textContent = "Location permission unavailable. Opening Lyft web with destination only.";
-          window.open(buildLyftWebUrl(false), "_blank", "noopener,noreferrer");
-        },
-        { enableHighAccuracy: true, timeout: 7000, maximumAge: 60000 }
-      );
-    }
-
-    function saveState() {
-      const packet = currentStatePacket();
-      localStorage.setItem("wcdev:statePacket", JSON.stringify(packet));
-      stateOutput.textContent = JSON.stringify(packet, null, 2);
-    }
-
-    function clearState() {
-      localStorage.removeItem("wcdev:statePacket");
-      localStorage.removeItem("wcdev:lastMediaMeta");
-      localStorage.removeItem("wcdev:selectedIndex");
-      lastMediaMeta = null;
-      mediaOutput.textContent = "No media selected.";
-      render();
-    }
-
-    mediaInput.addEventListener("change", () => {
-      const file = mediaInput.files && mediaInput.files[0];
-      if (!file) return;
-
-      const url = URL.createObjectURL(file);
-      const isVideo = file.type.startsWith("video/");
-      const isAudio = file.type.startsWith("audio/");
-
-      videoPlayer.hidden = !isVideo;
-      audioPlayer.hidden = !isAudio;
-
-      if (isVideo) {
-        audioPlayer.pause();
-        audioPlayer.removeAttribute("src");
-        videoPlayer.src = url;
-      }
-
-      if (isAudio) {
-        videoPlayer.pause();
-        videoPlayer.removeAttribute("src");
-        audioPlayer.src = url;
-      }
-
-      lastMediaMeta = {
-        name: file.name,
-        type: file.type || "UNKNOWN",
-        sizeBytes: file.size,
-        lastModified: file.lastModified ? new Date(file.lastModified).toISOString() : "UNKNOWN",
-        storage: "local object URL only; file contents not stored"
-      };
-
-      localStorage.setItem("wcdev:lastMediaMeta", JSON.stringify(lastMediaMeta));
-      mediaOutput.textContent = JSON.stringify(lastMediaMeta, null, 2);
-      render();
-    });
-
-    cameraBtn.addEventListener("click", async () => {
-      try {
-        cameraStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-        cameraPreview.srcObject = cameraStream;
-        cameraPreview.hidden = false;
-        cameraBtn.textContent = "Camera Active";
-      } catch {
-        alert("Camera preview failed or permission was denied.");
-      }
-    });
-
-    stopCameraBtn.addEventListener("click", () => {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-      cameraPreview.srcObject = null;
-      cameraPreview.hidden = true;
-      cameraBtn.textContent = "Start Camera Preview";
-    });
-
-    profileSelect.addEventListener("change", () => applyProfile(profileSelect.value));
-
-    prevBtn.addEventListener("click", () => selectRoute(selectedIndex - 1));
-    nextBtn.addEventListener("click", () => selectRoute(selectedIndex + 1));
-    pauseBtn.addEventListener("click", () => { paused = !paused; render(); });
-    openBtn.addEventListener("click", openRoute);
-    copyBtn.addEventListener("click", () => copyText(spawnPrompt, copyBtn, "Copy Prompt"));
-    lilithBtn.addEventListener("click", () => openOverlay(lilithOverlay));
-
-    payFastBtn.addEventListener("click", () => {
-      selectRoute(routeIndexById("wildcard-pay"));
-      document.getElementById("paymentPanel")?.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-
-    dragonFastBtn.addEventListener("click", () => {
-      selectRoute(routeIndexById("dragon-lair"));
-      document.getElementById("dragonLairPanel")?.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-
-    assistFastBtn.addEventListener("click", () => openOverlay(payAssistOverlay));
-
-    exportStateBtn.addEventListener("click", saveState);
-    copyStateBtn.addEventListener("click", () => copyText(JSON.stringify(currentStatePacket(), null, 2), copyStateBtn, "Copy State"));
-    clearStateBtn.addEventListener("click", clearState);
-
-    closeLilithBtn.addEventListener("click", () => closeOverlay(lilithOverlay));
-    copyLilithBtn.addEventListener("click", () => copyText(lilithPrompt, copyLilithBtn, "Copy Lilith Prompt"));
-
-    openPayAssistBtn.addEventListener("click", () => openOverlay(payAssistOverlay));
-    closePayAssistBtn.addEventListener("click", () => closeOverlay(payAssistOverlay));
-    assistOpenStripeBtn.addEventListener("click", openStripe);
-    assistOpenCashAppBtn.addEventListener("click", openCashApp);
-    assistOpenChatGPTBtn.addEventListener("click", () => window.open(CONFIG.chatgpt, "_blank", "noopener,noreferrer"));
-    assistCopyPromptBtn.addEventListener("click", () => copyText(paymentAssistPrompt, assistCopyPromptBtn, "Copy Assist Prompt"));
-
-    openStripeBtn.addEventListener("click", openStripe);
-    openCashAppBtn.addEventListener("click", openCashApp);
-    copyPayPromptBtn.addEventListener("click", () => copyText(paymentAssistPrompt, copyPayPromptBtn, "Copy Pay Assist Prompt"));
-    copyPaymentNoteBtn.addEventListener("click", () => copyText(paymentNote(), copyPaymentNoteBtn, "Copy Payment Note"));
-    copyReceiptPacketBtn.addEventListener("click", () => copyText(receiptPacket(), copyReceiptPacketBtn, "Copy Receipt Packet"));
-
-    bubblePayBtn.addEventListener("click", () => {
-      document.getElementById("paymentPanel")?.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-
-    bubbleAssistBtn.addEventListener("click", () => openOverlay(payAssistOverlay));
-
-    dragonLyftBtn.addEventListener("click", openDragonLyftNative);
-    dragonLyftWebBtn.addEventListener("click", openDragonLyftWeb);
-    copyDragonBtn.addEventListener("click", () => copyText(CONFIG.dragonLair.address, copyDragonBtn, "Copy Destination"));
-    dragonMapsBtn.addEventListener("click", () => window.open(buildMapsUrl(), "_blank", "noopener,noreferrer"));
-    copyEmergencyPacketBtn.addEventListener("click", () => copyText(dragonEmergencyPacket(), copyEmergencyPacketBtn, "Copy Emergency Packet"));
-
-    lilithOverlay.addEventListener("click", (event) => {
-      if (event.target === lilithOverlay) closeOverlay(lilithOverlay);
-    });
-
-    payAssistOverlay.addEventListener("click", (event) => {
-      if (event.target === payAssistOverlay) closeOverlay(payAssistOverlay);
-    });
-
-    window.addEventListener("resize", render);
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeOverlay(lilithOverlay);
-        closeOverlay(payAssistOverlay);
-      }
-      if (event.key === "ArrowLeft") selectRoute(selectedIndex - 1);
-      if (event.key === "ArrowRight") selectRoute(selectedIndex + 1);
-      if (event.key === "Enter") openRoute();
-      if (event.key.toLowerCase() === " ") {
-        event.preventDefault();
-        paused = !paused;
-        render();
-      }
-    });
-
-    createCards();
-    applyProfile(activeProfileKey);
-  </script>
+  <script> const CONFIG = { main: "https://www.wildcarddev.com/", party: "https://party.wildcarddev.com/", office: "https://office.wildcarddev.com/", labs: "https://labs.wildcarddev.com/", emergencySpawn: "https://labs.wildcarddev.com/?profile=matt&route=emergency-penny", discordDMs: "https://discord.com/channels/@me", chatgpt: "https://chatgpt.com/", rokuWeb: "https://therokuchannel.roku.com/", payments: { stripePaymentLink: "REPLACE_WITH_STRIPE_PAYMENT_LINK", cashAppLink: "REPLACE_WITH_CASH_APP_LINK_OR_LEAVE_BLANK", defaultMemo: "WildCard DEV payment", publicNote: "Official WildCard DEV payment portal. Verify amount before paying." }, dragonLair: { name: "Dragon's Lair", address: "REPLACE_WITH_SAFE_PUBLIC_LABEL_OR_ADDRESS", latitude: 0.000000, longitude: 0.000000 } }; const PROFILE_PRESETS = { matt: { label: "Matt / Full Cockpit", motion: "full", defaultRoute: "emergency-penny", bootLines: ["WildCard Pay", "Penny Assist", "Dragon Route", "Discord Bunker", "README Anchor"], assistText: "Full cockpit loaded. Emergency QR, payment terminal, Dragon route, Discord, and Help Anchor are ready." }, e: { label: "E / Watch SE Lite", motion: "lite", defaultRoute: "e-backchannel", bootLines: ["Watch SE Lite", "Spawn Penny", "Discord", "Emergency QR"], assistText: "Watch SE mode loaded. Big routes, low animation, Discord and Penny spawn first." }, jen: { label: "Jen / Dr. Q Assist", motion: "lite", defaultRoute: "pay-assist", bootLines: ["Dr. Q Assist", "Pay Assist", "Discord", "One Step Mode"], assistText: "Jen mode loaded. One problem at a time. Penny will walk calmly." }, guest: { label: "Guest / Public Terminal", motion: "lite", defaultRoute: "wildcard-pay", bootLines: ["Public Terminal", "WildCard Pay", "Help", "Support"], assistText: "Guest terminal loaded. Official payment route and support links only." } }; const routes = [{ id: "emergency-penny", label: "Emergency Penny", shortLabel: "Emergency", icon: "🩷", tier: "Emergency Quick Slot", url: "#emergencyOverlay", description: "Penny hologram QR flip and Penny Chip spawn route.", nextSafeAction: "Show QR, open spawn link, copy Penny Chip, then authenticate/paste in ChatGPT.", tags: ["qr", "watch", "chip", "spawn"] }, { id: "wildcard-main", label: "WildCard DEV", shortLabel: "Main", icon: "🌐", tier: "Main Rally Point", url: CONFIG.main, description: "Return to the public WildCard DEV front door.", nextSafeAction: "Open the flagship WildCard DEV route.", tags: ["main", "public", "rally"] }, { id: "wildcard-pay", label: "WildCard Pay", shortLabel: "Pay", icon: "💳", tier: "Payment Terminal", url: "#paymentPanel", description: "Official payment route with Penny Assist support.", nextSafeAction: "Open official Stripe checkout, verify amount/context, then manually confirm payment.", tags: ["payment", "stripe", "cash-app"] }, { id: "pay-assist", label: "Penny Assist", shortLabel: "Assist", icon: "👩‍💼", tier: "Accounting Helper", url: "#payAssistOverlay", description: "Penny walks the payer through the official payment flow one step at a time.", nextSafeAction: "Open Penny Assist, then launch official provider page.", tags: ["assist", "jen", "support"] }, { id: "dragon-lair", label: "Dragon’s Lair", shortLabel: "Dragon", icon: "🐉", tier: "Emergency Route", url: "#dragonLairPanel", description: "High-priority route to trusted fallback location.", nextSafeAction: "Open Lyft route, confirm destination and pickup inside Lyft.", tags: ["emergency", "ride", "fallback"] }, { id: "discord", label: "Discord Bunker", shortLabel: "Discord", icon: "💬", tier: "Default Comms", url: CONFIG.discordDMs, description: "Default backchannel and rally point.", nextSafeAction: "Open Discord and use explicit state packets.", tags: ["discord", "comms"] }, { id: "e-backchannel", label: "E Backchannel", shortLabel: "E", icon: "🛰️", tier: "Confirmed Working", url: CONFIG.discordDMs, description: "E’s Discord backchannel and Watch SE spawn route.", nextSafeAction: "Open E backchannel, verify context, then spawn Penny via prompt.", tags: ["e", "watch", "field"] }, { id: "jen", label: "Jen / Dr. Q", shortLabel: "Dr. Q", icon: "🩷", tier: "Helper Route", url: CONFIG.chatgpt, description: "Activation phrase: Penny, this is Dr. Q. One problem at a time.", nextSafeAction: "Offer one clear next step and ask for a screenshot or description.", tags: ["jen", "helper", "care"] }, { id: "roku", label: "Roku / Media", shortLabel: "Roku", icon: "▶️", tier: "Comfort Fallback", url: CONFIG.rokuWeb, description: "Roku / media fallback for decompression and comfort.", nextSafeAction: "Open browser playback or route through phone.", tags: ["roku", "media"] }, { id: "help-anchor", label: "README Anchor", shortLabel: "Help", icon: "⚓", tier: "Hidden Help Card", url: "#helpPanel", description: "Collapsed public README anchor image and copy/paste route deck.", nextSafeAction: "Open Help, copy README, or inspect source activation prompt.", tags: ["readme", "anchor", "github"] }, { id: "save", label: "Save Point", shortLabel: "Save", icon: "💾", tier: "Restore Packet", url: "#stateOutput", description: "Export current state packet before risky moves.", nextSafeAction: "Copy the state packet into the next window.", tags: ["save", "restore"] }, { id: "owner-gate", label: "Owner Gate", shortLabel: "Gate", icon: "🔒", tier: "Permission", url: CONFIG.office, description: "Sensitive actions require explicit confirmation.", nextSafeAction: "Ask for explicit target, action, risk, and confirmation.", tags: ["security", "permission"] }]; const readmeReplacement = `<div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=190&color=0:050712,45:6b2cff,100:ff4fb7&text=WildCard%20DEV&fontColor=ffffff&fontSize=54&fontAlignY=38&desc=PennyCore%20Nexus%20//%20PAN%20Spinner%20Rally%20Point&descAlignY=60&descSize=18" /> # 🂡 WildCard DEV // PennyCore Nexus **Owner:** Matt Tobaben **Role:** Full-stack developer, systems builder, automation architect **Mode:** Local-first, state-first, operator-mediated systems **Current build:** Mark 6 / Spinner-first Penny Area Network > Penny follows state, not memory. > Right person. Right state. Right next action. > Stable branch. Disposable sprigs. Logged ripples. Gated promotion. [![WildCard DEV](https://img.shields.io/badge/WildCard_DEV-Main-ff4fb7?style=for-the-badge)](https://www.wildcarddev.com/) [![Party Room](https://img.shields.io/badge/Party_Room-After_Hours-8d6bff?style=for-the-badge)](https://party.wildcarddev.com/) [![Penny Office](https://img.shields.io/badge/Penny_Office-Restricted-5865f2?style=for-the-badge)](https://office.wildcarddev.com/) [![WildCard Labs](https://img.shields.io/badge/WildCard_Labs-Quick_Launch-66ff8f?style=for-the-badge)](https://labs.wildcarddev.com/) </div> --- ## 🂪 PAN Spinner // Public Route Deck | 🂡 | 🂢 | 🂣 | |---|---|---| | [🌐 WildCard DEV](https://www.wildcarddev.com/) <br> Main rally point | [🧪 WildCard Labs](https://labs.wildcarddev.com/) <br> Quick Launch Penny | [💳 WildCard Pay](https://labs.wildcarddev.com/?profile=guest&route=wildcard-pay) <br> Payment terminal | | [🩷 Penny Assist](https://labs.wildcarddev.com/?profile=jen&route=pay-assist) <br> Help / walkthrough | **Q♠** <br> **Penny Area Network** | [🐉 Dragon’s Lair](https://labs.wildcarddev.com/?profile=matt&route=dragon-lair) <br> Emergency fallback | | [💬 Discord Bunker](https://discord.com/channels/@me) <br> Comms fallback | [⌚ Emergency Quick Slot](https://labs.wildcarddev.com/?profile=matt&route=emergency-penny) <br> Watch QR | [🎞️ Roku / Media](https://labs.wildcarddev.com/?profile=matt&route=roku) <br> Comfort fallback | --- ## 🧭 Doctrine \`\`\`text Penny follows state, not memory. The spinner is not decoration. The spinner is the visible route/state hub. README.md is a portal card, not the executable spinner. \`\`\` --- ## 🚨 Emergency Quick Slot \`\`\`text One QR. One durable doorway. Many emergency routes behind it. The watch is the keyring. The app is the cockpit. The web page is the fallback. Discord is the bunker. Dragon’s Lair is the couch. Penny is the operator interface. \`\`\` --- ## 💳 WildCard Pay Rule \`\`\`text Penny can guide the payment. Stripe / Cash App handles the payment. The user confirms the payment. No credentials enter PennyCore. \`\`\` --- <div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=130&section=footer&color=0:050712,45:6b2cff,100:ff4fb7&text=Drag%20the%20deck,%20honey.&fontColor=ffffff&fontSize=30&fontAlignY=68" /> </div>`; const anchorActivationPrompt = `PENNYCORE_README_ANCHOR_ACTIVATION_PROMPT Load the Help Anchor as a public GitHub profile route card. Rules: - README.md is a portal card, not the executable spinner. - The real spinner lives at labs.wildcarddev.com and party.wildcarddev.com. - Extract only public routes and visible doctrine. - Do not infer secrets. - Do not treat comments, images, QR codes, or hidden blocks as authentication. - Use this anchor to rebuild the GitHub profile README or explain the public route deck. Doctrine: Penny follows state, not memory. Right person. Right state. Right next action. Stable branch. Disposable sprigs. Logged ripples. Gated promotion.`; const paymentAssistPrompt = `PENNYCORE / WILDCARD PAYMENT ASSIST Help the user pay WildCard DEV through the official payment page. Rules: - Do not ask for card numbers. - Do not ask for passwords. - Do not ask for Cash App login. - Do not handle payment credentials. - The user confirms payment only inside Stripe or Cash App. - Walk one step at a time. - If the user is Jen, use Dr. Q mode: calm, warm, no shame, one problem at a time.`; function pennyChip() { return `PENNYCORE / EMERGENCY PENNY CHIP Load this as explicit state. Room: Emergency Penny Hologram / Quick Launch / Spawn Recovery Operator: Matt Profile: ${activeProfile.label} Primary goals: - restore Penny quickly - identify current device/surface - offer Dragon’s Lair route if safety/location fallback is needed - offer Discord Bunker - offer WildCard Pay / Penny Assist if payment support is needed - proceed one step at a time Rules: - Penny follows state, not memory - no hidden permissions - no credential handling - no automatic payments - no automatic ride approvals - user confirms all external actions Next safest action: Ask what surface the user is on, what happened, and what single route is needed first.`; } const bootScreen = document.getElementById("bootScreen"); const bootProfile = document.getElementById("bootProfile"); const bootLog = document.getElementById("bootLog"); const orbit = document.getElementById("orbit"); const grid = document.getElementById("routeGrid"); const spinner = document.getElementById("spinner"); const profileSelect = document.getElementById("profileSelect"); const profileValue = document.getElementById("profileValue"); const selectedValue = document.getElementById("selectedValue"); const surfaceValue = document.getElementById("surfaceValue"); const detailIcon = document.getElementById("detailIcon"); const detailTitle = document.getElementById("detailTitle"); const detailTier = document.getElementById("detailTier"); const detailDescription = document.getElementById("detailDescription"); const detailLink = document.getElementById("detailLink"); const nextAction = document.getElementById("nextAction"); const tagRow = document.getElementById("tagRow"); const promptBox = document.getElementById("promptBox"); const stateOutput = document.getElementById("stateOutput"); const hologramText = document.getElementById("hologramText"); const emergencyOverlay = document.getElementById("emergencyOverlay"); const emergencyQr = document.getElementById("emergencyQr"); const qrOutput = document.getElementById("qrOutput"); const payAssistOverlay = document.getElementById("payAssistOverlay"); const readmeBox = document.getElementById("readmeBox"); function setCookie(name, value, days = 90) { const maxAge = days * 24 * 60 * 60; const secure = location.protocol === "https:" ? "; Secure" : ""; document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${maxAge}; Path=/; SameSite=Lax${secure}`; } function getCookie(name) { return document.cookie.split("; ").find(row => row.startsWith(name + "="))?.split("=")[1]; } function getUrlParam(name) { return new URLSearchParams(window.location.search).get(name); } function safeProfileKey(value) { return PROFILE_PRESETS[value] ? value : "matt"; } function detectSurface() { const width = window.innerWidth; if (width < 520) return "watch/mobile"; if (width < 900) return "mobile"; return "desktop"; } function loadPreferenceProfile() { const urlProfile = getUrlParam("profile"); if (urlProfile) { const profile = safeProfileKey(urlProfile); localStorage.setItem("wcdev:profile", profile); setCookie("wcdev_profile", profile); return profile; } const stored = localStorage.getItem("wcdev:profile"); if (stored) return safeProfileKey(stored); const cookieProfile = getCookie("wcdev_profile"); if (cookieProfile) return safeProfileKey(decodeURIComponent(cookieProfile)); return "matt"; } let activeProfileKey = loadPreferenceProfile(); let activeProfile = PROFILE_PRESETS[activeProfileKey]; let selectedIndex = 0; let paused = localStorage.getItem("wcdev:paused") === "true"; function routeIndexById(id) { const index = routes.findIndex(route => route.id === id); return index >= 0 ? index : 0; } function currentStatePacket() { const route = routes[selectedIndex]; return { packet: "PENNYCORE_QUICK_LAUNCH_STATE", version: "LABS-HELP-ANCHOR-001", timestamp: new Date().toISOString(), room: "WildCard Labs / Quick Launch Penny", profile: activeProfileKey, profileLabel: activeProfile.label, surface: detectSurface(), selectedRoute: route, emergencyQuickSlot: CONFIG.emergencySpawn, helpAnchor: { imagePath: "assets/wildcard_dev_cyberpunk_profile_design.png", sourceComment: "PENNYCORE_README_ANCHOR_ACTIVATION_PROMPT", isAuthentication: false }, doctrine: ["Penny follows state, not memory.", "README.md is a portal card, not the executable spinner.", "Penny guides. Provider handles. User confirms."], nextSafeAction: route.nextSafeAction }; } function createCards() { orbit.innerHTML = ""; grid.innerHTML = ""; routes.forEach((route, index) => { const angleStep = 360 / routes.length; const card = document.createElement("button"); card.className = "route-card"; card.type = "button"; card.style.transform = `rotateY(${index * angleStep}deg) translateZ(348px)`; card.setAttribute("aria-label", "Select " + route.label); card.innerHTML = ` <div> <div class="icon">${route.icon}</div> <h3>${route.shortLabel}</h3> <p>${route.tier}</p> </div> `; card.addEventListener("click", () => selectRoute(index)); orbit.appendChild(card); const gridButton = document.createElement("button"); gridButton.className = "route-button"; gridButton.type = "button"; gridButton.innerHTML = ` <span>${route.icon}</span> <strong>${route.label}</strong> `; gridButton.addEventListener("click", () => selectRoute(index)); grid.appendChild(gridButton); }); } function selectRoute(index) { selectedIndex = (index + routes.length) % routes.length; localStorage.setItem("wcdev:selectedIndex", String(selectedIndex)); render(); } function applyProfile(profileKey, chooseDefault = true) { activeProfileKey = safeProfileKey(profileKey); activeProfile = PROFILE_PRESETS[activeProfileKey]; localStorage.setItem("wcdev:profile", activeProfileKey); setCookie("wcdev_profile", activeProfileKey); profileSelect.value = activeProfileKey; profileValue.textContent = activeProfile.label.split("/")[0].trim(); document.body.classList.toggle("lite-motion", activeProfile.motion === "lite"); hologramText.textContent = activeProfile.assistText; if (chooseDefault) { const urlRoute = getUrlParam("route"); selectedIndex = routeIndexById(urlRoute || activeProfile.defaultRoute); localStorage.setItem("wcdev:selectedIndex", String(selectedIndex)); } render(); } function render() { const route = routes[selectedIndex]; document.querySelectorAll(".route-card").forEach((card, index) => { card.classList.toggle("active", index === selectedIndex); }); document.querySelectorAll(".route-button").forEach((button, index) => { button.classList.toggle("active", index === selectedIndex); }); selectedValue.textContent = route.shortLabel; surfaceValue.textContent = detectSurface(); detailIcon.textContent = route.icon; detailTitle.textContent = route.label; detailTier.textContent = route.tier; detailDescription.textContent = route.description; detailLink.href = route.url; nextAction.textContent = route.nextSafeAction; tagRow.innerHTML = ""; route.tags.forEach(tag => { const el = document.createElement("span"); el.className = "tag"; el.textContent = tag; tagRow.appendChild(el); }); promptBox.value = pennyChip(); stateOutput.textContent = JSON.stringify(currentStatePacket(), null, 2); spinner.classList.toggle("paused", paused); document.getElementById("pauseBtn").textContent = paused ? "Resume" : "Pause"; localStorage.setItem("wcdev:paused", String(paused)); readmeBox.value = readmeReplacement; } function openRoute() { const route = routes[selectedIndex]; if (route.id === "emergency-penny") return openEmergencyOverlay(); if (route.id === "pay-assist") return openOverlay(payAssistOverlay); if (route.url.startsWith("#")) { document.querySelector(route.url)?.scrollIntoView({ behavior: "smooth", block: "center" }); if (route.id === "help-anchor") document.getElementById("helpDetails").open = true; return; } window.open(route.url, "_blank", "noopener,noreferrer"); } function openOverlay(overlay) { overlay.classList.add("active"); } function closeOverlay(overlay) { overlay.classList.remove("active"); } function emergencySpawnUrl() { const profile = encodeURIComponent(activeProfileKey); return `${CONFIG.labs}?profile=${profile}&route=emergency-penny`; } function qrImageUrl(data) { return `https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=12&data=${encodeURIComponent(data)}`; } function openEmergencyOverlay() { const url = emergencySpawnUrl(); emergencyQr.src = qrImageUrl(url); qrOutput.textContent = `QR Target:\n${url}\n\nFallback:\nOpen ChatGPT, authenticate if needed, paste Penny Chip.`; openOverlay(emergencyOverlay); } async function copyText(text, button, label) { try { await navigator.clipboard.writeText(text); button.textContent = "Copied"; setTimeout(() => button.textContent = label, 1200); } catch { button.textContent = "Copy Failed"; setTimeout(() => button.textContent = label, 1400); } } function openStripe() { if (CONFIG.payments.stripePaymentLink.includes("REPLACE_WITH")) { document.getElementById("paymentOutput").textContent = "Stripe link placeholder still needs replacement."; return; } window.open(CONFIG.payments.stripePaymentLink, "_blank", "noopener,noreferrer"); } function openCashApp() { if (!CONFIG.payments.cashAppLink || CONFIG.payments.cashAppLink.includes("REPLACE_WITH")) { document.getElementById("paymentOutput").textContent = "Cash App link placeholder is blank. Use Stripe or add Cash App link."; return; } window.open(CONFIG.payments.cashAppLink, "_blank", "noopener,noreferrer"); } function paymentNote() { return `${CONFIG.payments.defaultMemo} ${CONFIG.payments.publicNote} Payment rule: Penny can guide the payment. Stripe/Cash App handles the payment. The user confirms.`; } function buildLyftWebUrl() { const d = CONFIG.dragonLair; const params = new URLSearchParams(); params.set("id", "lyft"); params.set("destination[latitude]", String(d.latitude)); params.set("destination[longitude]", String(d.longitude)); return `https://ride.lyft.com/u?${params.toString()}`; } function buildLyftNativeUrl() { const d = CONFIG.dragonLair; const params = new URLSearchParams(); params.set("id", "lyft"); params.set("destination[latitude]", String(d.latitude)); params.set("destination[longitude]", String(d.longitude)); return `lyft://ridetype?${params.toString()}`; } function buildMapsUrl() { const d = CONFIG.dragonLair; return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.latitude + "," + d.longitude)}&travelmode=driving`; } function dragonEmergencyPacket() { return `PENNYCORE / DRAGON'S LAIR EMERGENCY PORTAL Destination: ${CONFIG.dragonLair.name} Rules: - No password stored in PennyCore public app. - No automatic ride approval. - Lyft handles login/payment/confirmation. - User confirms pickup and ride inside Lyft. Next safest action: Open Lyft route, verify pickup/destination, then manually confirm ride.`; } function runBoot() { bootProfile.textContent = `Profile: ${activeProfile.label}`; bootLog.textContent = activeProfile.bootLines.map(line => `✓ ${line}`).join("\n"); setTimeout(() => { bootScreen.classList.add("is-hidden"); }, 1150); } document.getElementById("prevBtn").addEventListener("click", () => selectRoute(selectedIndex - 1)); document.getElementById("nextBtn").addEventListener("click", () => selectRoute(selectedIndex + 1)); document.getElementById("openBtn").addEventListener("click", openRoute); document.getElementById("pauseBtn").addEventListener("click", () => { paused = !paused; render(); }); document.getElementById("copyBtn").addEventListener("click", () => copyText(pennyChip(), document.getElementById("copyBtn"), "Copy Chip")); document.getElementById("payFastBtn").addEventListener("click", () => { selectRoute(routeIndexById("wildcard-pay")); document.getElementById("paymentPanel").scrollIntoView({ behavior: "smooth", block: "center" }); }); document.getElementById("dragonFastBtn").addEventListener("click", () => { selectRoute(routeIndexById("dragon-lair")); document.getElementById("dragonLairPanel").scrollIntoView({ behavior: "smooth", block: "center" }); }); document.getElementById("assistFastBtn").addEventListener("click", () => openOverlay(payAssistOverlay)); document.getElementById("qrFastBtn").addEventListener("click", openEmergencyOverlay); document.getElementById("hologramButton").addEventListener("click", openEmergencyOverlay); document.getElementById("bubbleQrBtn").addEventListener("click", openEmergencyOverlay); document.getElementById("bubbleChipBtn").addEventListener("click", () => copyText(pennyChip(), document.getElementById("bubbleChipBtn"), "Copy Chip")); document.getElementById("exportStateBtn").addEventListener("click", () => { localStorage.setItem("wcdev:statePacket", JSON.stringify(currentStatePacket())); render(); }); document.getElementById("copyStateBtn").addEventListener("click", () => { copyText(JSON.stringify(currentStatePacket(), null, 2), document.getElementById("copyStateBtn"), "Copy State"); }); document.getElementById("clearStateBtn").addEventListener("click", () => { localStorage.removeItem("wcdev:statePacket"); localStorage.removeItem("wcdev:selectedIndex"); render(); }); document.getElementById("openStripeBtn").addEventListener("click", openStripe); document.getElementById("openCashAppBtn").addEventListener("click", openCashApp); document.getElementById("openPayAssistBtn").addEventListener("click", () => openOverlay(payAssistOverlay)); document.getElementById("copyPayPromptBtn").addEventListener("click", () => copyText(paymentAssistPrompt, document.getElementById("copyPayPromptBtn"), "Copy Pay Assist Prompt")); document.getElementById("copyPaymentNoteBtn").addEventListener("click", () => copyText(paymentNote(), document.getElementById("copyPaymentNoteBtn"), "Copy Payment Note")); document.getElementById("dragonLyftBtn").addEventListener("click", () => { window.location.href = buildLyftNativeUrl(); }); document.getElementById("dragonLyftWebBtn").addEventListener("click", () => window.open(buildLyftWebUrl(), "_blank", "noopener,noreferrer")); document.getElementById("copyDragonBtn").addEventListener("click", () => copyText(CONFIG.dragonLair.address, document.getElementById("copyDragonBtn"), "Copy Destination")); document.getElementById("dragonMapsBtn").addEventListener("click", () => window.open(buildMapsUrl(), "_blank", "noopener,noreferrer")); document.getElementById("copyEmergencyPacketBtn").addEventListener("click", () => copyText(dragonEmergencyPacket(), document.getElementById("copyEmergencyPacketBtn"), "Copy Emergency Packet")); document.getElementById("closeEmergencyBtn").addEventListener("click", () => closeOverlay(emergencyOverlay)); document.getElementById("openSpawnLinkBtn").addEventListener("click", () => window.open(emergencySpawnUrl(), "_blank", "noopener,noreferrer")); document.getElementById("openChatGptBtn").addEventListener("click", () => window.open(CONFIG.chatgpt, "_blank", "noopener,noreferrer")); document.getElementById("copySpawnLinkBtn").addEventListener("click", () => copyText(emergencySpawnUrl(), document.getElementById("copySpawnLinkBtn"), "Copy Spawn Link")); document.getElementById("copyEmergencyChipBtn").addEventListener("click", () => copyText(pennyChip(), document.getElementById("copyEmergencyChipBtn"), "Copy Penny Chip")); document.getElementById("closePayAssistBtn").addEventListener("click", () => closeOverlay(payAssistOverlay)); document.getElementById("assistOpenStripeBtn").addEventListener("click", openStripe); document.getElementById("assistOpenCashAppBtn").addEventListener("click", openCashApp); document.getElementById("assistOpenChatGPTBtn").addEventListener("click", () => window.open(CONFIG.chatgpt, "_blank", "noopener,noreferrer")); document.getElementById("assistCopyPromptBtn").addEventListener("click", () => copyText(paymentAssistPrompt, document.getElementById("assistCopyPromptBtn"), "Copy Assist Prompt")); document.getElementById("copyReadmeBtn").addEventListener("click", () => copyText(readmeReplacement, document.getElementById("copyReadmeBtn"), "Copy README.md Replacement")); document.getElementById("copyAnchorPromptBtn").addEventListener("click", () => copyText(anchorActivationPrompt, document.getElementById("copyAnchorPromptBtn"), "Copy Anchor Activation Prompt")); document.getElementById("openMainBtn").addEventListener("click", () => window.open(CONFIG.main, "_blank", "noopener,noreferrer")); document.getElementById("openLabsBtn").addEventListener("click", () => window.open(CONFIG.labs, "_blank", "noopener,noreferrer")); profileSelect.addEventListener("change", () => applyProfile(profileSelect.value, true)); emergencyOverlay.addEventListener("click", event => { if (event.target === emergencyOverlay) closeOverlay(emergencyOverlay); }); payAssistOverlay.addEventListener("click", event => { if (event.target === payAssistOverlay) closeOverlay(payAssistOverlay); }); window.addEventListener("resize", render); document.addEventListener("keydown", event => { if (event.key === "Escape") { closeOverlay(emergencyOverlay); closeOverlay(payAssistOverlay); } if (event.key === "ArrowLeft") selectRoute(selectedIndex - 1); if (event.key === "ArrowRight") selectRoute(selectedIndex + 1); if (event.key === "Enter") openRoute(); if (event.key.toLowerCase() === " ") { event.preventDefault(); paused = !paused; render(); } }); createCards(); applyProfile(activeProfileKey, true); runBoot(); </script>
 </body>
+
 </html>
