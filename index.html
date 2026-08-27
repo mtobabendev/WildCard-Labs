@@ -630,6 +630,27 @@
       font-size: 0.76rem;
     }
 
+    .donate-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid var(--pink2);
+      border-radius: 999px;
+      color: var(--pink2);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      box-shadow: 0 0 16px rgba(255, 70, 190, 0.32);
+    }
+
+    .donate-link:hover,
+    .donate-link:focus-visible {
+      color: #fff;
+      box-shadow: 0 0 24px rgba(255, 70, 190, 0.62);
+      outline: none;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; }
     }
@@ -679,6 +700,7 @@
         <p>WildCard Labs // Watch Entertainment Portal // Roku Remote // Phone Relay // Desktop Theater</p>
       </section>
       <aside class="status">
+        <a class="donate-link" href="https://square.link/u/YnAVr8ht" target="_blank" rel="noopener noreferrer">Donate</a>
         <span><i class="dot"></i> Labs live</span>
         <span><i class="dot"></i> Watch route ready</span>
         <span><i class="dot"></i> Owner gate manual</span>
