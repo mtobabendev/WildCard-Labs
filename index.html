@@ -3,1069 +3,273 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WildCard Labs // Roco Room</title>
+  <meta name="theme-color" content="#07050d" />
+  <title>WildCard Labs // Coming Soon</title>
   <style>
     :root {
-      --bg: #05060b;
-      --panel: rgba(12, 10, 20, 0.92);
-      --panel2: rgba(20, 10, 28, 0.92);
-      --line: rgba(255, 79, 183, 0.42);
-      --redline: rgba(255, 78, 104, 0.46);
-      --pink: #ff4fb7;
-      --pink2: #ff9bd8;
-      --violet: #8d6bff;
-      --blue: #64a8ff;
-      --green: #66ff8f;
-      --gold: #ffcf66;
-      --red: #ff4e68;
-      --red2: #ff8c9d;
-      --text: #fff4fb;
-      --muted: #c9bedb;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.56);
-      --radius: 24px;
-      --font: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color-scheme: dark;
+      --bg: #07050d;
+      --pink: #ff4fd8;
+      --blue: #59b8ff;
+      --purple: #9b5cff;
+      --text: #fff8ff;
+      --muted: #cfc4df;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
 
     html, body {
       min-height: 100%;
-      background:
-        radial-gradient(circle at 12% 8%, rgba(255, 78, 104, 0.14), transparent 25%),
-        radial-gradient(circle at 78% 12%, rgba(255, 79, 183, 0.16), transparent 28%),
-        radial-gradient(circle at 50% 58%, rgba(141, 107, 255, 0.16), transparent 36%),
-        linear-gradient(180deg, #05060b 0%, #0c0714 52%, #030308 100%);
-      color: var(--text);
-      font-family: var(--font);
-      overflow-x: hidden;
+      margin: 0;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 78, 104, 0.034) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 79, 183, 0.038) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
-      z-index: 0;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { border: 0; cursor: pointer; font: inherit; color: inherit; }
-
-    .shell {
-      position: relative;
-      z-index: 1;
-      width: min(1500px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 14px 0 34px;
-    }
-
-    .protocol-ribbon {
-      margin-bottom: 14px;
-      padding: 11px 14px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 14px;
-      align-items: center;
-      border: 1px solid var(--redline);
-      border-radius: 20px;
-      background: linear-gradient(90deg, rgba(110, 0, 24, 0.52), rgba(18, 7, 18, 0.92), rgba(110, 0, 24, 0.38));
-      box-shadow: 0 0 30px rgba(255, 78, 104, 0.16);
-      color: #ffd7df;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.78rem;
-      font-weight: 950;
-      text-align: center;
-    }
-
-    .protocol-ribbon strong {
-      color: var(--red2);
-      text-shadow: 0 0 18px rgba(255, 78, 104, 0.55);
-    }
-
-    .topbar {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 18px;
-      align-items: center;
-      padding: 16px 18px;
-      border: 1px solid var(--redline);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(17, 18, 31, 0.96), rgba(7, 8, 15, 0.92)),
-        radial-gradient(circle at top left, rgba(255, 78, 104, 0.14), transparent 34%);
-      box-shadow: var(--shadow);
-    }
-
-    .mark {
-      width: 64px;
-      height: 64px;
+    body {
+      min-height: 100svh;
       display: grid;
       place-items: center;
-      border: 1px solid var(--redline);
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255, 78, 104, 0.12), rgba(255, 79, 183, 0.08));
-      color: var(--pink2);
-      font-size: 35px;
-      text-shadow: 0 0 24px rgba(255, 79, 183, 0.9);
-      box-shadow: inset 0 0 30px rgba(255, 78, 104, 0.12);
-    }
-
-    .brand h1 {
-      font-size: clamp(1.8rem, 5.5vw, 5rem);
-      line-height: 0.92;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--pink2);
-      text-shadow: 0 0 26px rgba(255, 79, 183, 0.42);
-      text-align: center;
-    }
-
-    .brand p {
-      margin-top: 8px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      text-align: center;
-      line-height: 1.35;
-    }
-
-    .status {
-      min-width: 250px;
-      display: grid;
-      gap: 8px;
-      padding: 12px 14px;
-      border: 1px solid rgba(255, 78, 104, 0.38);
-      border-radius: 18px;
-      background: rgba(255, 78, 104, 0.07);
-      color: var(--red2);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.74rem;
-    }
-
-    .status span { display: flex; align-items: center; gap: 9px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); box-shadow: 0 0 16px var(--red); }
-
-    .layout {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 330px 1fr 360px;
-      gap: 18px;
-    }
-
-    .panel {
-      border: 1px solid rgba(255, 78, 104, 0.34);
-      border-radius: var(--radius);
+      overflow: hidden;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
       background:
-        linear-gradient(135deg, rgba(17, 18, 31, 0.92), rgba(7, 8, 15, 0.94)),
-        radial-gradient(circle at top right, rgba(255, 78, 104, 0.10), transparent 42%);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .side, .drawer {
-      padding: 18px;
-      display: grid;
-      gap: 14px;
-      align-content: start;
-    }
-
-    .mini {
-      padding: 14px;
-      border: 1px solid rgba(255, 79, 183, 0.25);
-      border-radius: 18px;
-      background: rgba(0, 0, 0, 0.24);
-    }
-
-    .mini h2, .mini h3 {
-      margin-bottom: 10px;
-      color: var(--pink);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.9rem;
-    }
-
-    .mini.lilith { border-color: rgba(255, 78, 104, 0.42); background: rgba(255, 78, 104, 0.07); }
-    .mini.lilith h3 { color: var(--red2); }
-    .mini.safe { border-color: rgba(102, 255, 143, 0.32); background: rgba(102, 255, 143, 0.06); }
-    .mini.warn { border-color: rgba(255, 207, 102, 0.32); background: rgba(255, 207, 102, 0.06); }
-
-    .mini p, .mini li { color: var(--muted); line-height: 1.5; font-size: 0.92rem; }
-    .mini ul { list-style: none; display: grid; gap: 7px; }
-    .mini li::before { content: "◆"; color: var(--pink); margin-right: 8px; font-size: 0.72rem; }
-
-    .field {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid rgba(255, 79, 183, 0.13);
-      padding: 8px 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .field strong { color: var(--green); text-align: right; }
-
-    .stage {
-      position: relative;
-      min-height: 740px;
-      padding: 18px;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 16px;
-      overflow: hidden;
+        radial-gradient(circle at 20% 18%, rgba(155, 92, 255, 0.18), transparent 28rem),
+        radial-gradient(circle at 80% 22%, rgba(89, 184, 255, 0.16), transparent 30rem),
+        radial-gradient(circle at 50% 78%, rgba(255, 79, 216, 0.14), transparent 32rem),
+        linear-gradient(180deg, #05030a 0%, var(--bg) 48%, #030207 100%);
       isolation: isolate;
     }
 
-    .stage::before {
+    body::before,
+    body::after {
       content: "";
+      position: fixed;
+      inset: -40vmax;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background:
+        conic-gradient(
+          from 0deg,
+          transparent 0 18%,
+          rgba(155, 92, 255, 0.08) 24%,
+          transparent 34% 52%,
+          rgba(89, 184, 255, 0.07) 61%,
+          transparent 72% 84%,
+          rgba(255, 79, 216, 0.07) 92%,
+          transparent
+        );
+      animation: ambient-spin 24s linear infinite;
+      filter: blur(24px);
+    }
+
+    body::after {
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 0 32%, transparent 74%);
+    }
+
+    .stage {
+      width: min(92vw, 1050px);
+      min-height: min(78svh, 760px);
+      display: grid;
+      place-items: center;
+      padding: clamp(24px, 5vw, 64px);
+      text-align: center;
+      position: relative;
+      perspective: 1100px;
+    }
+
+    .orb {
       position: absolute;
-      left: 50%;
-      top: 44%;
-      width: min(820px, 92vw);
+      width: min(72vw, 620px);
       aspect-ratio: 1;
-      transform: translate(-50%, -50%);
       border-radius: 50%;
-      border: 1px solid rgba(255, 78, 104, 0.22);
-      box-shadow: 0 0 60px rgba(255, 78, 104, 0.18), inset 0 0 74px rgba(255, 79, 183, 0.10);
-      z-index: 0;
+      border: 1px solid rgba(155, 92, 255, 0.25);
+      box-shadow:
+        0 0 80px rgba(155, 92, 255, 0.20),
+        inset 0 0 90px rgba(89, 184, 255, 0.08);
+      background:
+        radial-gradient(circle at 42% 36%, rgba(255,255,255,0.08), transparent 12%),
+        radial-gradient(circle at center, rgba(15, 8, 28, 0.92) 0 38%, rgba(6,4,12,0.78) 66%, transparent 72%);
+      animation: breathe 5s ease-in-out infinite;
     }
 
-    .room-card {
+    .content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 16px;
-      align-items: center;
-      padding: 18px;
-      border: 1px solid rgba(255, 78, 104, 0.34);
-      border-radius: 22px;
-      background: rgba(0,0,0,0.28);
-    }
-
-    .room-icon {
-      width: 70px;
-      height: 70px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      color: var(--pink2);
-      font-size: 2.2rem;
-      background: rgba(255,79,183,0.08);
-      box-shadow: 0 0 28px rgba(255,79,183,0.14);
-    }
-
-    .room-card h2 {
-      color: var(--pink2);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: clamp(1.7rem, 4.6vw, 4rem);
-      line-height: 0.95;
-    }
-
-    .room-card p {
-      margin-top: 8px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      line-height: 1.42;
-      font-size: 0.84rem;
-    }
-
-    .mode-box {
-      border: 1px solid rgba(255, 78, 104, 0.34);
-      border-radius: 18px;
-      background: rgba(255,78,104,0.08);
-      padding: 14px;
-      min-width: 250px;
-      display: grid;
-      gap: 8px;
-      color: var(--red2);
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.78rem;
-    }
-
-    .grid-four {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .grid-four .mini { min-height: 190px; }
-
-    .route-carousel {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-    }
-
-    .route-tile {
-      min-height: 112px;
-      display: grid;
-      gap: 7px;
-      align-content: center;
-      text-align: center;
-      padding: 12px 10px;
-      border: 1px solid rgba(255, 79, 183, 0.28);
-      border-radius: 17px;
-      background: rgba(255, 79, 183, 0.07);
-      color: var(--text);
-    }
-
-    .route-tile.active {
-      border-color: var(--green);
-      background: rgba(102, 255, 143, 0.08);
-      box-shadow: 0 0 28px rgba(102,255,143,0.12);
-    }
-
-    .route-tile span { font-size: 1.75rem; }
-    .route-tile strong { font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--pink2); }
-    .route-tile small { color: var(--muted); line-height: 1.3; }
-
-    .controls {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .btn {
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 79, 183, 0.12);
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 900;
-      font-size: 0.76rem;
-      box-shadow: inset 0 0 20px rgba(255, 79, 183, 0.08);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 44px;
-    }
-
-    .btn.primary { border-color: rgba(102, 255, 143, 0.48); background: rgba(102, 255, 143, 0.08); color: var(--green); }
-    .btn.gold { border-color: rgba(255, 207, 102, 0.42); background: rgba(255, 207, 102, 0.08); color: var(--gold); }
-    .btn.red { border-color: rgba(255, 78, 104, 0.48); background: rgba(255, 78, 104, 0.10); color: var(--red2); }
-
-    .selected-card {
-      display: grid;
-      gap: 12px;
-      padding: 18px;
-      border: 1px solid rgba(255, 78, 104, 0.34);
-      border-radius: 22px;
-      background: rgba(0, 0, 0, 0.24);
-    }
-
-    .selected-top { display: flex; align-items: center; gap: 14px; }
-
-    .selected-icon {
-      width: 56px;
-      height: 56px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 79, 183, 0.08);
-      color: var(--pink2);
-      font-size: 1.8rem;
-    }
-
-    .selected-card h2 { color: var(--pink2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.12rem; }
-    .selected-card p { color: var(--muted); line-height: 1.55; }
-
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .tag {
-      padding: 7px 10px;
-      border: 1px solid rgba(88, 101, 242, 0.42);
-      border-radius: 999px;
-      background: rgba(88, 101, 242, 0.08);
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .route-link {
-      display: block;
-      text-align: center;
-      border: 1px solid rgba(102, 255, 143, 0.34);
-      border-radius: 16px;
-      background: rgba(102, 255, 143, 0.08);
-      color: var(--green);
-      padding: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    textarea, pre {
-      width: 100%;
-      border: 1px solid rgba(255, 79, 183, 0.24);
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.34);
-      color: var(--text);
-      padding: 12px;
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.78rem;
-      line-height: 1.45;
-    }
-
-    textarea { min-height: 190px; resize: vertical; }
-    pre { white-space: pre-wrap; max-height: 260px; overflow: auto; }
-
-    .module-grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      justify-items: center;
       gap: 18px;
     }
 
-    .module {
-      padding: 18px;
-      border: 1px solid rgba(255, 78, 104, 0.34);
-      border-radius: var(--radius);
-      background: rgba(8, 8, 15, 0.78);
-      box-shadow: var(--shadow);
-    }
-
-    .module h2 {
-      color: var(--pink);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 1rem;
-      margin-bottom: 14px;
-    }
-
-    .module p { color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
-
-    .watch-launch {
-      border: 1px solid rgba(255, 78, 104, 0.42);
-      background: radial-gradient(circle at center, rgba(255, 78, 104, 0.14), transparent 58%), rgba(0, 0, 0, 0.30);
-      border-radius: 34px;
-      padding: 16px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .watch-face {
-      width: min(100%, 310px);
-      aspect-ratio: 1;
-      margin: 0 auto;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 78, 104, 0.46);
-      background:
-        radial-gradient(circle at center, rgba(255, 79, 183, 0.18), transparent 58%),
-        #05060b;
-      padding: 28px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-    }
-
-    .watch-face strong {
-      display: block;
-      color: var(--pink2);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 1.22rem;
-    }
-
-    .watch-face span {
-      display: block;
-      margin-top: 8px;
-      color: var(--green);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.72rem;
-    }
-
-    .watch-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-    }
-
-    .watch-grid a, .watch-grid button {
-      min-height: 58px;
-      border: 1px solid rgba(255, 79, 183, 0.28);
-      border-radius: 15px;
-      background: rgba(255, 79, 183, 0.08);
-      color: var(--text);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.72rem;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 8px;
-    }
-
-    .watch-grid .priority { border-color: rgba(102, 255, 143, 0.46); color: var(--green); background: rgba(102, 255, 143, 0.08); }
-
-    .qr-card {
-      display: grid;
-      gap: 10px;
-      text-align: center;
-      padding: 14px;
-      border: 1px solid rgba(255, 79, 183, 0.28);
-      border-radius: 18px;
-      background: rgba(255,79,183,0.07);
-    }
-
-    .qr-card img {
-      width: 100%;
-      max-width: 230px;
-      border-radius: 18px;
-      margin: 0 auto;
-      image-rendering: pixelated;
-      background: #ff9bd8;
-    }
-
-    .footer {
-      margin-top: 18px;
-      padding: 18px;
-      text-align: center;
-      border: 1px solid rgba(255, 78, 104, 0.36);
-      border-radius: var(--radius);
-      background: rgba(8, 8, 15, 0.78);
-      box-shadow: var(--shadow);
-    }
-
-    .footer strong {
-      display: block;
-      color: var(--pink2);
-      font-size: clamp(1.35rem, 4vw, 3rem);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-shadow: 0 0 22px rgba(255, 79, 183, 0.42);
-    }
-
-    .footer span {
-      display: block;
-      margin-top: 8px;
+    .eyebrow {
+      margin: 0;
       color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
+      font-size: clamp(0.68rem, 1.4vw, 0.9rem);
+      font-weight: 800;
+      letter-spacing: 0.34em;
       text-transform: uppercase;
     }
 
-    .watch-only {
-      display: none;
-      min-height: 100svh;
-      padding: 10px;
-      place-items: center;
+    .logo {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 5.8rem);
+      line-height: 0.9;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--purple), var(--blue), var(--pink), var(--purple));
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 18px rgba(155, 92, 255, 0.42));
+      animation: shimmer 5.5s linear infinite;
     }
 
-    .watch-only-card {
-      width: min(96vw, 390px);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(255,78,104,0.46);
+    .rotator {
+      position: relative;
+      width: min(88vw, 840px);
+      height: clamp(88px, 12vw, 128px);
       display: grid;
       place-items: center;
-      text-align: center;
-      padding: 34px;
-      background:
-        radial-gradient(circle at center, rgba(255,79,183,0.18), transparent 58%),
-        #05060b;
-      box-shadow: 0 0 38px rgba(255,79,183,0.28), inset 0 0 40px rgba(255,78,104,0.08);
-      position: relative;
-      overflow: hidden;
+      transform-style: preserve-3d;
     }
 
-    .watch-only-card::before {
-      content: "📺";
+    .rotating-text {
       position: absolute;
-      font-size: 8rem;
-      opacity: 0.12;
-      top: 48px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .watch-only-core {
-      position: relative;
-      z-index: 1;
+      inset: 0;
       display: grid;
-      gap: 10px;
-      justify-items: center;
-    }
-
-    .watch-only-core h1 {
-      color: var(--pink2);
+      place-items: center;
+      margin: 0;
+      font-size: clamp(2.3rem, 9vw, 7.3rem);
+      font-weight: 950;
+      line-height: 0.92;
+      letter-spacing: 0.045em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 1.05rem;
+      color: white;
+      text-shadow:
+        0 0 8px rgba(255,255,255,0.82),
+        0 0 22px rgba(89,184,255,0.72),
+        0 0 42px rgba(155,92,255,0.66),
+        0 0 66px rgba(255,79,216,0.42);
+      animation:
+        flip 6s cubic-bezier(.55,.05,.45,.95) infinite,
+        neon-cycle 6s linear infinite;
+      backface-visibility: visible;
     }
 
-    .watch-only-core p {
+    .subtitle {
+      margin: 0;
+      max-width: 760px;
       color: var(--muted);
-      line-height: 1.35;
-      font-size: 0.76rem;
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      line-height: 1.65;
+      letter-spacing: 0.04em;
     }
 
-    .donate-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      border: 1px solid var(--pink2);
-      border-radius: 999px;
-      color: var(--pink2);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      box-shadow: 0 0 16px rgba(255, 70, 190, 0.32);
-    }
-
-    .donate-link:hover,
-    .donate-link:focus-visible {
+    .penny-line {
+      margin: 8px 0 0;
       color: #fff;
-      box-shadow: 0 0 24px rgba(255, 70, 190, 0.62);
-      outline: none;
+      font-size: clamp(0.78rem, 1.6vw, 0.98rem);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 14px rgba(255,79,216,0.7),
+        0 0 24px rgba(89,184,255,0.38);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      * { scroll-behavior: auto !important; }
+    .spark {
+      color: var(--pink);
+      text-shadow: 0 0 16px currentColor;
     }
 
-    @media (max-width: 1200px) {
-      .layout, .module-grid { grid-template-columns: 1fr; }
-      .side, .drawer { grid-template-columns: repeat(2, 1fr); }
-      .route-carousel { grid-template-columns: repeat(3, 1fr); }
+    @keyframes flip {
+      0%, 14%   { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+      38%       { transform: rotateX(0deg) rotateY(180deg) scale(0.94); }
+      50%, 64%  { transform: rotateX(0deg) rotateY(360deg) scale(1); }
+      88%       { transform: rotateX(180deg) rotateY(360deg) scale(0.94); }
+      100%      { transform: rotateX(360deg) rotateY(360deg) scale(1); }
     }
 
-    @media (max-width: 720px) {
-      .shell { width: min(100% - 16px, 1500px); padding-top: 8px; }
-      .protocol-ribbon { grid-template-columns: 1fr; font-size: 0.66rem; }
-      .topbar { grid-template-columns: auto 1fr; }
-      .status { grid-column: 1 / -1; min-width: 0; }
-      .side, .drawer { grid-template-columns: 1fr; }
-      .room-card { grid-template-columns: 1fr; text-align: center; }
-      .room-icon { margin: 0 auto; }
-      .mode-box { min-width: 0; }
-      .stage { min-height: 800px; }
-      .grid-four { grid-template-columns: 1fr; }
-      .route-carousel { grid-template-columns: repeat(2, 1fr); }
-      .brand h1 { font-size: 1.7rem; }
-      .brand p { font-size: 0.64rem; }
-    }
-
-    @media (max-width: 430px) {
-      .shell { display: none; }
-      .watch-only { display: grid; }
-      body { overflow: hidden; }
-    }
-  </style>
-</head>
-
-<body>
-  <main class="shell">
-    <section class="protocol-ribbon" aria-label="Lilith Protocol status">
-      <strong>♠ Lilith Protocol Active</strong>
-      <span>Barn Door Lockdown // WildCard Labs relocated to Roco Room // Owner Gate required</span>
-      <strong>High Security Mode</strong>
-    </section>
-
-    <header class="topbar">
-      <div class="mark">Q♠</div>
-      <section class="brand">
-        <h1>Roco Room</h1>
-        <p>WildCard Labs // Watch Entertainment Portal // Roku Remote // Phone Relay // Desktop Theater</p>
-      </section>
-      <aside class="status">
-        <a class="donate-link" href="https://square.link/u/YnAVr8ht" target="_blank" rel="noopener noreferrer">Donate</a>
-        <span><i class="dot"></i> Labs live</span>
-        <span><i class="dot"></i> Watch route ready</span>
-        <span><i class="dot"></i> Owner gate manual</span>
-      </aside>
-    </header>
-
-    <section class="layout">
-      <aside class="panel side">
-        <article class="mini lilith">
-          <h3>Protocol Overlay</h3>
-          <div class="field"><span>Room</span><strong>Roco</strong></div>
-          <div class="field"><span>Wrapper</span><strong>Lilith</strong></div>
-          <div class="field"><span>Lockdown</span><strong>Barn Door</strong></div>
-          <div class="field"><span>Selected</span><strong id="selectedValue">Roco</strong></div>
-          <div class="field"><span>Surface</span><strong id="surfaceValue">desktop</strong></div>
-        </article>
-
-        <article class="mini safe">
-          <h3>Watch Objective</h3>
-          <ul>
-            <li>Watch opens the Roco Room first.</li>
-            <li>If watch playback works, watch plays.</li>
-            <li>If playback fails, phone or desktop renders.</li>
-            <li>Watch remains portal and remote.</li>
-          </ul>
-        </article>
-
-        <article class="mini">
-          <h3>Entertainment Rules</h3>
-          <ul>
-            <li>Use official playback surfaces.</li>
-            <li>No DRM bypass.</li>
-            <li>No credentials in code, QR, or art.</li>
-            <li>Operator confirms subscriptions and logins.</li>
-          </ul>
-        </article>
-
-        <article class="mini warn">
-          <h3>Reality Rail</h3>
-          <p>The watch can open and control routes. Streaming success depends on service, browser, login, bandwidth, and DRM support. If watch fails, relay to phone or desktop.</p>
-        </article>
-      </aside>
-
-      <section class="panel stage">
-        <article class="room-card">
-          <div class="room-icon">📺</div>
-          <section>
-            <h2>Roco Room</h2>
-            <p>WildCard Labs // Watch entertainment portal // Roku remote // phone relay // desktop theater</p>
-          </section>
-          <aside class="mode-box">
-            <span>● Lilith Protocol</span>
-            <span>● Barn Door Lockdown</span>
-            <span>● Labs to Roco Room</span>
-          </aside>
-        </article>
-
-        <section class="grid-four">
-          <article class="mini lilith">
-            <h3>Selected Route</h3>
-            <p id="routeDescription">Roco opens first. It chooses the cleanest route for watch, phone, or desktop playback.</p>
-            <div class="field"><span>Tier</span><strong id="routeTier">Watch First</strong></div>
-            <div class="field"><span>Target</span><strong id="routeTarget">Labs</strong></div>
-          </article>
-          <article class="mini safe">
-            <h3>Next Safest Action</h3>
-            <p id="nextAction">Open Roco Room on the watch and test watch-direct playback first.</p>
-          </article>
-          <article class="mini">
-            <h3>Quick Launch Logic</h3>
-            <p>Penny route picks the room. Roco route picks the playback surface. Owner Gate confirms anything that costs, logs in, sends, or controls hardware.</p>
-          </article>
-          <article class="mini warn">
-            <h3>Boundary</h3>
-            <p>This page stores only local visible state. It does not save secrets, passwords, or private media tokens.</p>
-          </article>
-        </section>
-
-        <nav class="route-carousel" id="routeCarousel" aria-label="Roco route selector"></nav>
-
-        <nav class="controls">
-          <button class="btn primary" id="openBtn" type="button">Open Route</button>
-          <button class="btn" id="copyPromptBtn" type="button">Copy Prompt</button>
-          <button class="btn gold" id="copyStateBtn" type="button">Copy State</button>
-          <button class="btn red" id="resetBtn" type="button">Reset Room</button>
-          <button class="btn" id="mainBtn" type="button">Main Site</button>
-        </nav>
-      </section>
-
-      <aside class="panel drawer">
-        <article class="selected-card">
-          <div class="selected-top">
-            <div class="selected-icon" id="detailIcon">📺</div>
-            <div>
-              <h2 id="detailTitle">Roco Room</h2>
-              <p id="detailTier">Watch Entertainment Portal</p>
-            </div>
-          </div>
-          <p id="detailDescription">Open WildCard Labs as the Roco Room and route playback through the best available surface.</p>
-          <div class="tag-row" id="tagRow"></div>
-          <a class="route-link" id="detailLink" href="https://labs.wildcarddev.com/" target="_blank" rel="noopener noreferrer">Open Route</a>
-        </article>
-
-        <article class="mini">
-          <h3>Roco QR Portal</h3>
-          <div class="qr-card">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADaklEQVR4nO2cQW6jQBBFfw1IXoKUA/gozc2iOdLcoDmKbwBLS6A/i+qmG5xsMs7ETn4tLIH7CZBKVb+qGoz4mI2/PggCIkWKFClSpEiRj0dashYY+9X8r9Fa2OD/trBhzquGL75bkQ9JBpLkBCBMDc361RB4Nca5BcK0GoCGJMk9+RV3K/IhyTnFl+Q+l9ZPm50XAN2SD6293zVFfg+yPZ4If1oQM4BxAIjZgNGQzt3lmiJ/AjmeFyBwgQ3d4pnOhk++pshnJzuSEQDGMwmgoQ3zicB8YtHZJJdHuFuRD0iOZmbWAwiXFvZ62eW4cDkRwOpl2b2uKfKbkO4r1cBjPF8NwGpAd/UfAlfjbtU/XVPk9yLh5XqYAAANGTsSgQu81AcaT23VEpJkfK7nFPn5pEvnq9nrtBrGHjA7k4zd1ZIK6hYwdlflMpEHy23DxjMVY0eSU+4nluajy+5cpikOidwspSZm3/BE1WX3iYD/4bksbH4lHxKZLTvNUh0CXfrxiBSRfnyNfEjkzo6Bx53GfSiroJTVFu8PSVOL3NtO9jREmBr3lyoYJRWUJ2eKQyJ3VvRQGcrX43k0ybkASA+JfJe0AYANs5mLaMxmnrxit/gsP+mhWXN7kUer6rKSqDwsTamzmHW29JDIN61oakZsU9VSpk1NUtfJm6SHRL5DzmbuKmOfUhY5AWY9QF5O5O++oQ1bgf+kzyny/uSWy3Jdhl0NVsnpNDTTvEzk0UpTsVJBZcgauNTlf+ykh0QeLTnIlA+9J51DUCWsIwD1h0S+YVXR5cK6yyPYLQQVR/IkJx8SubNcly0oLeoSh1D2FG16SD4kcm8HPVTK+qNGSs6V9bd8SOSeDBP8xday2YMRgJmd6Btio2/R13uuIo+Wi66ih/K4NTnSYQ6rukzk0UpdllMWaxWUDrNJD4m8Ne4Nm/uUYr7azAjpIZE3lj0HQBV9JqDsH0rRpyrw5UMiK6ua0GUP2rZFH2n/EBSHRL5rVZ/a3acEnqyzq9XSQyJv7Oa7H8DacuxhxPxCCxcDMb8sBjSLVcue6zlF/key+vTQtntxPF/Ne9d6R1HkjeU41BHADHA8Exa4tgTW1gAYw7TCwgRYiA3t6+5W5COSx7qsaiVu77SmdbuN+dJDIrOZvnEuUqRIkSJFivzh5F/z8Ic7l6jZuQAAAABJRU5ErkJggg==" alt="QR code for Roco Room watch route" />
-            <p>Scan to open the Roco Room route.</p>
-          </div>
-        </article>
-
-        <article class="mini">
-          <h3>Penny Spawn Prompt</h3>
-          <textarea id="promptBox" readonly></textarea>
-        </article>
-      </aside>
-    </section>
-
-    <section class="module-grid">
-      <section class="module">
-        <h2>Route Manifest</h2>
-        <p>These are launch routes, not secret credentials. All real-world execution stays manual and owner-gated.</p>
-        <pre id="stateOutput">State packet ready.</pre>
-      </section>
-
-      <section class="module">
-        <h2>Watch Quick Launch</h2>
-        <div class="watch-launch">
-          <div class="watch-face">
-            <div><strong>Watch Rail</strong><span>Main to Roco to Playback</span></div>
-          </div>
-          <div class="watch-grid">
-            <a class="priority" href="https://labs.wildcarddev.com/?room=roco&source=watch">📺 Roco</a>
-            <a href="https://therokuchannel.roku.com/">▶ Roku</a>
-            <a href="https://www.youtube.com/">▶ YouTube</a>
-            <a href="https://open.spotify.com/">♫ Spotify</a>
-            <a href="https://www.wildcarddev.com/">♠ Main</a>
-            <button id="watchZeroBtn" type="button">Q♠ Zero</button>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <footer class="footer">
-      <strong>Drag the deck, honey.</strong>
-      <span>Labs is the Roco Room. Watch is the portal. Phone and desktop are the theater engines.</span>
-    </footer>
-  </main>
-
-  <main class="watch-only">
-    <section class="watch-only-card">
-      <div class="watch-only-core">
-        <h1>Roco Room</h1>
-        <p>Watch opens Roco first. Phone or desktop can carry heavier playback.</p>
-        <div class="watch-grid">
-          <a class="priority" href="https://labs.wildcarddev.com/?room=roco&source=watch">Roco</a>
-          <a href="https://therokuchannel.roku.com/">Roku</a>
-          <a href="https://www.youtube.com/">YouTube</a>
-          <a href="https://www.wildcarddev.com/">Main</a>
-          <a href="https://chatgpt.com/">Q♠ Zero</a>
-          <button id="watchCopyBtn" type="button">Copy</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    const CONFIG = {
-      main: "https://www.wildcarddev.com/",
-      labs: "https://labs.wildcarddev.com/",
-      office: "https://office.wildcarddev.com/",
-      party: "https://party.wildcarddev.com/",
-      chatgpt: "https://chatgpt.com/",
-      roku: "https://therokuchannel.roku.com/",
-      youtube: "https://www.youtube.com/",
-      spotify: "https://open.spotify.com/",
-      paramountPicard: "https://www.paramountplus.com/shows/star-trek-picard/"
-    };
-
-    const routes = [
-      { id: "roco", label: "Roco Room", icon: "📺", tier: "Watch First", target: "Labs", url: CONFIG.labs + "?room=roco&source=labs", description: "Roco opens first. It chooses the cleanest route for watch, phone, or desktop playback.", next: "Open Roco Room on the watch and test watch-direct playback first.", tags: ["roco", "watch", "labs"] },
-      { id: "roku", label: "Roku Free", icon: "▶", tier: "Official", target: "Roku", url: CONFIG.roku, description: "Open The Roku Channel official route.", next: "Launch official Roku route. Confirm login only on the official surface.", tags: ["official", "free", "roku"] },
-      { id: "youtube", label: "YouTube", icon: "▶", tier: "Official", target: "YouTube", url: CONFIG.youtube, description: "Open official YouTube surface for watch, phone, or desktop relay.", next: "Use official playback. Let the best device render.", tags: ["official", "video", "relay"] },
-      { id: "spotify", label: "Spotify", icon: "♫", tier: "Audio", target: "Spotify", url: CONFIG.spotify, description: "Open Spotify for music and audio routes.", next: "Open official app or web surface. Phone can carry playback.", tags: ["audio", "official", "relay"] },
-      { id: "picard", label: "Picard", icon: "🖖", tier: "Paramount+", target: "Paramount", url: CONFIG.paramountPicard, description: "Open official Star Trek Picard route.", next: "Operator confirms subscription or login in the official service.", tags: ["paramount", "official", "subscription"] },
-      { id: "main", label: "Main Site", icon: "♠", tier: "Rally", target: "WildCard", url: CONFIG.main, description: "Return to WildCard DEV main rally point.", next: "Use Main as the stable front door.", tags: ["main", "rally", "route"] },
-      { id: "zero", label: "Penny Zero", icon: "Q♠", tier: "Reset", target: "ChatGPT", url: CONFIG.chatgpt, description: "Open ChatGPT helper and reload from visible state only.", next: "Copy prompt, open AI helper, and reload the room from this capsule.", tags: ["zero", "reset", "state"] }
-    ];
-
-    let selectedIndex = Number(localStorage.getItem("wcdev:labsSelectedIndex") || 0);
-
-    const routeCarousel = document.getElementById("routeCarousel");
-    const selectedValue = document.getElementById("selectedValue");
-    const surfaceValue = document.getElementById("surfaceValue");
-    const routeDescription = document.getElementById("routeDescription");
-    const routeTier = document.getElementById("routeTier");
-    const routeTarget = document.getElementById("routeTarget");
-    const nextAction = document.getElementById("nextAction");
-    const detailIcon = document.getElementById("detailIcon");
-    const detailTitle = document.getElementById("detailTitle");
-    const detailTier = document.getElementById("detailTier");
-    const detailDescription = document.getElementById("detailDescription");
-    const tagRow = document.getElementById("tagRow");
-    const detailLink = document.getElementById("detailLink");
-    const promptBox = document.getElementById("promptBox");
-    const stateOutput = document.getElementById("stateOutput");
-
-    function surface() {
-      const w = window.innerWidth;
-      if (w <= 430) return "watch";
-      if (w <= 720) return "mobile";
-      if (w <= 1180) return "tablet";
-      return "desktop";
-    }
-
-    function currentRoute() {
-      return routes[selectedIndex] || routes[0];
-    }
-
-    function packet() {
-      const route = currentRoute();
-      return {
-        packet: "WILDCARD_LABS_ROCO_ROOM_LILITH",
-        version: "LABS-ROCO-001",
-        timestamp: new Date().toISOString(),
-        room: "Roco Room",
-        wrapper: "Lilith Protocol",
-        lockdown: "Barn Door",
-        selectedRoute: route,
-        surface: surface(),
-        watchFirst: true,
-        ownerGateRequired: true,
-        rules: [
-          "Use official playback surfaces.",
-          "No DRM bypass.",
-          "No credentials in code, QR, or art.",
-          "Operator confirms subscriptions, logins, payments, sends, deployments, and hardware controls."
-        ],
-        nextSafestAction: route.next
-      };
-    }
-
-    function prompt() {
-      const route = currentRoute();
-      return `WILDCARD LABS / ROCO ROOM / LILITH PROTOCOL LOAD-IN
-
-Load this as a visible state capsule only.
-
-Room: Roco Room
-Wrapper: Lilith Protocol
-Lockdown: Barn Door
-Selected route: ${route.label}
-Target: ${route.target}
-Route URL: ${route.url}
-Surface: ${surface()}
-
-Current truth:
-- Labs is assigned as Roco Room.
-- Watch opens Roco first.
-- Phone and desktop render heavier playback when needed.
-- All entertainment opens official surfaces.
-- No DRM bypass, no credential injection, no secret tokens in public code.
-
-Activation phrases:
-- "Let's get you out of those wet clothes."
-- "Okay, babe, reset the room."
-
-Next safest action:
-${route.next}
-
-Signature:
-Drag the deck, honey.`;
-    }
-
-    function renderTiles() {
-      routeCarousel.innerHTML = "";
-      routes.forEach((route, index) => {
-        const tile = document.createElement("button");
-        tile.type = "button";
-        tile.className = "route-tile" + (index === selectedIndex ? " active" : "");
-        tile.innerHTML = `<span>${route.icon}</span><strong>${route.label}</strong><small>${route.tier}</small>`;
-        tile.addEventListener("click", () => select(index));
-        routeCarousel.appendChild(tile);
-      });
-    }
-
-    function select(index) {
-      selectedIndex = (index + routes.length) % routes.length;
-      localStorage.setItem("wcdev:labsSelectedIndex", String(selectedIndex));
-      render();
-    }
-
-    function selectById(id) {
-      const index = routes.findIndex((route) => route.id === id);
-      if (index >= 0) select(index);
-    }
-
-    function render() {
-      const route = currentRoute();
-      selectedValue.textContent = route.label;
-      surfaceValue.textContent = surface();
-      routeDescription.textContent = route.description;
-      routeTier.textContent = route.tier;
-      routeTarget.textContent = route.target;
-      nextAction.textContent = route.next;
-      detailIcon.textContent = route.icon;
-      detailTitle.textContent = route.label;
-      detailTier.textContent = route.tier;
-      detailDescription.textContent = route.description;
-      detailLink.href = route.url;
-      tagRow.innerHTML = "";
-      route.tags.forEach((tag) => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = tag;
-        tagRow.appendChild(span);
-      });
-      promptBox.value = prompt();
-      stateOutput.textContent = JSON.stringify(packet(), null, 2);
-      renderTiles();
-    }
-
-    async function copyText(text, button, fallbackLabel) {
-      try {
-        await navigator.clipboard.writeText(text);
-        if (button) {
-          const old = button.textContent;
-          button.textContent = "Copied";
-          setTimeout(() => button.textContent = fallbackLabel || old, 1100);
-        }
-      } catch {
-        if (button) {
-          const old = button.textContent;
-          button.textContent = "Copy Failed";
-          setTimeout(() => button.textContent = fallbackLabel || old, 1300);
-        }
+    @keyframes neon-cycle {
+      0%, 100% {
+        text-shadow:
+          0 0 8px rgba(255,255,255,0.82),
+          0 0 22px rgba(155,92,255,0.76),
+          0 0 42px rgba(89,184,255,0.60),
+          0 0 66px rgba(255,79,216,0.42);
+      }
+      50% {
+        text-shadow:
+          0 0 8px rgba(255,255,255,0.82),
+          0 0 22px rgba(255,79,216,0.72),
+          0 0 42px rgba(89,184,255,0.72),
+          0 0 66px rgba(155,92,255,0.46);
       }
     }
 
-    document.getElementById("openBtn").addEventListener("click", () => window.open(currentRoute().url, "_blank", "noopener,noreferrer"));
-    document.getElementById("copyPromptBtn").addEventListener("click", (event) => copyText(prompt(), event.currentTarget, "Copy Prompt"));
-    document.getElementById("copyStateBtn").addEventListener("click", (event) => copyText(JSON.stringify(packet(), null, 2), event.currentTarget, "Copy State"));
-    document.getElementById("resetBtn").addEventListener("click", () => selectById("zero"));
-    document.getElementById("mainBtn").addEventListener("click", () => window.open(CONFIG.main, "_blank", "noopener,noreferrer"));
-    document.getElementById("watchZeroBtn").addEventListener("click", () => selectById("zero"));
-    document.getElementById("watchCopyBtn").addEventListener("click", (event) => copyText(prompt(), event.currentTarget, "Copy"));
+    @keyframes shimmer {
+      to { background-position: 260% 0; }
+    }
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") select(selectedIndex - 1);
-      if (event.key === "ArrowRight") select(selectedIndex + 1);
-      if (event.key === "Enter") window.open(currentRoute().url, "_blank", "noopener,noreferrer");
-    });
+    @keyframes ambient-spin {
+      to { transform: rotate(360deg); }
+    }
 
-    window.pennyCue = function pennyCue(input) {
-      const cue = String(input || "").toLowerCase();
-      if (cue.includes("roco") || cue.includes("labs")) selectById("roco");
-      if (cue.includes("roku")) selectById("roku");
-      if (cue.includes("youtube")) selectById("youtube");
-      if (cue.includes("spotify")) selectById("spotify");
-      if (cue.includes("picard")) selectById("picard");
-      if (cue.includes("wet clothes") || cue.includes("reset the room") || cue.includes("zero")) selectById("zero");
-    };
+    @keyframes breathe {
+      0%, 100% { transform: scale(0.98); opacity: 0.82; }
+      50% { transform: scale(1.03); opacity: 1; }
+    }
 
-    window.addEventListener("resize", render);
-    render();
-  </script>
+    @media (max-width: 560px) {
+      .stage { min-height: 88svh; padding-inline: 18px; }
+      .rotator { height: 96px; }
+      .logo { letter-spacing: 0.12em; }
+      .subtitle { max-width: 34ch; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+
+      .rotating-text {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" aria-labelledby="comingSoon">
+    <div class="orb" aria-hidden="true"></div>
+
+    <section class="content">
+      <p class="eyebrow">WildCard DEV // Experimental Division</p>
+      <h1 class="logo">WildCard Labs</h1>
+
+      <div class="rotator" aria-hidden="true">
+        <p class="rotating-text">Coming Soon</p>
+      </div>
+
+      <p id="comingSoon" class="subtitle">
+        Penny is in the lab turning questionable ideas into suspiciously functional technology.
+      </p>
+
+      <p class="penny-line">
+        <span class="spark">✦</span>
+        Please keep all hands clear of the prototype.
+        <span class="spark">✦</span>
+      </p>
+    </section>
+  </main>
 </body>
 </html>
