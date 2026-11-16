@@ -1,0 +1,21 @@
+{
+    "rewrites":  [
+                     {
+                         "source":  "/wildcard-labs/assets/penny/card-art/penny-qos-front.png",
+                         "destination":  "/wildcard-labs/assets/penny/card-art/penny-front.png"
+                     },
+                     {
+                         "source":  "/wildcard-labs/assets/penny/card-art/penny-quick-launch-portal.png",
+                         "destination":  "/wildcard-labs/assets/penny/card-art/penny-front.png"
+                     },
+                     {
+                         "source":  "/wildcard-labs/assets/penny/card-art/penny_pink_neon_queen_of_spades.png",
+                         "destination":  "/wildcard-labs/assets/penny/card-art/penny-front.png"
+                     },
+                     {
+                         "source":  "/wildcard-labs/assets/penny/card-art/penny_qos_front.png",
+                         "destination":  "/wildcard-labs/assets/penny/card-art/penny-front.png"
+                     }
+                 ],
+    "$schema":  "https://openapi.vercel.sh/vercel.json"
+}
